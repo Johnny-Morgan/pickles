@@ -6,5 +6,13 @@ body {
     background: url('/media/home_image.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
+}
 
+/***** COLORS *****/
+:root {
+    --pale-yellow: #f5eec2;
+    --blue: #39395f;
+    --dark-green: #416a59;
+    --green: #73a24e;
+    --pale-green: #a9c25d;
 }
