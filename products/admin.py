@@ -20,6 +20,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     ordering = ('sku',)
+    readonly_fields = ('sku',)
 
 
 admin.site.register(Category, CategoryAdmin)
