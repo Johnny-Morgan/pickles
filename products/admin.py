@@ -18,9 +18,10 @@ class ProductAdmin(admin.ModelAdmin):
         'on_sale',
         'image',
     )
-
+    
     ordering = ('sku',)
     readonly_fields = ('sku',)
+    list_filter = ('category', 'on_sale',)
 
 
 admin.site.register(Category, CategoryAdmin)
