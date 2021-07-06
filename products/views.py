@@ -24,6 +24,7 @@ def product_info(request, product_id):
 
     context = {
         'product': product,
+        'discount_percentage': 100 - settings.DISCOUNT_PERCENTAGE,
     }
 
     return render(request, 'products/product_info.html', context)
