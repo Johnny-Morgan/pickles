@@ -1,0 +1,365 @@
+[{
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+        "sku": "spa001340155",
+        "name": "Spartan Apple Tree",
+        "description": "These apple trees are easy to grow and produce dark red sweet tasting apples.",
+        "price": 17.95,
+        "category": 1,
+        "on_sale": true,
+        "image_url": "https://cdn.pixabay.com/photo/2017/09/26/13/21/apple-2788599_1280.jpg",
+        "image": "apple-2788599_640.jpg"
+    }
+}, {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+        "sku": "con001600425",
+        "name": "Conference Pear Tree",
+        "description": "These pear trees are a very reliable variety with excellent flavour.",
+        "price": 24.95,
+        "category": 1,
+        "on_sale": true,
+        "image_url": "https://cdn.pixabay.com/photo/2018/09/12/23/55/pears-3673477_1280.jpg",
+        "image": "pears-3673477_640.jpg"
+    }
+}, {
+    "pk": 3,
+    "model": "products.product",
+    "fields": {
+        "sku": "fig435600425",
+        "name": "Fig Tree",
+        "description": "Brown Turkey fig which is an excellent outdoor variety and quite easy to grow.",
+        "price": 24.95,
+        "category": 1,
+        "on_sale": true,
+        "image_url": "https://cdn.pixabay.com/photo/2018/04/30/11/31/figs-3362472_1280.jpg",
+        "image": "figs-3362472_640.jpg"
+    }
+}, {
+    "pk": 4,
+    "model": "products.product",
+    "fields": {
+        "sku": "vic643134563",
+        "name": "Victoria Plum Tree",
+        "description": "A popular and easy to grow variety with deliciously sweet and succulent fruit.",
+        "price": 22.95,
+        "category": 1,
+        "on_sale": true,
+        "image_url": "https://cdn.pixabay.com/photo/2015/08/15/15/57/juicy-plums-889689_1280.jpg",
+        "image": "juicy-plums-889689_640.jpg"
+    }
+}, {
+    "pk": 5,
+    "model": "products.product",
+    "fields": {
+        "sku": "apr128652889",
+        "name": "Apricot Tree",
+        "description": "Bergeron apricot, easy to grow variety producing sweet tasty orange fleshed fruit.",
+        "price": 28.95,
+        "category": 1,
+        "on_sale": true,
+        "image_url": "https://cdn.pixabay.com/photo/2018/05/08/23/50/apricot-tree-3384306_1280.jpg",
+        "image": "apricot-tree-3384306_640.jpg"
+    }
+}, {
+    "pk": 6,
+    "model": "products.product",
+    "fields": {
+        "sku": "pea334825121",
+        "name": "Peach Tree",
+        "description": "Very popular and reliable variety producing delicious fruit.",
+        "price": 26.95,
+        "category": 1,
+        "on_sale": true,
+        "image_url": "https://cdn.pixabay.com/photo/2015/07/31/17/53/peaches-869386_1280.jpg",
+        "image": "peaches-869386_640.jpg"
+    }
+}, {
+    "pk": 7,
+    "model": "products.product",
+    "fields": {
+        "sku": "ras936231153",
+        "name": "Raspberry Canes",
+        "description": "Malling Jewels, one of the easiest varieties to grow and a consistent producer.",
+        "price": 2.95,
+        "category": 2,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2018/06/14/19/20/raspberries-3475443_1280.jpg",
+        "image": "raspberries-3475443_640.jpg"
+    }
+}, {
+    "pk": 8,
+    "model": "products.product",
+    "fields": {
+        "sku": "bla124653121",
+        "name": "Blackcurrant Bush",
+        "description": "Ben Sarek, a main crop variety and easy to grow with vigorous growth.",
+        "price": 5.95,
+        "category": 2,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2018/07/27/17/22/blackcurrant-3566439_1280.jpg",
+        "image": "blackcurrant-3566439_640.jpg"
+    }
+}, {
+    "pk": 9,
+    "model": "products.product",
+    "fields": {
+        "sku": "red124653156",
+        "name": "Redcurrant Bush",
+        "description": "Red Start, a new variety of redcurrant with bright coloured fruit and consistently high yields.",
+        "price": 5.95,
+        "category": 2,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2018/06/17/23/05/fruit-3481600_1280.jpg",
+        "image": "fruit-3481600_640.jpg"
+    }
+}, {
+    "pk": 10,
+    "model": "products.product",
+    "fields": {
+        "sku": "goo124653332",
+        "name": "Gooseberry Bush",
+        "description": "Leveler, producing large green fruit it is an excellent variety for jam and desserts.",
+        "price": 5.95,
+        "category": 2,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2018/05/12/00/03/fruit-3392133_1280.jpg",
+        "image": "fruit-3392133_640.jpg"
+    }
+}, {
+    "pk": 11,
+    "model": "products.product",
+    "fields": {
+        "sku": "log871335771",
+        "name": "Loganberry",
+        "description": "Resembling a long raspberry with a more intense flavour.",
+        "price": 6.95,
+        "category": 2,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2017/05/25/17/36/berries-2343934_1280.jpg",
+        "image": "berries-2343934_640.jpg"
+    }
+}, {
+    "pk": 12,
+    "model": "products.product",
+    "fields": {
+        "sku": "cou873215771",
+        "name": "Courgette",
+        "description": "Ambassador courgette, a very reliable high yielding dark green fruits.",
+        "price": 2.45,
+        "category": 3,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2016/09/03/20/21/zucchini-1642621_1280.jpg",
+        "image": "zucchini-1642621_640.jpg"
+    }
+}, {
+    "pk": 13,
+    "model": "products.product",
+    "fields": {
+        "sku": "pum121215771",
+        "name": "Pumpkin",
+        "description": "Hundredweight pumpkin, a mammoth variety producing super-sized pumpkins.",
+        "price": 2.45,
+        "category": 3,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2013/10/15/15/34/pumpkin-196049_1280.jpg",
+        "image": "pumpkin-196049_640.jpg"
+    }
+}, {
+    "pk": 14,
+    "model": "products.product",
+    "fields": {
+        "sku": "sum911215771",
+        "name": "Summer Cabbage",
+        "description": "Greyhound cabbage, a neat compact variety producing early hearts and outer leaves.",
+        "price": 2.45,
+        "category": 3,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2017/09/01/19/20/white-cabbage-2705228_1280.jpg",
+        "image": "white-cabbage-2705228_640.jpg"
+    }
+}, {
+    "pk": 15,
+    "model": "products.product",
+    "fields": {
+        "sku": "tom235215144",
+        "name": "Tomato Plant",
+        "description": "Gardeners Delight, a popular variety for it’s great flavour and reliability.",
+        "price": 3.00,
+        "category": 3,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2019/08/27/18/16/tomatoes-4434850_1280.jpg",
+        "image": "tomatoes-4434850_640.jpg"
+    }
+}, {
+    "pk": 16,
+    "model": "products.product",
+    "fields": {
+        "sku": "but236876144",
+        "name": "Butternut Squash",
+        "description": "An easy to grow and delicious favourite with it’s hourglass shape.",
+        "price": 2.95,
+        "category": 3,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2017/09/30/13/40/pumpkin-2802114_1280.jpg",
+        "image": "pumpkin-2802114_640.jpg"
+    }
+}, {
+    "pk": 17,
+    "model": "products.product",
+    "fields": {
+        "sku": "car121876166",
+        "name": "Carrot Seeds",
+        "description": "Nantes variety, producing long straight roots with good colour and lovely sweet flavour. 500 seeds per packet.",
+        "price": 2.45,
+        "category": 4,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2015/12/08/01/00/carrots-1082251_1280.jpg",
+        "image": "carrots-1082251_640.jpg"
+    }
+}, {
+    "pk": 18,
+    "model": "products.product",
+    "fields": {
+        "sku": "bee913876124",
+        "name": "Beetroot Seeds",
+        "description": "Detroit Globe, old but reliable variety and producing large globes. 200 seeds per packet.",
+        "price": 2.45,
+        "category": 4,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2016/10/09/13/39/red-beets-1725799_1280.jpg",
+        "image": "red-beets-1725799_640.jpg"
+    }
+}, {
+    "pk": 19,
+    "model": "products.product",
+    "fields": {
+        "sku": "rad912543124",
+        "name": "Radish Cherry Bell",
+        "description": "A very easy and reliable radish, with a string peppery flavour. 200 seeds per packet.",
+        "price": 2.45,
+        "category": 4,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2019/06/11/11/54/radishes-4266807_1280.jpg",
+        "image": "radishes-4266807_640.jpg"
+    }
+}, {
+    "pk": 20,
+    "model": "products.product",
+    "fields": {
+        "sku": "tom912543888",
+        "name": "Tomato Moneymaker",
+        "description": "A popular and reliable variety for uniformity and flavour 50 seeds per packet.",
+        "price": 2.75,
+        "category": 4,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2020/09/12/21/14/tomatoes-5566744_1280.jpg",
+        "image": "tomatoes-5566744_640.jpg"
+    }
+}, {
+    "pk": 21,
+    "model": "products.product",
+    "fields": {
+        "sku": "pea912366124",
+        "name": "Peas Meteor",
+        "description": "A first early variety that doesn’t grow to big, pruning well filled pods. 100 seeds per packet.",
+        "price": 3.75,
+        "category": 4,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2017/07/04/00/09/pea-2469465_1280.jpg",
+        "image": "pea-2469465_640.jpg"
+    }
+}, {
+    "pk": 22,
+    "model": "products.product",
+    "fields": {
+        "sku": "fre215566124",
+        "name": "French Bean",
+        "description": "Easy to grow and quick to mature producing tender and stringless beans. 40 seeds per packet.",
+        "price": 2.40,
+        "category": 4,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2017/09/02/17/46/green-beans-2707996_1280.jpg",
+        "image": "green-beans-2707996_640.jpg"
+    }
+}, {
+    "pk": 23,
+    "model": "products.product",
+    "fields": {
+        "sku": "daf990566124",
+        "name": "Daffodil Standard",
+        "description": "Rich yellow trumpet ideal for borders and cut flowers. 6 bulbs per pack.",
+        "price": 4.95,
+        "category": 5,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2019/02/05/19/46/narcissus-3977679_1280.jpg",
+        "image": "narcissus-3977679_640.jpg"
+    }
+}, {
+    "pk": 24,
+    "model": "products.product",
+    "fields": {
+        "sku": "tul210086124",
+        "name": "Tulip",
+        "description": "Apricot Beauty variety. Strong and long flowering variety with light apricot colour. 8 bulbs per pack.",
+        "price": 4.95,
+        "category": 5,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2018/03/22/19/29/tulips-3251607_1280.jpg",
+        "image": "tulips-3251607_640.jpg"
+    }
+}, {
+    "pk": 25,
+    "model": "products.product",
+    "fields": {
+        "sku": "blu210085509",
+        "name": "Bluebell",
+        "description": "Creates beautiful drifts of scented blue flowers. 35 bulbs per pack.",
+        "price": 11.95,
+        "category": 5,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2019/04/21/21/05/flower-4144986_1280.jpg",
+        "image": "flower-4144986_640.jpg"
+    }
+}, {
+    "pk": 26,
+    "model": "products.product",
+    "fields": {
+        "sku": "gla340085556",
+        "name": "Gladioli Mix",
+        "description": "Distinct tall flower spikes ideal for bedding or flower beds. 40 bulbs per pack.",
+        "price": 8.75,
+        "category": 5,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2018/08/27/10/31/gladioli-3634661_1280.jpg",
+        "image": "gladioli-3634661_640.jpg"
+    }
+}, {
+    "pk": 27,
+    "model": "products.product",
+    "fields": {
+        "sku": "hya210085509",
+        "name": "Hyacinth Mixed Pack",
+        "description": "Mixed colour with a beautiful scent, ideal for containers and in the ground. 3 bulbs per pack.",
+        "price": 4.95,
+        "category": 5,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2012/03/04/00/04/background-21745_1280.jpg",
+        "image": "background-21745_640.jpg"
+    }
+}, {
+    "pk": 28,
+    "model": "products.product",
+    "fields": {
+        "sku": "cro330066509",
+        "name": "Crocus Ruby Giant",
+        "description": "Classic purple crocus giving bright splash of colour in early spring. 20 bulbs per pack.",
+        "price": 4.45,
+        "category": 5,
+        "on_sale": false,
+        "image_url": "https://cdn.pixabay.com/photo/2018/03/15/23/51/crocus-3229861_1280.jpg",
+        "image": "crocus-3229861_640.jpg"
+    }
+}]
