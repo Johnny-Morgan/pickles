@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load products_tools %}
 
 {% block extra_title %} - Products{% endblock %}
 
@@ -39,6 +40,20 @@
                         {% endif %}
                         <div class="card-body pb-0">
                             <p class="mb-0">{{ product.name }}</p>
+                        </div>
+                        <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="row">
+                                <div class="col">
+                                    {% if product.on_sale %}
+                                    <p class="lead mb-0 text-left font-weight-bold">
+                                        <s>€{{ product.price }}</s> <small class="text-danger">20%
+                                            off</small> €{{ product.price | calc_discounted_price:80 }}
+                                    </p>
+                                    {% else %}
+                                    <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
