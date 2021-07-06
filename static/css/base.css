@@ -16,3 +16,12 @@ body {
     --green: #73a24e;
     --pale-green: #a9c25d;
 }
+
+/***** TEXT *****/
+.yellow-text {
+    color: var(--pale-yellow);
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.8);
+}
