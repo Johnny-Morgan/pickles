@@ -29,11 +29,11 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-5">
                     <div class="card h-100 border-0">
                         {% if product.image %}
-                        <a href="">
+                        <a href="{% url 'product_info' product.id %}">
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         {% else %}
-                        <a href="">
+                        <a href="{% url 'product_info' product.id %}">
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image-icon.png"
                                 alt="{{ product.name }}">
                         </a>
@@ -49,7 +49,7 @@
                                         <s>€{{ product.price }}</s> <small
                                             class="text-danger">{{ discount_percentage }}%
                                             off</small>
-                                        €{{ product.price | calc_discounted_price:discount_percentage|floatformat:2  }}
+                                        €{{ product.price | calc_discounted_price:discount_percentage|floatformat:2 }}
                                     </p>
                                     {% else %}
                                     <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
