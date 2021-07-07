@@ -35,6 +35,9 @@
                 <p><strong> {{ post.intro }}</strong></p>
                 <p>{{ post.body }}</p>
                 <a class="btn btn-success" href="{% url 'blog' %}">Back</a>
+                {% if request.user.is_superuser %}
+                <a class="btn btn-danger" href="{% url 'edit_post' post.slug %}">Edit Post</a>
+                {% endif %}
             </div>
 
             <section>
