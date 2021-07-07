@@ -4,6 +4,7 @@ from . models import Post, Tag
 
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
+
     list_display = (
         'title',
         'intro',
@@ -11,6 +12,7 @@ class PostAdmin(admin.ModelAdmin):
         'image',
     )
 
+    list_filter = ('date',)
 
 
 admin.site.register(Post, PostAdmin)
