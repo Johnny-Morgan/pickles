@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Post
+from .forms import CommentForm
+
 
 
 def blog(request):
@@ -11,5 +13,10 @@ def blog(request):
 def post(request, slug):
     post = Post.objects.get(slug=slug)
     comments = post.comments.all().order_by('-id')
-    context = {'post': post, 'comments': comments}
+    form = CommentForm()
+    context = {
+        'post': post,
+        'comments': comments,
+        'form': form
+    }
     return render(request, 'blog/post.html', context)
