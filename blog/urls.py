@@ -7,4 +7,5 @@ urlpatterns = [
     path('delete_comment/<int:comment_id>/',
          views.delete_comment,
          name='delete_comment'),
+    path('edit/<slug:slug>/', views.edit_post, name='edit_post')
 ]
