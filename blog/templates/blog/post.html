@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <div class="col-12 col-md-8 offset-md-2">
+                <h1>{{ post.title }}</h1>
+                {% if post.image %}
+                <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                {% endif %}
+                <small>{{ post.date }}</small>
+                <p><strong> {{ post.intro }}</strong></p>
+                <p>{{ post.body }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
