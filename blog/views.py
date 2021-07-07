@@ -73,3 +73,11 @@ def edit_post(request, slug):
     context = {'post': post, 'form': form}
 
     return render(request, 'blog/edit_post.html', context)
+
+
+def delete_post(request, post_id):
+    """ View to delete a blog post """
+    post = get_object_or_404(Post, pk=post_id)
+    post.delete()
+
+    return redirect(reverse('blog'))
