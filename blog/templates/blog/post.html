@@ -48,6 +48,11 @@
                         <strong>{{ comment.name }}</strong> <small>{{ comment.date }}</small><br>
                         {{ comment.body }}
                     </p>
+                    {% if request.user.is_superuser %}
+                    <small>
+                        <a class="btn btn-sm btn-outline-danger" href="">Delete Comment</a>
+                    </small>
+                    {% endif %}
                     <hr>
                     {% empty %}
                     <p>No comments yet!</p>
@@ -59,14 +64,14 @@
                 <div class="col-12 col-md-8 offset-md-2">
                     <div class="row">
                         <div class="col text-center mt-4">
-                            <h2>Add Comment</h2>
+                            <h2>Leave a Comment</h2>
                             <hr class="w-25 mb-4">
                         </div>
                     </div>
                     <form action="" method="POST">
                         {% csrf_token %}
-                        {{ form.as_p}}
-                        <button>Save Comment</button>
+                        {{ form | crispy }}
+                        <button class="btn btn-success mb-5">Post Comment</button>
                     </form>
                 </div>
 
