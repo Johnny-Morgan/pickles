@@ -1,11 +1,24 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.utils.text import slugify
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 def blog(request):
     posts = Post.objects.all()
-    context = {'posts': posts}
+    
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            post = form.save()
+            post.slug = slugify(post.title)
+            post.save()
+            return redirect('blog')
+    else:
+        form = PostForm()
+
+    context = {'posts': posts, 'form': form}
     return render(request, 'blog/blog.html', context)
 
 
