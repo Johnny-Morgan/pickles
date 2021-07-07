@@ -34,6 +34,26 @@
                 <p>{{ post.body }}</p>
                 <a class="btn btn-success" href="{% url 'blog' %}">Back</a>
             </div>
+
+            <section>
+                <div class="col-12 col-md-8 offset-md-2">
+                    <div class="row">
+                        <div class="col text-center mt-4">
+                            <h2>Comments</h2>
+                            <hr class="w-25 mb-4">
+                        </div>
+                    </div>
+                    {% for comment in comments %}
+                    <p>
+                        <strong>{{ comment.name }}</strong> <small>{{ comment.date }}</small><br>
+                        {{ comment.body }}
+                    </p>
+                    <hr>
+                    {% empty %}
+                    <p>No comments yet!</p>
+                    {% endfor %}
+                </div>
+            </section>
         </div>
     </div>
 </div>

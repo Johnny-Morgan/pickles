@@ -10,5 +10,6 @@ def blog(request):
 
 def post(request, slug):
     post = Post.objects.get(slug=slug)
-    context = {'post': post}
+    comments = post.comments.all().order_by('-id')
+    context = {'post': post, 'comments': comments}
     return render(request, 'blog/post.html', context)
