@@ -65,6 +65,8 @@ def edit_post(request, slug):
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
+            post.slug = slugify(post.title)
+            post.save()
             return redirect(reverse('post', args=[post.slug]))
     else:
         form = PostForm(instance=post)
