@@ -50,7 +50,8 @@
                     </p>
                     {% if request.user.is_superuser %}
                     <small>
-                        <a class="btn btn-sm btn-outline-danger" href="">Delete Comment</a>
+                        <a class="btn btn-sm btn-outline-danger" href="{% url 'delete_comment' comment.id %}">Delete
+                            Comment</a>
                     </small>
                     {% endif %}
                     <hr>
