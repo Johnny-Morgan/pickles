@@ -6,7 +6,7 @@ from .forms import CommentForm, PostForm
 
 def blog(request):
     posts = Post.objects.all()
-    
+
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
 
@@ -55,3 +55,19 @@ def delete_comment(request, comment_id):
     comment.delete()
 
     return redirect(reverse('blog'))
+
+
+def edit_post(request, slug):
+    """ View to edit a blog post """
+    post = Post.objects.get(slug=slug)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('post', args=[post.slug]))
+    else:
+        form = PostForm(instance=post)
+    context = {'post': post, 'form': form}
+
+    return render(request, 'blog/edit_post.html', context)
