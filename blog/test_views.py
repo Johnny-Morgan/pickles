@@ -23,6 +23,18 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog/edit_post.html')
 
+    def test_can_edit_post(self):
+        post = Post.objects.create(title='title', slug='title',
+                                   intro='intro', body='abcdefghijklmno')
+        response = self.client.post(f'/blog/edit/{post.slug}/', {
+                                    'title': 'title',
+                                    'intro': 'Updated intro',
+                                    'body': 'abcdefghijklmno'
+                                    })
+        self.assertRedirects(response, f'/blog/{post.slug}/')
+        updated_post = Post.objects.get(id=post.id)
+        self.assertEqual(updated_post.intro, 'Updated intro')
+
     def test_can_add_post(self):
         response = self.client.post('/blog/',
                                     {'title': 'title', 'intro': 'intro',
