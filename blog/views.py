@@ -5,6 +5,7 @@ from .forms import CommentForm, PostForm
 
 
 def blog(request):
+    """ View for displaying all blog posts and adding new blog posts """
     posts = Post.objects.all()
 
     if request.method == 'POST':
@@ -23,6 +24,7 @@ def blog(request):
 
 
 def post(request, slug):
+    """ View for displaying and editing individual blog posts """
     post = Post.objects.get(slug=slug)
     comments = post.comments.all().order_by('-id')
 
