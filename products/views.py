@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
+from django.contrib import messages
+from django.db.models import Q
 from .models import Product
 
 
@@ -8,10 +10,22 @@ def all_products(request):
     including sorting and search queries """
 
     products = Product.objects.all()
+    query = None
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, 'No search words entered!')
+                return redirect(reverse('products'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
 
     context = {
         'products': products,
         'discount_percentage': 100 - settings.DISCOUNT_PERCENTAGE,
+        'search_word': query,
     }
 
     return render(request, 'products/products.html', context)
