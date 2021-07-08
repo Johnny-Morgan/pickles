@@ -41,7 +41,7 @@
     </div>
 
     <div class="row">
-        {% for post in posts %}
+        {% for post in page_obj %}
         <div class="col-12 col-md-6 col-lg-4 offset-md-1">
             <div class="image-container mb-5">
                 {% if post.image %}
@@ -51,7 +51,7 @@
                 {% endif %}
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 mb-5">
             <h2>{{ post.title }}</h2>
             <small>{{ post.date }}</small>
             <p>{{ post.intro }}</p>
@@ -88,6 +88,26 @@
             {% endif %}
         </div>
         {% endfor %}
+    </div>
+</div>
+
+<div class="container pb-4">
+    <div class="pagination justify-content-center">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
     </div>
 </div>
 {% endblock %}

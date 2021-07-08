@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.utils.text import slugify
+from django.core.paginator import Paginator
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 
 
 def blog(request):
-    """ View for displaying all blog posts and adding new blog posts """
+    """ View for displaying blog posts and adding new blog posts """
     posts = Post.objects.all()
+    paginator = Paginator(posts, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
@@ -19,7 +23,7 @@ def blog(request):
     else:
         form = PostForm()
 
-    context = {'posts': posts, 'form': form}
+    context = {'posts': posts, 'form': form, 'page_obj': page_obj}
     return render(request, 'blog/blog.html', context)
 
 
