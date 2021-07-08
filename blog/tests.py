@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 
 
 class TestPostForm(TestCase):
@@ -53,3 +53,51 @@ class TestPostForm(TestCase):
     def test_excludes_are_explicit_in_form_metaclass(self):
         form = PostForm()
         self.assertEqual(form.Meta.exclude, ['slug'])
+
+
+class TestCommentForm(TestCase):
+
+    def test_item_name_is_required(self):
+        form = CommentForm({
+            'name': '',
+            'email': 'email@email.com',
+            'body': 'body',
+            })
+        self.assertFalse(form.is_valid())
+        self.assertIn('name', form.errors.keys())
+        self.assertEqual(form.errors['name'][0], 'This field is required.')
+
+    def test_item_email_is_required(self):
+        form = CommentForm({
+            'name': 'name',
+            'email': '',
+            'body': 'body',
+            })
+        self.assertFalse(form.is_valid())
+        self.assertIn('email', form.errors.keys())
+        self.assertEqual(form.errors['email'][0], 'This field is required.')
+
+    def test_item_body_is_required(self):
+        form = CommentForm({
+            'name': 'name',
+            'email': 'email@email.com',
+            'body': '',
+            })
+        self.assertFalse(form.is_valid())
+        self.assertIn('body', form.errors.keys())
+        self.assertEqual(form.errors['body'][0], 'This field is required.')
+
+    def test_item_email_is_valid(self):
+        form = CommentForm({
+            'name': 'name',
+            'email': 'email',
+            'body': 'body',
+            })
+        self.assertFalse(form.is_valid())
+        self.assertIn('email', form.errors.keys())
+        self.assertEqual(
+            form.errors['email'][0], 'Enter a valid email address.')
+
+    def test_excludes_are_explicit_in_form_metaclass(self):
+        form = CommentForm()
+        self.assertEqual(form.Meta.exclude, ['post'])
