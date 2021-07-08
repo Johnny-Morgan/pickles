@@ -49,3 +49,7 @@ class TestPostForm(TestCase):
             'body': 'abcdefghijklmno',
             })
         self.assertTrue(form.is_valid())
+
+    def test_excludes_are_explicit_in_form_metaclass(self):
+        form = PostForm()
+        self.assertEqual(form.Meta.exclude, ['slug'])
