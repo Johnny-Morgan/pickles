@@ -33,9 +33,9 @@
                 Seeds
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="seeds-link">
-                <a href="" class="dropdown-item">Vegetable Seeds</a>
-                <a href="" class="dropdown-item">Bulbs</a>
-                <a href="" class="dropdown-item">All Seeds</a>
+                <a href="{% url 'products' %}?category=vegetable_seeds" class="dropdown-item">Vegetable Seeds</a>
+                <a href="{% url 'products' %}?category=bulbs" class="dropdown-item">Bulbs</a>
+                <a href="{% url 'products' %}?category=vegetable_seeds,bulbs" class="dropdown-item">All Seeds</a>
             </div>
         </li>
         <!-- Blog Link -->
