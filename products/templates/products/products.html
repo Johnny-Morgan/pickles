@@ -56,9 +56,9 @@
                 <div class="col-12 col-md-6 order-md-first">
                     <p class="text-muted mt-3 text-center text-md-left">
                         {% if search_word or categories or sorting != 'None_None' %}
-                        <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                        <span class="small"><a href="{% url 'products' %}">All Products</a> | </span>
                         {% endif %}
-                        {{ products|length }} Products{% if search_word %} found for
+                        {{ products|length }} Product{{ products|length|pluralize }}{% if search_word %} found for
                         <strong>"{{ search_word }}"</strong>{% endif %}
                     </p>
                 </div>
