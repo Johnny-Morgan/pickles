@@ -15,6 +15,11 @@ class TestCategoryModel(TestCase):
                                            friendly_name='friendly_name')
         self.assertEqual(str(category), 'name')
 
+    def test_category_get_friendly_name_method_returns_friendly_name(self):
+        category = Category.objects.create(name='name',
+                                           friendly_name='friendly_name')
+        self.assertEqual(Category.get_friendly_name(category), 'friendly_name')
+
 
 class TestProductModel(TestCase):
 
