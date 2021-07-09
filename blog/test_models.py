@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Post, Tag
+from .models import Post, Tag, Comment
 
 
 class TestPostModel(TestCase):
@@ -21,3 +21,16 @@ class TestPostModel(TestCase):
                                    intro='intro',
                                    body='abcdefghijklmno')
         self.assertEqual(str(post), 'Title')
+
+
+class TestCommentModel(TestCase):
+
+    def test_comment_string_method_returns_name(self):
+        post = Post.objects.create(title='Title',
+                                   intro='intro',
+                                   body='abcdefghijklmno')
+        comment = Comment.objects.create(post=post,
+                                         name='name',
+                                         email='email',
+                                         body='body')
+        self.assertEqual(str(comment), 'name')
