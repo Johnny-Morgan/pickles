@@ -19,10 +19,11 @@
                 Plants
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="plants-link">
-                <a href="" class="dropdown-item">Fruit Trees</a>
-                <a href="" class="dropdown-item">Fruit Bushes</a>
-                <a href="" class="dropdown-item">Vegetable Plants</a>
-                <a href="" class="dropdown-item">All Plants</a>
+                <a href="{% url 'products' %}?category=fruit_trees" class="dropdown-item">Fruit Trees</a>
+                <a href="{% url 'products' %}?category=fruit_bushes" class="dropdown-item">Fruit Bushes</a>
+                <a href="{% url 'products' %}?category=vegetable_plants" class="dropdown-item">Vegetable Plants</a>
+                <a href="{% url 'products' %}?category=fruit_trees,fruit_bushes,vegetable_plants"
+                    class="dropdown-item">All Plants</a>
             </div>
         </li>
         <!-- Seeds Link -->
