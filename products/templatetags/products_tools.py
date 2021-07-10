@@ -8,4 +8,4 @@ def calc_discounted_price(price, discount):
     '''
     Returns discounted product price
     '''
-    return price * discount / 100
+    return float(price) * (1 - discount / 100)

@@ -50,7 +50,7 @@ def all_products(request):
 
     context = {
         'products': products,
-        'discount_percentage': 100 - settings.DISCOUNT_PERCENTAGE,
+        'discount_percentage': settings.DISCOUNT_PERCENTAGE,
         'search_word': query,
         'categories': categories,
         'sorting': sorting,
@@ -66,7 +66,7 @@ def product_info(request, product_id):
 
     context = {
         'product': product,
-        'discount_percentage': 100 - settings.DISCOUNT_PERCENTAGE,
+        'discount_percentage': settings.DISCOUNT_PERCENTAGE,
     }
 
     return render(request, 'products/product_info.html', context)
