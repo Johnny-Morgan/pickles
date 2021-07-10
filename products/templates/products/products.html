@@ -119,6 +119,13 @@
 {% endblock %}
 
 {% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('.back-to-top-link').click(e => {
+        window.scrollTo(0, 0)
+    })
+</script>
+
 <script type="text/javascript">
     $('#sort-selector').change(function () {
         let selector = $(this);
