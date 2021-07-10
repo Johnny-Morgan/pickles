@@ -36,6 +36,19 @@ body {
     z-index: -1;
 }
 
+
+.back-to-top-button {
+    height: 3rem;
+    width: 3rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.back-to-top-link {
+    cursor: pointer;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
