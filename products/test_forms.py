@@ -54,3 +54,7 @@ class TestProductForm(TestCase):
             'price': 9.99,
             })
         self.assertTrue(form.is_valid())
+
+    def test_fields_are_explicit_in_form_metaclass(self):
+        form = ProductForm()
+        self.assertEqual(form.Meta.fields, '__all__')
