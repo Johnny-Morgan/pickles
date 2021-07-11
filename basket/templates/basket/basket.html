@@ -58,6 +58,45 @@
                 </table>
             </div>
         </div>
+        <div class="col-12 col-md-3 summary-box">
+            <div class="table-responsive rounded">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <h3 scope="col" class="text-center mt-3">Summary</h3>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="pt-5 text-right">
+                            <h6><strong>Basket Total: €{{ total|floatformat:2 }}</strong></h6>
+                            <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
+                            <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                            {% if free_delivery_delta > 0 %}
+                            <p class="mb-1 text-danger">
+                                Get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
+                            </p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">
+                            <a href="{% url 'products' %}" class="btn btn-outline-success mb-3">
+                                <span>
+                                    <i class="fas fa-arrow-alt-circle-left mr-1"></i>
+                                </span>
+                                <span class="text-uppercase">Back to Shop</span>
+                            </a>
+                            <a href="" class="btn btn-success">
+                                <span>
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <span class="text-uppercase">Secure Checkout</span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         {% else %}
         <p class="lead mb-5">Your shopping basket is empty.</p>
         <a href="{% url 'products' %}" class="btn btn-lg btn-success text-uppercase py-3">Shop
