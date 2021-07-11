@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
+from django.conf import settings
 
 
 def view_basket(request):
     """ View that renders the shopping basket contents page """
-
-    return render(request, 'basket/basket.html')
+    context = {
+        'discount_percentage': settings.DISCOUNT_PERCENTAGE,
+        }
+    return render(request, 'basket/basket.html', context)
 
 
 def add_product_to_basket(request, item_id):
@@ -20,5 +23,5 @@ def add_product_to_basket(request, item_id):
         basket[item_id] = quantity
 
     request.session['basket'] = basket
-    print(request.session['basket'])
+
     return redirect(redirect_url)
