@@ -32,7 +32,7 @@ def basket_contents(request):
         delivery = 0
         free_delivery_delta = 0
 
-    grand_total = delivery + total
+    order_total = delivery + total
 
     context = {
         'basket_items': basket_items,
@@ -41,7 +41,7 @@ def basket_contents(request):
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
-        'grand_total': grand_total,
+        'order_total': order_total,
         'delivery_charge': settings.DELIVERY_COST,
     }
 
