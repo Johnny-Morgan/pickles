@@ -15,19 +15,54 @@
     <div class="row">
         <div class="col text-center mt-4">
             <h2 class="text-uppercase">Shopping Basket</h2>
+            <hr class="w-25 mb-4">
+
         </div>
     </div>
     <!-- Shopping basket contents -->
     <div class="row">
-        <div class="col">
-            {% if basket_items %}
-            <div class="table-responsive rounded"></div>
-            {% else %}
-            <p class="lead mb-5">Your shopping basket is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-lg btn-success rounded-0 text-uppercase py-3">Shop
-                Now</a>
-            {% endif %}
+
+        {% if basket_items %}
+        <div class="col-12 col-md-9">
+            <div class="table-responsive rounded">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+
+                    {% for item in basket_items %}
+                    <tr>
+                        <td class="w-25">
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">€{{ item.product.price }}</p>
+                        </td>
+                        <td class="py-3 w-25">
+                            <p class="my-0">{{ item.quantity }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">€{{ item.product.price }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
+        {% else %}
+        <p class="lead mb-5">Your shopping basket is empty.</p>
+        <a href="{% url 'products' %}" class="btn btn-lg btn-success text-uppercase py-3">Shop
+            Now</a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
