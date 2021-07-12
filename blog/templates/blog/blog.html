@@ -21,7 +21,7 @@
             <h2 class="text-uppercase">Blog</h2>
             <hr class="w-25">
             {% if request.user.is_superuser %}
-            <button class="btn btn-success mb-5" type="button" data-toggle="collapse" data-target="#addBlogPost"
+            <button class="btn btn-green mb-5" type="button" data-toggle="collapse" data-target="#addBlogPost"
                 aria-expanded="false" aria-controls="addBlogPost">
                 Add Blog Post
             </button>
@@ -57,13 +57,12 @@
             <p>{{ post.intro }}<a href="{% url 'post' post.slug %}">...read more</a></p>
 
             {% if request.user.is_superuser %}
-            <a class="btn btn-danger" href="{% url 'edit_post' post.slug %}">Edit Post</a>
+            <a class="btn btn-info" href="{% url 'edit_post' post.slug %}"> <i class="far fa-edit"></i> Edit</a>
 
             <!-- Button trigger delete post modal -->
-            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deletePost">
-                Delete Post
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePost">
+                <i class="far fa-trash-alt"></i> Delete
             </button>
-
             <!-- Modal -->
             <div class="modal fade" id="deletePost" tabindex="-1" role="dialog" aria-labelledby="deletePostModal"
                 aria-hidden="true">
