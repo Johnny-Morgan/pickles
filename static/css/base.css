@@ -36,6 +36,17 @@ body {
     color: #fff;
 }
 
+.btn-outline-green {
+    border: 1px solid var(--green);
+    color: var(--green);
+}
+
+.btn-outline-green:hover {
+    border: 1px solid var(--green);
+    background: var(--green);
+    color: #fff;
+}
+
 .bg-green {
     background: var(--green);
 }
