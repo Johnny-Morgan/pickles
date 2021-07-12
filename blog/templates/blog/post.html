@@ -57,9 +57,8 @@
                     </p>
                     {% if request.user.is_superuser %}
                     <!-- Button trigger delete comment modal -->
-                    <button type="button" class="btn btn-outline-danger" data-toggle="modal"
-                        data-target="#deleteComment">
-                        Delete Comment
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteComment">
+                        <i class="far fa-trash-alt"></i>
                     </button>
 
                     <!-- Modal -->
