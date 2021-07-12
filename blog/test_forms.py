@@ -52,7 +52,7 @@ class TestPostForm(TestCase):
 
     def test_excludes_are_explicit_in_form_metaclass(self):
         form = PostForm()
-        self.assertEqual(form.Meta.exclude, ['slug'])
+        self.assertEqual(form.Meta.exclude, ['slug', 'author'])
 
 
 class TestCommentForm(TestCase):
