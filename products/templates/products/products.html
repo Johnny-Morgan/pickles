@@ -115,10 +115,12 @@
                                                 <input type="submit" class="btn btn-green text-uppercase mt-3"
                                                     value="Add to Basket">
                                                 {% if request.user.is_superuser %}
-                                                <a class="btn btn-info ml-2 mt-3" href="">
+                                                <a class="btn btn-info ml-2 mt-3" href="" data-toggle="tooltip"
+                                                    data-placement="top" title="Edit Product">
                                                     <i class="far fa-edit"></i>
                                                 </a>
-                                                <a class="btn btn-danger ml-2 mt-3" href="">
+                                                <a class="btn btn-danger ml-2 mt-3" href="" data-toggle="tooltip"
+                                                    data-placement="top" title="Delete Product">
                                                     <i class="far fa-trash-alt"></i>
                                                 </a>
                                                 {% endif %}
@@ -146,8 +148,14 @@
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
+    // Scroll to top button
     $('.back-to-top-link').click(e => {
         window.scrollTo(0, 0)
+    })
+
+    // Bootstrap tooltip
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
     })
 </script>
 
