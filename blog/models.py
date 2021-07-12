@@ -18,6 +18,7 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, blank=True)
     image_url = models.URLField(max_length=1024, blank=True, null=True)
     image = models.ImageField(null=True, blank=True)
+    author = models.CharField(null=True, blank=True, max_length=254)
 
     class Meta:
         ordering = ['-date']
