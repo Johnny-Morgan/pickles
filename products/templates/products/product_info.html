@@ -21,11 +21,12 @@
             <div class="image-container my-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid h-100" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image-icon.png" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid h-100" src="{{ MEDIA_URL }}no-image-icon.png"
+                        alt="{{ product.name }}">
                 </a>
                 {% endif %}
             </div>
@@ -82,13 +83,13 @@
                         </div>
 
                         <div class="col-12">
-                            <a href="{% url 'products' %}" class="btn btn-outline-green mt-5">
+                            <a href="{% url 'products' %}" class="btn btn-outline-green mt-3">
                                 <span class="icon">
                                     <i class="fas fa-arrow-alt-circle-left mr-1"></i>
                                 </span>
                                 <span class="text-uppercase">Back to Shop</span>
                             </a>
-                            <input type="submit" class="btn btn-green text-uppercase mt-5" value="Add to Basket">
+                            <input type="submit" class="btn btn-green text-uppercase mt-3" value="Add to Basket">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
