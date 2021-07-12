@@ -96,9 +96,11 @@
                                         <a class="text-muted"
                                             href="{% url 'products' %}?category={{ product.category.name }}">
                                             {% if product.category.name == 'bulbs' or product.category.name == 'vegetable_seeds' %}
-                                            <i class="fas fa-seedling mr-2"></i>{{ product.category.friendly_name }}
+                                            <i
+                                                class="fas fa-seedling mr-2 green-text"></i>{{ product.category.friendly_name }}
                                             {% else %}
-                                            <i class="fas fa-leaf mr-2"></i>{{ product.category.friendly_name }}
+                                            <i
+                                                class="fas fa-leaf mr-2 green-text"></i>{{ product.category.friendly_name }}
                                             {% endif %}
                                         </a>
                                     </div>
@@ -110,7 +112,7 @@
                                             <input class="form-control qty_input" type="hidden" name="quantity"
                                                 value="1" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                             <div class="col-12">
-                                                <input type="submit" class="btn btn-success text-uppercase mt-3"
+                                                <input type="submit" class="btn btn-green text-uppercase mt-3"
                                                     value="Add to Basket">
                                             </div>
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
