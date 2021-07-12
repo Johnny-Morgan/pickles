@@ -73,21 +73,23 @@
                                 alt="{{ product.name }}">
                         </a>
                         {% endif %}
-                        <div class="card-body pb-0">
-                            <p class="mb-0">{{ product.name }}</p>
+                        <div class="card-body">
+                            <p class="lead mb-0">{{ product.name }}</p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
                                     {% if product.on_sale %}
-                                    <p class="lead mb-0 text-left font-weight-bold">
-                                        <s class="text-muted">€{{ product.price }}</s> <small
-                                            class="text-danger">{{ discount_percentage }}%
-                                            off</small>
-                                        €{{ product.price | calc_discounted_price:discount_percentage|floatformat:2 }}
-                                    </p>
+                                    <div class="mb-1 text-left">
+                                        <s class="text-muted">€{{ product.price }}</s>
+                                        <span class="text-danger font-weight-bold">{{ discount_percentage }}%
+                                            off!</span>
+                                        <p class="lead font-weight-bold">
+                                            €{{ product.price | calc_discounted_price:discount_percentage|floatformat:2 }}
+                                        </p>
+                                    </div>
                                     {% else %}
-                                    <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
+                                    <p class="lead mb-1 text-left font-weight-bold">€{{ product.price }}</p>
                                     {% endif %}
                                     {% if product.category %}
                                     <p class="small mt-1 mb-0">
