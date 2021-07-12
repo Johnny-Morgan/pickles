@@ -10,11 +10,11 @@ body {
 
 /***** COLORS *****/
 :root {
-    --pale-yellow: #f5eec2;
-    --blue: #39395f;
     --dark-green: #416a59;
     --green: #73a24e;
-    --pale-green: #a9c25d;
+    --yellow: #f1db7d;
+    --orange: #fb8b2e;
+    --red: #80202b;
 }
 
 /***** TEXT *****/
