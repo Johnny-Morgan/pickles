@@ -32,23 +32,26 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
             <div class="mb-5 mt-md-5">
-                <p class="mb-0">{{ product.name }}</p>
+                <p class="lead mb-0">{{ product.name }}</p>
                 {% if product.on_sale %}
-                <p class="lead mb-0 text-left font-weight-bold">
-                    <s class="text-muted">€{{ product.price }}</s> <small class="text-danger">{{ discount_percentage }}%
-                        off</small>
-                    €{{ product.price | calc_discounted_price:discount_percentage|floatformat:2 }}
+                <p class="mb-1 text-left">
+                    <s class="text-muted">€{{ product.price }}</s>
+                    <small class="text-danger font-weight-bold">{{ discount_percentage }}%
+                        off!</small>
+                    <p class="lead font-weight-bold">
+                        €{{ product.price | calc_discounted_price:discount_percentage|floatformat:2 }}
+                    </p>
                 </p>
                 {% else %}
-                <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
+                <p class="lead mb-1 text-left font-weight-bold">€{{ product.price }}</p>
                 {% endif %}
                 {% if product.category %}
                 <p class="small mt-1 mb-0">
                     <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
                         {% if product.category.name == 'bulbs' or product.category.name == 'vegetable_seeds' %}
-                        <i class="fas fa-seedling mr-2"></i>{{ product.category.friendly_name }}
+                        <i class="fas fa-seedling mr-2 green-text"></i>{{ product.category.friendly_name }}
                         {% else %}
-                        <i class="fas fa-leaf mr-2"></i>{{ product.category.friendly_name }}
+                        <i class="fas fa-leaf mr-2 green-text"></i>{{ product.category.friendly_name }}
                         {% endif %}
                     </a>
                 </p>
