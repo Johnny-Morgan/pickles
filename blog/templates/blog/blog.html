@@ -45,9 +45,9 @@
         <div class="col-12 col-md-4 col-lg-4 offset-md-1">
             <div class="image-container mb-5">
                 {% if post.image %}
-                <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                <img class="card-img-top img-fluid h-100" src="{{ post.image.url }}" alt="{{ post.title }}">
                 {% else %}
-                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image-icon.png" alt="{{ post.title }}">
+                <img class="card-img-top img-fluid h-100" src="{{ MEDIA_URL }}no-image-icon.png" alt="{{ post.title }}">
                 {% endif %}
             </div>
         </div>
@@ -60,7 +60,7 @@
             <a class="btn btn-info" href="{% url 'edit_post' post.slug %}"> <i class="far fa-edit"></i> Edit</a>
 
             <!-- Button trigger delete post modal -->
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePost">
+            <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deletePost">
                 <i class="far fa-trash-alt"></i> Delete
             </button>
             <!-- Modal -->
