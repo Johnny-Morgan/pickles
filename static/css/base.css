@@ -19,7 +19,11 @@ body {
 
 /***** TEXT *****/
 .yellow-text {
-    color: var(--pale-yellow);
+    color: var(--yellow);
+}
+
+.green-text {
+    color: var(--green);
 }
 
 .text-shadow {
