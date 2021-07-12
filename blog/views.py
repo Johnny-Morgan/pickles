@@ -18,6 +18,7 @@ def blog(request):
         if form.is_valid():
             post = form.save()
             post.slug = slugify(post.title)
+            post.author = str(request.user)
             post.save()
             return redirect('blog')
     else:
