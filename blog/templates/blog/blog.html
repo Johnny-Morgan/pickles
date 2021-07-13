@@ -18,10 +18,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-4">
-            <h2 class="text-uppercase">Blog</h2>
-            <hr class="w-25">
+            <h2 class="heading">Blog</h2>
             {% if request.user.is_superuser %}
-            <button class="btn btn-green mb-2" type="button" data-toggle="collapse" data-target="#addBlogPost"
+            <button class="btn btn-green mt-5 mb-3" type="button" data-toggle="collapse" data-target="#addBlogPost"
                 aria-expanded="false" aria-controls="addBlogPost">
                 Add Blog Post
             </button>
