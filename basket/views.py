@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_object_or_404)
 from django.conf import settings
 from django.contrib import messages
 from products.models import Product
@@ -14,7 +15,7 @@ def view_basket(request):
 
 def add_product_to_basket(request, item_id):
     """ Add a quantity of the specified product to the shopping basket """
-    product = Product.objects.get(pk=item_id)
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     basket = request.session.get('basket', {})
@@ -35,7 +36,7 @@ def add_product_to_basket(request, item_id):
 def adjust_basket(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
 
-    product = Product.objects.get(pk=item_id)
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     basket = request.session.get('basket', {})
     basket[item_id] = quantity
@@ -50,7 +51,7 @@ def remove_from_basket(request, item_id):
     """Remove the item from the shopping basket"""
 
     try:
-        product = Product.objects.get(pk=item_id)
+        product = get_object_or_404(Product, pk=item_id)
         basket = request.session.get('basket', {})
         basket.pop(item_id)
         messages.success(request, f'{product.name} removed from basket')
