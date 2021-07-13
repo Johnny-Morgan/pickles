@@ -17,14 +17,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-4">
-            <h2 class="text-uppercase">Products</h2>
+            <h2 class="heading">Products</h2>
             {% for category in categories %}
             <a class="text-decoration-none" href="{% url 'products' %}?category={{ category.name }}">
                 <span class="p-2 mt-2 badge badge-green">{{ category.friendly_name }}
                 </span>
             </a>
             {% endfor %}
-            <hr class="w-25 mb-4">
         </div>
     </div>
     <div class="row">
