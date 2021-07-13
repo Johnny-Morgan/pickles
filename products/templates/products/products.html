@@ -20,7 +20,7 @@
             <h2 class="heading">Products</h2>
             {% for category in categories %}
             <a class="text-decoration-none" href="{% url 'products' %}?category={{ category.name }}">
-                <span class="p-2 mt-5 mx-1 badge badge-green">{{ category.friendly_name }}
+                <span class="p-2 mx-1 badge badge-green">{{ category.friendly_name }}
                 </span>
             </a>
             {% endfor %}
