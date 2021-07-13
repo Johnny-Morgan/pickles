@@ -6,6 +6,48 @@
         </button>
     </div>
     <div class="toast-body">
-        {{ message }}
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-3">
+            </div>
+        </div>
+        {% if order_total %}
+        <p class="logo-font text-black py-1">Your Basket ({{ product_count }} item{{ product_count|pluralize}})</p>
+        <div class="basket-notification-wrapper">
+            {% for item in basket_items %}
+            <div class="row">
+                <div class="col-3 my-1">
+                    <img class="w-100" src="{{ item.product.image.url }}">
+                </div>
+                <div class="col-9">
+                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>
+                    <p class="mt-3 mb-1">
+                        Basket Total:<span class="float-right">${{ total|floatformat:2 }}</span>
+                    </p>
+                </strong>
+                {% if free_delivery_delta > 0 %}
+                <p class="my-2 text-danger">
+                    Get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
+                </p>
+                {% endif %}
+                <a href="{% url 'view_basket' %}" class="btn btn-green btn-block">
+                    <span class="text-uppercase">View Basket</span>
+                    <span class="icon">
+                        <i class="fas fa-shopping-basket"></i>
+                    </span>
+                </a>
+                <a href="" class="btn btn-dark btn-block text-uppercase">Go to Checkout</a>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
