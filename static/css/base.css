@@ -114,6 +114,7 @@ body {
     letter-spacing: 2px;
     color: var(--dark-green);
     position: relative;
+    margin-bottom: 3rem;
 }
 
 .heading::after {
