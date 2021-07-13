@@ -108,6 +108,26 @@ body {
     cursor: pointer;
 }
 
+.heading {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: var(--dark-green);
+    position: relative;
+}
+
+.heading::after {
+    content: "";
+    width: 10rem;
+    height: .5rem;
+    background-color: var(--green);
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
