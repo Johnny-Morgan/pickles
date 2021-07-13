@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.utils.text import slugify
 from django.core.paginator import Paginator
+from django.contrib import messages
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 
@@ -55,7 +56,10 @@ def post(request, slug):
 
 def delete_comment(request, comment_id):
     """ Delete a comment from a blog post """
+
     if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permssion \
+            to delete a comment.')
         return redirect(reverse('blog'))
 
     comment = get_object_or_404(Comment, pk=comment_id)
@@ -67,6 +71,11 @@ def delete_comment(request, comment_id):
 def edit_post(request, slug):
     """ View to edit a blog post """
     post = Post.objects.get(slug=slug)
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permission to \
+            edit a blog post.')
+        return redirect(reverse('blog'))
 
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
@@ -84,6 +93,12 @@ def edit_post(request, slug):
 
 def delete_post(request, post_id):
     """ View to delete a blog post """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permission to \
+            delete a blog post.')
+        return redirect(reverse('blog'))
+
     post = get_object_or_404(Post, pk=post_id)
     post.delete()
 
