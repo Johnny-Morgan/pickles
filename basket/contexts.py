@@ -14,7 +14,8 @@ def basket_contents(request):
     for item_id, quantity in basket.items():
         product = get_object_or_404(Product, pk=item_id)
         if product.on_sale:
-            total += quantity * round(product.price * Decimal(1 - settings.DISCOUNT_PERCENTAGE / 100),2)
+            total += quantity * round(product.price * Decimal(1 -
+                                      settings.DISCOUNT_PERCENTAGE / 100), 2)
         else:
             total += quantity * Decimal(product.price)
 
