@@ -129,6 +129,15 @@ body {
     border-radius: 2rem;
 }
 
+/***** TOASTS *****/
+
+.message-container {
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    z-index: 9999;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
