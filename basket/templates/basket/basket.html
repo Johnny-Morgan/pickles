@@ -61,12 +61,13 @@
                             <p class="my-0">€{{ item.product.price }}</p>
                             {% endif %}
                         </td>
-                        <td class="py-3 w-25">
-                            <form class="form update-form" method="POST" action="">
+                        <td class="w-25">
+                            <form class="form update-form" method="POST"
+                                action="{% url 'adjust_basket' item.item_id %}">
                                 {% csrf_token %}
                                 <input class="hidden" type="hidden" id="product_quantity" name="product_quantity"
                                     value="{{ item.quantity }}">
-                                <div class="form-group x w-75">
+                                <div class="form-group w-50 form-quantity">
                                     <div class="form-group qty_{{item.quantity}}">
                                         <select id="quantity_id_{{item.item_id}}"
                                             class="form-control form-control-sm qty_input" name="quantity">
@@ -74,6 +75,7 @@
                                     </div>
                                 </div>
                             </form>
+                            <a class="update-link"><small class="green-text">Update</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">€{{ item.product.price }}</p>
@@ -145,5 +147,13 @@
             $(`div.qty_${quantity} select`).val(quantity);
         });
     });
+
+    // Update quantity on click
+    $('.update-link').click(function (e) {
+        var form = $(this).prev('.update-form');
+        console.log(form)
+        form.submit();
+    })
 </script>
+
 {% endblock %}
