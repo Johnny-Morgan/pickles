@@ -83,10 +83,11 @@ body {
 }
 
 .summary-box {
-    border: 1px solid black;
-    border-radius: 1rem;
-    max-height: 25rem;
-    box-shadow: 6px 4px 8px;
+    border: 1px solid var(--dark-green);
+    border-radius: 0.5rem;
+    max-height: 27rem;
+    box-shadow: 2px 4px 4px var(--dark-green);
+    margin-bottom: 2rem;
 }
 
 .product-card {
