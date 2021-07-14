@@ -13,17 +13,20 @@ def basket_contents(request):
 
     for item_id, quantity in basket.items():
         product = get_object_or_404(Product, pk=item_id)
-        if product.on_sale:
-            total += quantity * round(product.price * Decimal(1 -
-                                      settings.DISCOUNT_PERCENTAGE / 100), 2)
-        else:
-            total += quantity * Decimal(product.price)
 
+        if product.on_sale:
+            price = round(product.price * Decimal(1 -
+                          settings.DISCOUNT_PERCENTAGE / 100), 2)
+        else:
+            price = product.price
+
+        total += quantity * price
         product_count += quantity
         basket_items.append({
             'item_id': item_id,
             'quantity': quantity,
             'product': product,
+            'price': price
         })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
