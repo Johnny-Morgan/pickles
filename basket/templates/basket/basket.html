@@ -25,7 +25,6 @@
     </div>
     <!-- Shopping basket contents -->
     <div class="row">
-
         {% if basket_items %}
         <div class="col-12 col-md-9">
             <div class="table-responsive rounded">
@@ -55,12 +54,7 @@
                             {% endif %}
                         </td>
                         <td class="py-3">
-                            {% if item.product.on_sale %}
-                            <p class="my-0">
-                                €{{ item.product.price | calc_discounted_price:discount_percentage|floatformat:2 }}</p>
-                            {% else %}
-                            <p class="my-0">€{{ item.product.price }}</p>
-                            {% endif %}
+                            <p class="my-0">€{{ item.price  }}</p>
                         </td>
                         <td class="w-25">
                             <form class="form update-form" method="POST"
@@ -82,12 +76,7 @@
                         </td>
                         <td class="py-3">
                             <p class="my-0">
-                                {% if item.product.on_sale %}
-                                €{{ item.product.price | calc_discounted_price:discount_percentage| calc_subtotal:item.quantity|floatformat:2 }}
-                                {% else %}
-                                €{{ item.product.price | calc_subtotal:item.quantity }}
-                                {% endif %}
-
+                                €{{ item.price | calc_subtotal:item.quantity }}
                             </p>
                         </td>
                     </tr>
