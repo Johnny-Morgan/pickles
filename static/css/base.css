@@ -134,6 +134,10 @@ body {
     border-radius: 2rem;
 }
 
+select {
+    border: 1px solid var(--dark-green) !important;
+}
+
 /***** TOASTS *****/
 
 .message-container {
