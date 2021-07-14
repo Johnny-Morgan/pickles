@@ -88,7 +88,8 @@
                                         </p>
                                     </div>
                                     {% else %}
-                                    <p class="lead mb-1 text-left font-weight-bold">€{{ product.price }}</p>
+                                    <p class="lead mb-1 text-left font-weight-bold">€{{ product.price|floatformat:2 }}
+                                    </p>
                                     {% endif %}
                                     {% if product.category %}
                                     <div class="small mt-1 mb-0">
