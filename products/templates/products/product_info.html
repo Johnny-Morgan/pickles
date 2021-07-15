@@ -154,6 +154,18 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+            <h2 class="text-center">Product Reviews</h2>
+            {% for review in reviews %}
+            <span>By {{ review.name }}</span>
+            <span class="float-right">{{ review.date }}</span>
+            <p>{{ review.rating }} stars</p>
+            <p>{{ review.review }}</p>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
 
