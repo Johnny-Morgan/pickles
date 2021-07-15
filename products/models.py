@@ -29,3 +29,24 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    RATINGS = (
+            ('1', '1'),
+            ('2', '2'),
+            ('3', '3'),
+            ('4', '4'),
+            ('5', '5'),
+    )
+    product = models.ForeignKey(Product, related_name='reviews',
+                                on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    review = models.TextField(max_length=500)
+    rating = models.CharField(max_length=1, null=True,
+                              choices=RATINGS, default='1')
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.product} review by {self.name}'
