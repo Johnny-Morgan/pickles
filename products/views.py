@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category, Review
+from .forms import ReviewForm
 
 
 def all_products(request):
@@ -65,10 +66,24 @@ def product_info(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id).order_by('-id')
 
+    if request.method == 'POST':
+        review_form = ReviewForm(request.POST)
+
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.product = product
+            review.save()
+
+            return redirect(reverse('product_detail', args=[product.id]))
+
+    else:
+        review_form = ReviewForm()
+
     context = {
         'product': product,
         'discount_percentage': settings.DISCOUNT_PERCENTAGE,
         'reviews': reviews,
+        'review_form': review_form,
     }
 
     return render(request, 'products/product_info.html', context)
