@@ -46,6 +46,9 @@
                 {% else %}
                 <p class="lead mb-1 text-left font-weight-bold">€{{ product.price }}</p>
                 {% endif %}
+                {% if rating %}
+                <small class="text-muted"><i class="fas fa-star mr-2"></i>{{ rating | floatformat:2}} / 5</small>
+                {% endif %}
                 {% if product.category %}
                 <p class="small mt-1 mb-0">
                     <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
