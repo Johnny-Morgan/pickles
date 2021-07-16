@@ -155,7 +155,11 @@ body {
 }
 
 .logo {
-    font-size: 190%;
+    font-size: 250%;
+}
+
+.logo span {
+    font-size: 50%;
 }
 
 select {
