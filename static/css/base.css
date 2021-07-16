@@ -168,12 +168,12 @@ select {
 
 /***** NAVBAR *****/
 .nav-link {
-    color: var(--green) !important;
+    color: var(--dark-green) !important;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--dark-green) !important;
+    color: var(--green) !important;
 }
 
 /***** TOASTS *****/
