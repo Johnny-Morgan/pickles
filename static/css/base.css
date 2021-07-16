@@ -134,6 +134,27 @@ body {
     border-radius: 2rem;
 }
 
+.small-heading {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--dark-green);
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.small-heading::after {
+    content: "";
+    width: 8rem;
+    height: .3rem;
+    background-color: var(--green);
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+}
+
 select {
     border: 1px solid var(--dark-green) !important;
 }
