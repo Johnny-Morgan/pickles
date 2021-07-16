@@ -153,6 +153,10 @@ select {
     overflow-y: auto;
 }
 
+.checked {
+    color: #FF9900;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
