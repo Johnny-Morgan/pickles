@@ -21,3 +21,9 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ['name', 'email', 'review', 'rating']
+        labels = {
+            'name': 'Your Name',
+            'email': 'Your Email',
+            'review': 'Your Review',
+            'rating': 'Your Rating',
+        }
