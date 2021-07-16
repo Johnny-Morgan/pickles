@@ -4,7 +4,7 @@ from .forms import ProductForm
 
 class TestProductForm(TestCase):
 
-    def test_item_name_is_required(self):
+    def test_product_name_is_required(self):
         form = ProductForm({
             'name': '',
             'description': 'description',
@@ -14,7 +14,7 @@ class TestProductForm(TestCase):
         self.assertIn('name', form.errors.keys())
         self.assertEqual(form.errors['name'][0], 'This field is required.')
 
-    def test_item_description_is_required(self):
+    def test_product_description_is_required(self):
         form = ProductForm({
             'name': 'name',
             'description': '',
@@ -25,7 +25,7 @@ class TestProductForm(TestCase):
         self.assertEqual(form.errors
                          ['description'][0], 'This field is required.')
 
-    def test_item_price_is_required(self):
+    def test_product_price_is_required(self):
         form = ProductForm({
             'name': 'name',
             'description': 'description',
@@ -35,7 +35,7 @@ class TestProductForm(TestCase):
         self.assertIn('price', form.errors.keys())
         self.assertEqual(form.errors['price'][0], 'This field is required.')
 
-    def test_item_price_is_6_digits_or_less(self):
+    def test_product_price_is_6_digits_or_less(self):
         form = ProductForm({
             'name': 'name',
             'description': 'description',
