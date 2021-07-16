@@ -3,6 +3,8 @@ from django.conf import settings
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.core.paginator import Paginator
+
 from .models import Product, Category, Review
 from .forms import ReviewForm
 
@@ -66,6 +68,10 @@ def product_info(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id).order_by('-id')
 
+    paginator = Paginator(reviews, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     if request.method == 'POST':
         review_form = ReviewForm(request.POST)
 
@@ -84,6 +90,7 @@ def product_info(request, product_id):
         'discount_percentage': settings.DISCOUNT_PERCENTAGE,
         'reviews': reviews,
         'review_form': review_form,
+        'page_obj': page_obj,
     }
 
     return render(request, 'products/product_info.html', context)
