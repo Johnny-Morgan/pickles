@@ -74,7 +74,7 @@ def product_info(request, product_id):
             review.product = product
             review.save()
 
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('product_info', args=[product.id]))
 
     else:
         review_form = ReviewForm()
