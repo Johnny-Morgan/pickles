@@ -195,6 +195,15 @@ select {
     color: #FF9900;
 }
 
+.step-links a {
+    color: var(--green);
+}
+
+.step-links a:hover {
+    color: var(--dark-green);
+    text-decoration: none;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
