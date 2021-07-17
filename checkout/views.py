@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
+from .models import OrderLineItem
+from products.models import Product
 from basket.contexts import basket_contents
 
 import stripe
@@ -29,8 +31,31 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order_form.save()
+            order = order_form.save()
+            for item_id, item_data in basket.items():
+                try:
+                    product = Product.objects.get(id=item_id)
+                    order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                    order_line_item.save()
 
+                except Product.DoesNotExist:
+                    messages.error(request, (
+                        'One of the products in your bag wasn\'t found in our database. \
+                        Please call us for assistance!')
+                    )
+                    order.delete()
+                    return redirect(reverse('view_basket'))
+
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please double check your information.')
     else:
         basket = request.session.get('basket', {})
         if not basket:
