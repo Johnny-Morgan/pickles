@@ -12,21 +12,41 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    basket = request.session.get('basket', {})
-    if not basket:
-        messages.error(request, "Your basket is empty at the moment")
-        return redirect(reverse('products'))
+    if request.method == 'POST':
+        basket = request.session.get('basket', {})
 
-    current_basket = basket_contents(request)
-    total = current_basket['total']
-    stripe_total = round(total * 100)
-    stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY
-    )
+        form_data = {
+            'first_name': request.POST['first_name'],
+            'last_name': request.POST['last_name'],
+            'email': request.POST['email'],
+            'mobile_number': request.POST['mobile_number'],
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'town_or_city': request.POST['town_or_city'],
+            'postcode': request.POST['postcode'],
+            'county': request.POST['county'],
+            'country': request.POST['country'],
+        }
+        order_form = OrderForm(form_data)
+        if order_form.is_valid():
+            order_form.save()
 
-    order_form = OrderForm()
+    else:
+        basket = request.session.get('basket', {})
+        if not basket:
+            messages.error(request, "Your basket is empty at the moment")
+            return redirect(reverse('products'))
+
+        current_basket = basket_contents(request)
+        total = current_basket['total']
+        stripe_total = round(total * 100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY
+        )
+
+        order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
