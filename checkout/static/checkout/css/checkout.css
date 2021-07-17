@@ -29,3 +29,13 @@
 #card-element {
     border-color: var(--dark-green);
 }
+
+.order-confirmation-wrapper {
+    border: 2px solid var(--green) !important;
+
+}
+
+.order-confirmation-wrapper hr {
+    height: 1px;
+    background-color: var(--green);
+}
