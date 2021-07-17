@@ -22,6 +22,10 @@ body {
     color: var(--yellow);
 }
 
+.orange-text {
+    color: var(--orange);
+}
+
 .green-text {
     color: var(--green);
 }
