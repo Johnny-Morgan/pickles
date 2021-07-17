@@ -81,7 +81,7 @@
                                     {% if product.on_sale %}
                                     <div class="mb-1 text-left">
                                         <s class="text-muted">€{{ product.price }}</s>
-                                        <span class="text-danger font-weight-bold">{{ discount_percentage }}%
+                                        <span class="orange-text font-weight-bold">{{ discount_percentage }}%
                                             off!</span>
                                         <p class="lead font-weight-bold">
                                             €{{ product.price | calc_discounted_price:discount_percentage|floatformat:2 }}

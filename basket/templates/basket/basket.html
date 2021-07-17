@@ -44,7 +44,7 @@
                         </td>
                         <td class="py-3">
                             {% if item.product.on_sale %}
-                            <p class="my-0"><strong>{{ item.product.name }}<span class="text-danger">
+                            <p class="my-0"><strong>{{ item.product.name }}<span class="orange-text">
                                         ({{ discount_percentage}}%
                                         off!)</span></strong></p>
                             {% else %}
@@ -96,7 +96,7 @@
                             <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
                             <h4 class="mt-4"><strong>Order Total: €{{ order_total|floatformat:2 }}</strong></h4>
                             {% if free_delivery_delta > 0 %}
-                            <p class="mb-1 text-danger">
+                            <p class="mb-1 orange-text">
                                 Get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
                             </p>
                             {% endif %}
