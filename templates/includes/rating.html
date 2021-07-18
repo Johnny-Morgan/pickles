@@ -1,0 +1,41 @@
+{% if rating < 1.75 %}
+<div>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star mr-1"></span> {{ rating | floatformat:2}} / 5
+</div>
+{% elif rating < 2.75 %}
+<div>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star mr-1"></span> {{ rating | floatformat:2}} / 5
+</div>
+{% elif rating < 3.75 %}
+<div>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star mr-1"></span> {{ rating | floatformat:2}} / 5
+</div>
+{% elif rating < 4.75 %}
+<div>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star mr-1"></span> {{ rating | floatformat:2}} / 5
+</div>
+{% else %}
+<div>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked mr-1"></span> {{ rating | floatformat:2}} / 5
+</div>
+{% endif %}
