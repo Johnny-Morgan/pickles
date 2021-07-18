@@ -72,8 +72,8 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
-                    first_name__iexact=shipping_details.name.split(' ')[0],
-                    last_name__iexact=shipping_details.name.split(' ')[1],
+                    first_name=shipping_details.name.split(' ')[0],
+                    last_name=shipping_details.name.split(' ')[1],
                     email=billing_details.email,
                     mobile_number=shipping_details.phone,
                     country=shipping_details.address.country,
