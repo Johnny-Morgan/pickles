@@ -30,7 +30,8 @@
             <div class="order-confirmation-wrapper p-2 border rounded">
                 <div class="row">
                     <div class="col">
-                        <p class="font-weight-bold green-text my-1">Order Info:</p>
+                        <p class="font-weight-bold green-text my-1"> <i class="fas fa-info-circle mr-2"></i> Order Info:
+                        </p>
                     </div>
                 </div>
 
@@ -56,7 +57,9 @@
 
                 <div class="row">
                     <div class="col">
-                        <p class="font-weight-bold green-text my-1">Order Details:</p>
+                        <p class="font-weight-bold green-text my-1"><i class="fas fa-receipt mr-2"></i> Order
+                            Details:
+                        </p>
                     </div>
                 </div>
 
@@ -65,7 +68,7 @@
                     <div class="col-12 col-md-6">
                         <p class="small mb-0 text-black font-weight-bold">
                             {{ item.product.name }}
-                            <span class="text-danger">{% if item.product.on_sale %} ({{ discount_percentage }}%
+                            <span class="orange-text">{% if item.product.on_sale %} ({{ discount_percentage }}%
                                 off!){% endif %}</span>
                         </p>
                     </div>
@@ -80,7 +83,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <p class="font-weight-bold green-text my-1">Delivering To:</p>
+                        <p class="font-weight-bold green-text my-1"><i class="fas fa-truck mr-2"></i> Delivering To:</p>
                     </div>
                 </div>
 
@@ -166,7 +169,8 @@
 
                 <div class="row">
                     <div class="col">
-                        <p class="font-weight-bold green-text my-1">Billing Info:</p>
+                        <p class="font-weight-bold green-text my-1"><i class="far fa-credit-card mr-2"></i> Billing
+                            Info:</p>
                     </div>
                 </div>
 
