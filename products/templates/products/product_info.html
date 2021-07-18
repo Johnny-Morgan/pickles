@@ -47,7 +47,7 @@
                 <p class="lead mb-1 text-left font-weight-bold">€{{ product.price }}</p>
                 {% endif %}
                 {% if rating %}
-                <small class="text-muted"><i class="fas fa-star mr-2"></i>{{ rating | floatformat:2}} / 5</small>
+                <small class="text-muted">{% include 'includes/rating.html' %}</small>
                 {% endif %}
                 {% if product.category %}
                 <p class="small mt-1 mb-0">
