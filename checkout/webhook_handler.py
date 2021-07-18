@@ -4,6 +4,7 @@ from .models import Order, OrderLineItem
 from products.models import Product
 
 import json
+import time
 
 
 class StripeWH_Handler:
@@ -43,7 +44,8 @@ class StripeWH_Handler:
         while attempt <= 5:
             try:
                 order = Order.objects.get(
-                    full_name__iexact=shipping_details.name,
+                    first_name__iexact=shipping_details.name.split(' ')[0],
+                    last_name__iexact=shipping_details.name.split(' ')[1],
                     email__iexact=billing_details.email,
                     mobile_number__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,
@@ -53,6 +55,8 @@ class StripeWH_Handler:
                     street_address2__iexact=shipping_details.address.line2,
                     county__iexact=shipping_details.address.state,
                     grand_total=grand_total,
+                    original_basket=basket,
+                    stripe_pid=pid,
                 )
                 order_exists = True
                 break
@@ -68,15 +72,18 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
-                    full_name=shipping_details.name,
+                    first_name__iexact=shipping_details.name.split(' ')[0],
+                    last_name__iexact=shipping_details.name.split(' ')[1],
                     email=billing_details.email,
-                    mobile_numbert=shipping_details.phone,
+                    mobile_number=shipping_details.phone,
                     country=shipping_details.address.country,
                     postcode=shipping_details.address.postal_code,
                     town_or_city=shipping_details.address.city,
                     street_address1=shipping_details.address.line1,
                     street_address2=shipping_details.address.line2,
                     county=shipping_details.address.state,
+                    original_basket=basket,
+                    stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(basket).items():
                     product = Product.objects.get(id=item_id)
