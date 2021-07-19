@@ -114,6 +114,10 @@
                                             <div class="col-12">
                                                 <input type="submit" class="btn btn-green text-uppercase mt-3"
                                                     value="Add to Basket">
+                                                <a class="btn btn-dark-green ml-2 mt-3"
+                                                    href="{% url 'product_info' product.id %}">
+                                                    <i class="fas fa-info-circle"></i>
+                                                </a>
                                             </div>
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                         </div>
