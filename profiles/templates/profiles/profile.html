@@ -49,7 +49,7 @@
                         dsd
                         <tr>
                             <td>
-                                <a href="" title="{{ order.order_number }}">
+                                <a href="{% url 'order_history' order.order_number %" title="{{ order.order_number }}">
                                     {{ order.order_number|truncatechars:6 }}
                                 </a>
                             </td>
@@ -57,11 +57,11 @@
                             <td>
                                 <ul class="list-unstyled">
                                     {% for item in order.lineitems.all %}
-                                    <li class="small">
-                                        {{ item.product.name }} x{{ item.quantity }}
+                                    <li class=" small">
+                                    {{ item.product.name }} x{{ item.quantity }}
                                     </li>
                                     {% endfor %}
-                                </ul>
+                                    </ul>
                             </td>
                             <td>€{{ order.grand_total }}</td>
                         </tr>
