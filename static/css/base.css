@@ -252,3 +252,10 @@ body {
         height: calc(100vh - 116px);
     }
 }
+
+@media (max-width: 342px) {
+    .product-info-buttons .btn {
+        width: 50%;
+        font-size: 85%;
+    }
+}

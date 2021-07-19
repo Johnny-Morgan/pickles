@@ -110,9 +110,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <a href="{% url 'products' %}" class="btn btn-outline-green mt-3">
-                                <span class="icon">
+                        <div class="col-12 product-info-buttons">
+                            <a href="{% url 'products' %}" class="btn btn-outline-green mt-3 mr-2">
+                                <span>
                                     <i class="fas fa-arrow-alt-circle-left mr-1"></i>
                                 </span>
                                 <span class="text-uppercase">Back to Shop</span>
@@ -129,7 +129,7 @@
                                 <button class="btn btn-accordion" data-toggle="collapse" data-target="#collapseOne"
                                     aria-expanded="true" aria-controls="collapseOne">
                                     Free Delivery on orders over €{{ free_delivery_threshold }}
-                                    <span class="icon">
+                                    <span>
                                         <i class="fas fa-chevron-down ml-5"></i>
                                     </span>
                                 </button>
@@ -167,7 +167,7 @@
                                 <button class="btn btn-accordion" data-toggle="collapse" data-target="#collapseTwo"
                                     aria-expanded="false" aria-controls="collapseTwo">
                                     Free Returns
-                                    <span class="icon">
+                                    <span>
                                         <i class="fas fa-chevron-down ml-5"></i>
                                     </span>
                                 </button>
