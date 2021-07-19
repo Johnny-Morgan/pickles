@@ -41,6 +41,8 @@ class TestPostForm(TestCase):
             'body': 'body',
             })
         self.assertFalse(form.is_valid())
+        self.assertIn('body', form.errors.keys())
+        self.assertEqual(form.errors['body'][0], 'Ensure this value has at least 15 characters (it has 4).')
 
     def test_tags_field_is_not_required(self):
         form = PostForm({
