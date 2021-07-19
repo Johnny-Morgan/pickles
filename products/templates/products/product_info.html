@@ -67,8 +67,8 @@
                         data-placement="top" title="Edit Product">
                         <i class="far fa-edit"></i>
                     </a>
-                    <a class="btn btn-danger ml-2" href="" data-toggle="tooltip" data-placement="top"
-                        title="Delete Product">
+                    <a class="btn btn-danger ml-2" href="{% url 'delete_product' product.id %}" data-toggle="tooltip"
+                        data-placement="top" title="Delete Product">
                         <i class="far fa-trash-alt"></i>
                     </a>
                     {% endif %}
