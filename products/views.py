@@ -148,7 +148,11 @@ def edit_product(request, product_id):
 
 def delete_product(request, product_id):
     """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permission to \
+            delete a product.')
+        return redirect(reverse('products'))
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.success(request, 'Product deleted!')
+    messages.success(request, 'Product successfully deleted!')
     return redirect(reverse('products'))
