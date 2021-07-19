@@ -208,6 +208,11 @@ select {
     text-decoration: none;
 }
 
+/* Allauth form */
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
