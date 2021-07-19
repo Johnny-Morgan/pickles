@@ -1,4 +1,3 @@
-/* TEST CSS */
-* {
-    color: red;
+#profile-update-form .form-control {
+    border-color: var(--dark-green);
 }
