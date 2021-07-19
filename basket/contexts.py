@@ -50,6 +50,7 @@ def basket_contents(request):
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'order_total': order_total,
         'delivery_charge': settings.DELIVERY_COST,
+        'discount_percentage': settings.DISCOUNT_PERCENTAGE,
     }
 
     return context
