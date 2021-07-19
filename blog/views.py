@@ -21,7 +21,12 @@ def blog(request):
             post.slug = slugify(post.title)
             post.author = str(request.user)
             post.save()
+            messages.success(request, f'Blog post "{post.title}" \
+                             successfully added!')
             return redirect('blog')
+        else:
+            messages.error(request, 'Failed to add blog post. \
+                           Please ensure the form is valid.')
     else:
         form = PostForm()
 
@@ -41,7 +46,7 @@ def post(request, slug):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-
+            messages.success(request, 'Comment successfully added!')
             return redirect('post', slug=post.slug)
     else:
         form = CommentForm()
@@ -64,6 +69,7 @@ def delete_comment(request, comment_id):
 
     comment = get_object_or_404(Comment, pk=comment_id)
     comment.delete()
+    messages.success(request, 'Comment successfully deleted.')
 
     return redirect(reverse('blog'))
 
