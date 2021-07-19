@@ -63,14 +63,17 @@
                 <p class="mt-3">{{ product.description }}</p>
                 <div class="mt-4">
                     {% if request.user.is_superuser %}
-                    <a class="btn btn-info" href="{% url 'edit_product' product.id %}" data-toggle="tooltip"
-                        data-placement="top" title="Edit Product">
+                    <a class="btn btn-outline-info mr-2" href="{% url 'edit_product' product.id %}"
+                        data-toggle="tooltip" data-placement="top" title="Edit Product">
                         <i class="far fa-edit"></i>
                     </a>
                     <!-- Button trigger delete product modal -->
-                    <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#deleteProduct">
-                        <i class="far fa-trash-alt"></i>
-                    </button>
+                    <span data-toggle="modal" data-target="#deleteProduct">
+                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top"
+                            title="Delete Product">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </span>
 
                     <!-- Modal -->
                     <div class="modal fade" id="deleteProduct" tabindex="-1" role="dialog"
@@ -79,7 +82,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="deleteProductModal">Delete
-                                        Product</h5>
+                                        {{ product.name }}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
