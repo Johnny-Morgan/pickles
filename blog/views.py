@@ -107,5 +107,7 @@ def delete_post(request, post_id):
 
     post = get_object_or_404(Post, pk=post_id)
     post.delete()
+    messages.success(request, f'Blog post "{post.title}" \
+                     has been deleted.')
 
     return redirect(reverse('blog'))
