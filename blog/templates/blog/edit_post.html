@@ -26,7 +26,10 @@
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <button class="btn btn-green mb-5" type="submit">Edit Post</button>
+                <div class="text-right mb-3">
+                    <a class="btn btn-outline-green" href="{% url 'blog' %}">Cancel</a>
+                    <button class="btn btn-green" type="submit">Edit Post</button>
+                </div>
             </form>
         </div>
     </div>
