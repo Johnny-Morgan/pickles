@@ -114,18 +114,6 @@
                                             <div class="col-12">
                                                 <input type="submit" class="btn btn-green text-uppercase mt-3"
                                                     value="Add to Basket">
-                                                {% if request.user.is_superuser %}
-                                                <a class="btn btn-info ml-2 mt-3"
-                                                    href="{% url 'edit_product' product.id %}" data-toggle="tooltip"
-                                                    data-placement="top" title="Edit Product">
-                                                    <i class="far fa-edit"></i>
-                                                </a>
-                                                <a class="btn btn-danger ml-2 mt-3"
-                                                    href="{% url 'delete_product' product.id %}" data-toggle="tooltip"
-                                                    data-placement="top" title="Delete Product">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </a>
-                                                {% endif %}
                                             </div>
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                         </div>
