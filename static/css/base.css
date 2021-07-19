@@ -84,6 +84,7 @@ body {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
+    color: var(--dark-green);
 }
 
 .back-to-top-link {
