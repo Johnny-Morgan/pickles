@@ -47,6 +47,18 @@ class TestProductForm(TestCase):
                     form.errors['price'][0],
                     'Ensure that there are no more than 6 digits in total.')
 
+    def test_product_price_has_no_more_than_4_digits_before_decimal(self):
+        form = ProductForm({
+            'name': 'name',
+            'description': 'description',
+            'price': 12345.00,
+            })
+        self.assertFalse(form.is_valid())
+        self.assertIn('price', form.errors.keys())
+        self.assertEqual(
+                    form.errors['price'][0],
+                    'Ensure that there are no more than 4 digits before the decimal point.')
+
     def test_sku_field_is_not_required(self):
         form = ProductForm({
             'name': 'name',
