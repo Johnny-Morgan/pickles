@@ -125,9 +125,15 @@
             </div>
         </div>
         {% else %}
-        <p class="lead mb-5">Your shopping basket is empty.</p>
-        <a href="{% url 'products' %}" class="btn btn-lg btn-success text-uppercase py-3">Shop
-            Now</a>
+        <div>
+            <p class="lead">Your shopping basket is empty.</p>
+            <a href="{% url 'products' %}" class="btn btn-green">
+                <span>
+                    <i class="fas fa-arrow-alt-circle-left mr-1"></i>
+                </span>
+                <span class="text-uppercase">Back to Shop</span>
+            </a>
+        </div>
         {% endif %}
     </div>
 </div>
