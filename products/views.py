@@ -6,7 +6,7 @@ from django.db.models.functions import Lower
 from django.core.paginator import Paginator
 
 from .models import Product, Category, Review
-from .forms import ReviewForm
+from .forms import ProductForm, ReviewForm
 
 
 def all_products(request):
@@ -97,3 +97,14 @@ def product_info(request, product_id):
     }
 
     return render(request, 'products/product_info.html', context)
+
+
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
