@@ -83,9 +83,15 @@ def edit_post(request, slug):
             form.save()
             post.slug = slugify(post.title)
             post.save()
+            messages.success(request, f'Blog post "{post.title}" \
+                             successfully updated!')
             return redirect(reverse('post', args=[post.slug]))
+        else:
+            messages.error(request, 'Failed to update blog post. \
+                           Please ensure the form is valid.')
     else:
         form = PostForm(instance=post)
+        messages.info(request, f'You are editing the blog post "{post.title}"')
     context = {'post': post, 'form': form}
 
     return render(request, 'blog/edit_post.html', context)
