@@ -4,7 +4,7 @@ from .forms import PostForm, CommentForm
 
 class TestPostForm(TestCase):
 
-    def test_item_title_is_required(self):
+    def test_blog_title_is_required(self):
         form = PostForm({
             'title': '',
             'intro': 'intro',
@@ -14,7 +14,7 @@ class TestPostForm(TestCase):
         self.assertIn('title', form.errors.keys())
         self.assertEqual(form.errors['title'][0], 'This field is required.')
 
-    def test_item_intro_is_required(self):
+    def test_blog_intro_is_required(self):
         form = PostForm({
             'title': 'title',
             'intro': '',
@@ -24,7 +24,7 @@ class TestPostForm(TestCase):
         self.assertIn('intro', form.errors.keys())
         self.assertEqual(form.errors['intro'][0], 'This field is required.')
 
-    def test_item_body_is_required(self):
+    def test_blog_body_is_required(self):
         form = PostForm({
             'title': 'title',
             'intro': 'intro',
@@ -34,7 +34,7 @@ class TestPostForm(TestCase):
         self.assertIn('body', form.errors.keys())
         self.assertEqual(form.errors['body'][0], 'This field is required.')
 
-    def test_item_body_is_at_least_15_characters(self):
+    def test_blog_body_is_at_least_15_characters(self):
         form = PostForm({
             'title': 'title',
             'intro': 'intro',
@@ -59,7 +59,7 @@ class TestPostForm(TestCase):
 
 class TestCommentForm(TestCase):
 
-    def test_item_name_is_required(self):
+    def test_comment_name_is_required(self):
         form = CommentForm({
             'name': '',
             'email': 'email@email.com',
@@ -69,7 +69,7 @@ class TestCommentForm(TestCase):
         self.assertIn('name', form.errors.keys())
         self.assertEqual(form.errors['name'][0], 'This field is required.')
 
-    def test_item_email_is_required(self):
+    def test_comment_email_is_required(self):
         form = CommentForm({
             'name': 'name',
             'email': '',
@@ -79,7 +79,7 @@ class TestCommentForm(TestCase):
         self.assertIn('email', form.errors.keys())
         self.assertEqual(form.errors['email'][0], 'This field is required.')
 
-    def test_item_body_is_required(self):
+    def test_comment_body_is_required(self):
         form = CommentForm({
             'name': 'name',
             'email': 'email@email.com',
@@ -89,7 +89,7 @@ class TestCommentForm(TestCase):
         self.assertIn('body', form.errors.keys())
         self.assertEqual(form.errors['body'][0], 'This field is required.')
 
-    def test_item_email_is_valid(self):
+    def test_comment_email_is_valid(self):
         form = CommentForm({
             'name': 'name',
             'email': 'email',
