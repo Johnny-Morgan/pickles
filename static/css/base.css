@@ -251,11 +251,19 @@ body {
     body {
         height: calc(100vh - 116px);
     }
+
+    .card-img-top {
+        height: 200px;
+    }
 }
 
 @media (max-width: 342px) {
     .product-info-buttons .btn {
         width: 50%;
         font-size: 85%;
+    }
+
+    .card-img-top {
+        height: 150px;
     }
 }
