@@ -69,10 +69,6 @@ def product_info(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id).order_by('-id')
-    
-    rating = None
-    rating = Review.objects.filter(product=product_id).aggregate(
-        Avg('rating'))['rating__avg']
 
     paginator = Paginator(reviews, 5)
     page_number = request.GET.get('page')
@@ -97,7 +93,7 @@ def product_info(request, product_id):
         'reviews': reviews,
         'review_form': review_form,
         'page_obj': page_obj,
-        'rating': rating,
+        
     }
 
     return render(request, 'products/product_info.html', context)
