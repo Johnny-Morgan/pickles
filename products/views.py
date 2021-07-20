@@ -104,6 +104,11 @@ def product_info(request, product_id):
 @login_required
 def add_product(request):
     """ Add a product to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permission to \
+            add a new product.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -127,6 +132,11 @@ def add_product(request):
 @login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permission to \
+            edit a product.')
+        return redirect(reverse('home'))
+
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -156,7 +166,7 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, you do not have permission to \
             delete a product.')
-        return redirect(reverse('products'))
+        return redirect(reverse('home'))
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product successfully deleted!')
