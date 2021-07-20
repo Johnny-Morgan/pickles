@@ -218,6 +218,10 @@ body {
     display: none;
 }
 
+.img-blog {
+    height: 250px;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -264,6 +268,10 @@ body {
     }
 
     .card-img-top {
+        height: 150px;
+    }
+
+    .img-blog {
         height: 150px;
     }
 }
