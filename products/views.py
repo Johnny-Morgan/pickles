@@ -69,6 +69,8 @@ def product_info(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id).order_by('-id')
+    
+    rating = None
     rating = Review.objects.filter(product=product_id).aggregate(
         Avg('rating'))['rating__avg']
 
