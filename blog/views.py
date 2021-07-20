@@ -32,7 +32,11 @@ def blog(request):
     else:
         form = PostForm()
 
-    context = {'posts': posts, 'form': form, 'page_obj': page_obj}
+    context = {'posts': posts,
+               'form': form,
+               'page_obj': page_obj,
+               'on_blog_page': True,
+               }
     return render(request, 'blog/blog.html', context)
 
 
@@ -56,7 +60,9 @@ def post(request, slug):
     context = {
         'post': post,
         'comments': comments,
-        'form': form
+        'form': form,
+        'on_blog_post_page': True,
+
     }
     return render(request, 'blog/post.html', context)
 
