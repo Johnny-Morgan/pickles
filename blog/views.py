@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.utils.text import slugify
 from django.core.paginator import Paginator
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 
@@ -59,6 +61,7 @@ def post(request, slug):
     return render(request, 'blog/post.html', context)
 
 
+@login_required
 def delete_comment(request, comment_id):
     """ Delete a comment from a blog post """
 
@@ -74,6 +77,7 @@ def delete_comment(request, comment_id):
     return redirect(reverse('blog'))
 
 
+@login_required
 def edit_post(request, slug):
     """ View to edit a blog post """
     post = Post.objects.get(slug=slug)
@@ -103,9 +107,9 @@ def edit_post(request, slug):
     return render(request, 'blog/edit_post.html', context)
 
 
+@login_required
 def delete_post(request, post_id):
     """ View to delete a blog post """
-
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, you do not have permission to \
             delete a blog post.')
