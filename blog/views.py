@@ -68,6 +68,8 @@ def delete_comment(request, comment_id):
 @login_required
 def add_post(request):
     """ Add a blog post to the blog page """
+    slugs = list(Post.objects.all().values_list('slug', flat=True))
+
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, you do not have permission to \
             add a blog post.')
@@ -77,13 +79,17 @@ def add_post(request):
         form = PostForm(request.POST, request.FILES)
 
         if form.is_valid():
-            post = form.save()
-            post.slug = slugify(post.title)
+            post = form.save(commit=False)
             post.author = str(request.user)
-            post.save()
-            messages.success(request, f'Blog post "{post.title}" \
-                            successfully added!')
-            return redirect('blog')
+            post.slug = slugify(post.title)
+            if post.slug in slugs:
+                messages.error(request, 'A blog post with that title \
+                    already exists, please enter a different title.')  
+            else:
+                post.save()
+                messages.success(request, f'Blog post "{post.title}" \
+                                successfully added!')
+                return redirect('blog')
         else:
             messages.error(request, 'Failed to add blog post. \
                         Please ensure the form is valid.')
