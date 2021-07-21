@@ -119,7 +119,6 @@ def edit_post(request, slug):
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = str(request.user)
             post.slug = slugify(post.title)
             if post.slug in slugs:
                 messages.error(request, 'A blog post with that title \
