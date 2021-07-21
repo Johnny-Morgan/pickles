@@ -74,8 +74,11 @@ def product_info(request, product_id):
     sum_ratings = 0
     for rating in ratings:
         sum_ratings += float(rating.rating)
-    avg_rating = sum_ratings / len(ratings)
-
+    if sum_ratings != 0: 
+        avg_rating = sum_ratings / len(ratings)
+    else:
+        avg_rating = None
+        
     paginator = Paginator(reviews, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
