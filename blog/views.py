@@ -15,25 +15,7 @@ def blog(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
-
-        if form.is_valid():
-            post = form.save()
-            post.slug = slugify(post.title)
-            post.author = str(request.user)
-            post.save()
-            messages.success(request, f'Blog post "{post.title}" \
-                             successfully added!')
-            return redirect('blog')
-        else:
-            messages.error(request, 'Failed to add blog post. \
-                           Please ensure the form is valid.')
-    else:
-        form = PostForm()
-
     context = {'posts': posts,
-               'form': form,
                'page_obj': page_obj,
                'on_blog_page': True,
                }
@@ -81,6 +63,39 @@ def delete_comment(request, comment_id):
     messages.success(request, 'Comment successfully deleted.')
 
     return redirect(reverse('blog'))
+
+
+@login_required
+def add_post(request):
+    """ Add a blog post to the blog page """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permission to \
+            add a blog post.')
+        return redirect(reverse('blog'))
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            post = form.save()
+            post.slug = slugify(post.title)
+            post.author = str(request.user)
+            post.save()
+            messages.success(request, f'Blog post "{post.title}" \
+                            successfully added!')
+            return redirect('blog')
+        else:
+            messages.error(request, 'Failed to add blog post. \
+                        Please ensure the form is valid.')
+    else:
+        form = PostForm()
+
+    template = 'blog/add_post.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
 
 
 @login_required
