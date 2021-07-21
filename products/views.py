@@ -172,3 +172,20 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product successfully deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def delete_review(request, review_id):
+    """ Delete a review from the product page """
+
+    review = get_object_or_404(Review, pk=review_id)
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permssion \
+            to delete a review.')
+        return redirect(reverse('product_info', args=[review.product.id]))
+
+    review.delete()
+    messages.success(request, 'Review successfully deleted.')
+
+    return redirect(reverse('product_info', args=[review.product.id]))
