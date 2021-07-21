@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q, Avg
-from django.db.models.functions import Lower
+from django.db.models import Q, Avg, FloatField
+from django.db.models.functions import Lower, Cast
 from django.core.paginator import Paginator
 
 from .models import Product, Category, Review
@@ -70,8 +70,9 @@ def product_info(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id).order_by('-id')
 
-    rating = Review.objects.filter(product=product_id).aggregate(
-        Avg('rating'))['rating__avg']
+    rating = Review.objects.filter(product=product_id).annotate(
+        rating_float=Cast('rating', FloatField())).aggregate(Avg(
+            'rating'))['rating__avg']
 
     paginator = Paginator(reviews, 5)
     page_number = request.GET.get('page')
