@@ -12,7 +12,7 @@ body {
 :root {
     --dark-green: #416a59;
     --green: #73a24e;
-    --yellow: #f1db7d;
+    --yellow: #fff7d3;
     --orange: #fb8b2e;
     --red: #80202b;
 }
@@ -66,6 +66,10 @@ body {
 
 .bg-green {
     background: var(--green);
+}
+
+.bg-yellow {
+    background: var(--yellow);
 }
 
 .overlay {
