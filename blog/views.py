@@ -108,7 +108,8 @@ def add_post(request):
 def edit_post(request, slug):
     """ View to edit a blog post """
     post = Post.objects.get(slug=slug)
-
+    slugs = list(Post.objects.all().values_list('slug', flat=True))
+    slugs.remove(post.slug)
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, you do not have permission to \
             edit a blog post.')
@@ -117,12 +118,17 @@ def edit_post(request, slug):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.author = str(request.user)
             post.slug = slugify(post.title)
-            post.save()
-            messages.success(request, f'Blog post "{post.title}" \
+            if post.slug in slugs:
+                messages.error(request, 'A blog post with that title \
+                    already exists, please enter a different title.')
+            else:
+                post.save()
+                messages.success(request, f'Blog post "{post.title}" \
                              successfully updated!')
-            return redirect(reverse('post', args=[post.slug]))
+                return redirect(reverse('post', args=[post.slug]))
         else:
             messages.error(request, 'Failed to update blog post. \
                            Please ensure the form is valid.')
