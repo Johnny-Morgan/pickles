@@ -23,64 +23,108 @@
     </div>
     <!-- Shopping basket contents -->
     <div class="row">
-        {% if basket_items %}
-        <div class="col-12 col-md-9">
-            <div class="table-responsive rounded">
-                <table class="table table-sm table-borderless">
-                    <thead>
-                        <tr>
-                            <th scope="col">Product</th>
-                            <th scope="col"></th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Qty</th>
-                            <th scope="col">Subtotal</th>
-                        </tr>
-                    </thead>
-
-                    {% for item in basket_items %}
-                    <tr>
-                        <td class="p-3 w-25">
-                            {% include 'basket/product-image.html' %}
-                        </td>
-                        <td class="py-3">
-                            {% include 'basket/product-info.html' %}
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0">€{{ item.price  }}</p>
-                        </td>
-                        <td class="py-3 w-25">
-                            {% include 'basket/quantity-form.html' %}
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0">
-                                €{{ item.price | calc_subtotal:item.quantity }}
-                            </p>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </table>
+        <div class="col">
+            {% if basket_items %}
+            <div class="d-block d-md-none">
+                <div class="row">
+                    <div class="col">
+                        {% include 'basket/basket-total.html' %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {% include 'basket/basket-buttons.html' %}
+                        <div class="text-muted my-3">A summary of your basket contents is below</div>
+                    </div>
+                </div>
+                {% for item in basket_items %}
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-2">
+                        {% include 'basket/product-image.html' %}
+                    </div>
+                    <div class="col-12 col-sm-6 mb-2">
+                        {% include 'basket/product-info.html' %}
+                    </div>
+                    <div class="col-12 col-sm-6 order-sm-last">
+                        <p class="my-0">
+                            <p class="my-0">Price Each: €{{ item.price  }}</p>
+                            <p><strong>Subtotal: </strong>€{{ item.price | calc_subtotal:item.quantity }}</p>
+                        </p>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        {% include 'basket/quantity-form.html' %}
+                    </div>
+                </div>
+                {% if not forloop.last %}
+                <div class="row my-2">
+                    <div class="col">
+                        <hr>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
-        <div class="col-12 col-md-3 summary-box">
-            <div class="table-responsive rounded">
-                <table class="table table-sm table-borderless">
-                    <thead>
+        <div class="row">
+            <div class="col-12 col-md-9">
+                <div class="table-responsive rounded d-none d-md-block">
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col"></th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+                        {% for item in basket_items %}
                         <tr>
-                            <h3 scope="col" class="text-center mt-3">Summary</h3>
+                            <td class="p-3 w-25">
+                                {% include 'basket/product-image.html' %}
+                            </td>
+                            <td class="py-3">
+                                {% include 'basket/product-info.html' %}
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">€{{ item.price  }}</p>
+                            </td>
+                            <td class="w-25">
+                                {% include 'basket/quantity-form.html' %}
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">
+                                    €{{ item.price | calc_subtotal:item.quantity }}
+                                </p>
+                            </td>
                         </tr>
-                    </thead>
-                    <tr>
-                        <td class="pt-3 text-right">
-                            {% include 'basket/basket-total.html' %}
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-right">
-                            {% include 'basket/basket-buttons.html' %}
-                        </td>
-                    </tr>
-                </table>
+
+
+            <div class="col-12 col-md-3 summary-box d-none d-md-block">
+                <div class="table-responsive rounded">
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <h3 scope="col" class="text-center mt-3">Summary</h3>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td class="pt-3 text-right">
+                                {% include 'basket/basket-total.html' %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">
+                                {% include 'basket/basket-buttons.html' %}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
         {% else %}
