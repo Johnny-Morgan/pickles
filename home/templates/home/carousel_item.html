@@ -1,35 +1,36 @@
 {% load products_tools %}
 
-<div class="col-12 col-md-4">
-    <div class="card product-card h-100 border-0">
+<div class="col-12 col-md-4 mb-5">
+    <div class="card product-card h-100">
         <a href="{% url 'product_info' item.id %}">
             <img class="card-img-top img-fluid" src="{{ item.image.url }}" alt="{{ item.name }}">
         </a>
         <div class="card-body">
-            <p class="lead mb-0">{{ item.name }}</p>
+            <p class="lead mb-0 text-center">{{ item.name }}</p>
         </div>
         <div class="card-footer bg-white pt-0 border-0 text-left">
             <div class="row">
                 <div class="col">
                     {% if item.on_sale %}
-                    <div class="mb-1 text-left">
+                    <div class="mb-1 text-center">
                         <span>
                             <s class="text-muted">€{{ item.price }}</s>
                             €{{ item.price | calc_discounted_price:discount_percentage | floatformat:2 }}
                         </span>
                     </div>
                     {% else %}
-                    <p class="lead mb-1 text-left font-weight-bold">
+                    <p class="lead mb-1 text-center font-weight-bold">
                         €{{ item.price|floatformat:2 }}
                     </p>
                     {% endif %}
-                    <form class="form" action="{% url 'add_product_to_basket' item.id %}" method="POST">
+                    <form class="form" id="add-to-basket" action="{% url 'add_product_to_basket' item.id %}"
+                        method="POST">
                         {% csrf_token %}
-                        <div class="form-row">
+                        <div class="form-row mb-3 text-center">
                             <input class="form-control qty_input" type="hidden" name="quantity" value="1"
                                 data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
                             <div class="col-12">
-                                <input type="submit" class="btn btn-green text-uppercase mt-3" value="Add to Basket">
+                                <input type="submit" class="btn btn-green text-uppercase mt-3" value="&#xf291;">
                                 <a class="btn btn-dark-green ml-2 mt-3" href="{% url 'product_info' item.id %}">
                                     <i class="fas fa-info-circle"></i>
                                 </a>
