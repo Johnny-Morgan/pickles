@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load products_tools %}
+
 
 {% block header %}
 <div class="container header-container">
@@ -10,19 +12,145 @@
 {% endblock %}
 
 {% block content %}
-<div class="container h-100">
-    <div class="row h-100">
-        <div class="col-7 col-md-6 my-auto">
-            <h1 class="yellow-text text-shadow text-uppercase display-4">
-                Get planting for the Summer!
-            </h1>
-            <div>
-                <h4>
-                    <a href="{% url 'products' %}" class="btn btn-lg btn-success rounded-0 text-uppercase py-3">Shop
-                        Now</a>
-                </h4>
+<div class="container">
+    <div class="row">
+        <div class="col text-center mt-4">
+            <h2 class="heading big-heading">Latest Offers</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            {% for item in sale_items_set_1 %}
+                            <div class="col-4">
+                                <div class="card product-card h-100">
+                                    <a href="{% url 'product_info' item.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ item.image.url }}"
+                                            alt="{{ item.name }}">
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="lead mb-0">{{ item.name }}</p>
+                                    </div>
+                                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                                        <div class="row">
+                                            <div class="col">
+                                                {% if item.on_sale %}
+                                                <div class="mb-1 text-left">
+                                                    <span>
+                                                        <s class="text-muted">€{{ item.price }}</s>
+                                                        €{{ item.price | calc_discounted_price:discount_percentage | floatformat:2 }}
+                                                    </span>
+                                                </div>
+                                                {% else %}
+                                                <p class="lead mb-1 text-left font-weight-bold">
+                                                    €{{ item.price|floatformat:2 }}
+                                                </p>
+                                                {% endif %}
+                                                <form class="form" action="{% url 'add_product_to_basket' item.id %}"
+                                                    method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="form-row">
+                                                        <input class="form-control qty_input" type="hidden"
+                                                            name="quantity" value="1" data-item_id="{{ item.id }}"
+                                                            id="id_qty_{{ item.id }}">
+                                                        <div class="col-12">
+                                                            <input type="submit"
+                                                                class="btn btn-green text-uppercase mt-3"
+                                                                value="Add to Basket">
+                                                            <a class="btn btn-dark-green ml-2 mt-3"
+                                                                href="{% url 'product_info' item.id %}">
+                                                                <i class="fas fa-info-circle"></i>
+                                                            </a>
+                                                        </div>
+                                                        <input type="hidden" name="redirect_url"
+                                                            value="{{ request.path }}">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            {% for item in sale_items_set_2 %}
+                            <div class="col-4">
+                                <div class="card product-card h-100 border-0">
+                                    <a href="{% url 'product_info' item.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ item.image.url }}"
+                                            alt="{{ item.name }}">
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="lead mb-0">{{ item.name }}</p>
+                                    </div>
+                                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                                        <div class="row">
+                                            <div class="col">
+                                                {% if item.on_sale %}
+                                                <div class="mb-1 text-left">
+                                                    <span>
+                                                        <s class="text-muted">€{{ item.price }}</s>
+                                                        €{{ item.price | calc_discounted_price:discount_percentage | floatformat:2 }}
+                                                    </span>
+                                                </div>
+                                                {% else %}
+                                                <p class="lead mb-1 text-left font-weight-bold">
+                                                    €{{ item.price|floatformat:2 }}
+                                                </p>
+                                                {% endif %}
+                                                <form class="form" action="{% url 'add_product_to_basket' item.id %}"
+                                                    method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="form-row">
+                                                        <input class="form-control qty_input" type="hidden"
+                                                            name="quantity" value="1" data-item_id="{{ item.id }}"
+                                                            id="id_qty_{{ item.id }}">
+                                                        <div class="col-12">
+                                                            <input type="submit"
+                                                                class="btn btn-green text-uppercase mt-3"
+                                                                value="Add to Basket">
+                                                            <a class="btn btn-dark-green ml-2 mt-3"
+                                                                href="{% url 'product_info' item.id %}">
+                                                                <i class="fas fa-info-circle"></i>
+                                                            </a>
+                                                        </div>
+                                                        <input type="hidden" name="redirect_url"
+                                                            value="{{ request.path }}">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    // Bootstrap carousel
+    $('.carousel').carousel()
+</script>
 {% endblock %}
