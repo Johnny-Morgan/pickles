@@ -1,0 +1,7 @@
+{% if item.product.on_sale %}
+<p class="my-0"><strong>{{ item.product.name }}<span class="orange-text">
+            ({{ discount_percentage}}%
+            off!)</span></strong></p>
+{% else %}
+<p class="my-0"><strong>{{ item.product.name }}</strong></p>
+{% endif %}
