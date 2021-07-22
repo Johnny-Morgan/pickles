@@ -16,7 +16,8 @@
             <h2 class="heading big-heading">Latest Offers</h2>
         </div>
     </div>
-    <div class="row">
+    <!-- Carousel - medium screens and up -->
+    <div class="row d-none d-md-block">
         <div class="col">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -45,6 +46,17 @@
                 </a>
             </div>
         </div>
+    </div>
+    <!-- Mobile view -->
+    <div class="row d-block d-md-none">
+        {% for item in sale_items %}
+        {% include 'home/carousel_item.html' %}
+        {% if not forloop.last %}
+        <div class="w-75 mx-auto mb-4">
+            <hr>
+        </div>
+        {% endif %}
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
