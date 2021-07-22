@@ -103,7 +103,7 @@ body {
     border: 1px solid var(--dark-green);
     border-radius: 0.5rem;
     max-height: 27rem;
-    box-shadow: 2px 4px 4px var(--dark-green);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 2rem;
 }
 
@@ -280,10 +280,15 @@ body {
     #site-banner h4 {
         font-size: 0.9rem;
     }
+
+    .big-heading {
+        font-size: 1.8rem;
+        margin-top: -1.5rem;
+    }
 }
 
 
-@media (max-width: 342px) {
+@media (max-width: 375px) {
     .product-info-buttons .btn {
         width: 50%;
         font-size: 85%;
@@ -295,5 +300,29 @@ body {
 
     .img-blog {
         height: 150px;
+    }
+
+    #headingOne,
+    #headingTwo {
+        padding: 0.5rem;
+    }
+
+    #accordion button {
+        font-size: 0.8rem;
+    }
+
+    #collapseOne,
+    #collapseTwo {
+        font-size: 0.8rem;
+    }
+
+    .order-number {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 1153px) {
+    .logo {
+        font-size: 200%;
     }
 }
