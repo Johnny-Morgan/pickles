@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 html {
     height: 100%;
 }
 
 body {
     height: calc(100vh - 164px);
+    font-family: 'Inter', sans-serif;
+
 }
 
 #page-container {
@@ -295,7 +299,6 @@ Credit - Online Tutorials (https://www.youtube.com/watch?v=gggB0Nq5vBk&ab_channe
     display: flex;
     margin-left: 1.25rem;
     flex-direction: column;
-    font-weight: 300;
 }
 
 .contact-container .contact-info .box .text h4 {
