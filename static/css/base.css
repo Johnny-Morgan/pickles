@@ -256,6 +256,53 @@ Credit: https://stackoverflow.com/questions/46249541/change-arrow-colors-in-boot
     height: 250px;
 }
 
+/* 
+Contact details 
+Credit - Online Tutorials (https://www.youtube.com/watch?v=gggB0Nq5vBk&ab_channel=OnlineTutorials)
+*/
+.contact-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-container .contact-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-container .contact-info .box {
+    position: relative;
+    padding-bottom: 1.5rem;
+    display: flex;
+}
+
+.contact-container .contact-info .box .icon {
+    min-width: 60px;
+    height: 60px;
+    color: var(--green);
+    background: var(--yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.4rem;
+}
+
+.contact-container .contact-info .box .text {
+    display: flex;
+    margin-left: 1.25rem;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+.contact-container .contact-info .box .text h4 {
+    font-weight: 500;
+    color: var(--dark-green);
+}
+
 /***** FOOTER *****/
 #footer {
     position: absolute;
@@ -279,7 +326,7 @@ footer i {
 }
 
 footer i:hover {
-    color: var(--orange);
+    color: var(--yellow);
 }
 
 footer .copyright {
