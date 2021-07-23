@@ -11,18 +11,14 @@
         <div class="card-footer bg-white pt-0 border-0 text-left">
             <div class="row">
                 <div class="col">
-                    {% if item.on_sale %}
-                    <div class="mb-1 text-center">
-                        <span>
-                            <s class="text-muted">€{{ item.price }}</s>
-                            €{{ item.price | calc_discounted_price:discount_percentage | floatformat:2 }}
-                        </span>
-                    </div>
-                    {% else %}
-                    <p class="lead mb-1 text-center font-weight-bold">
-                        €{{ item.price|floatformat:2 }}
+                    <p class="mb-1 text-center">
+                        <s class="text-muted">€{{ item.price }}</s>
+                        <span class="orange-text font-weight-bold">{{ discount_percentage }}%
+                            off!</span>
+                        <p class="lead font-weight-bold text-center">
+                            €{{ item.price | calc_discounted_price:discount_percentage|floatformat:2 }}
+                        </p>
                     </p>
-                    {% endif %}
                     <form class="form" id="add-to-basket" action="{% url 'add_product_to_basket' item.id %}"
                         method="POST">
                         {% csrf_token %}
