@@ -169,7 +169,7 @@
                 </a>
               </li>
             </ul>
-            <p class="copyright text-light">Copyright &copy; Pickles</p>
+            <p class="copyright text-light">Copyright &copy; Pickles <span id="copyright"></span></p>
           </div>
         </div>
       </div>
@@ -183,6 +183,9 @@
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
       })
+
+      // Copyright - displays current year
+      $('#copyright').text(new Date().getFullYear());
     </script>
     {% endblock %}
 </body>
