@@ -266,6 +266,28 @@ Credit: https://stackoverflow.com/questions/46249541/change-arrow-colors-in-boot
     background: var(--green);
 }
 
+footer .list-inline {
+    margin: 0;
+    padding: 0;
+}
+
+footer i {
+    color: var(--dark-green);
+    font-size: 150%;
+    padding-left: 0.5rem;
+    transition: 0.5s;
+}
+
+footer i:hover {
+    color: var(--orange);
+}
+
+footer .copyright {
+    font-size: 1rem;
+    margin: 0.75rem 0 0;
+    text-align: center;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
