@@ -1,5 +1,16 @@
 # Testing
 
+## Testing User Stories
+
+- As a **store owner**, I want to be able to:
+
+    1. *Add a product, so that I can add new items to my store.*
+
+        Store owners have access to a Product Admin page which contains a form that allows them to a add a new product to the store. 
+        
+        ![Add a Product Gif](docs/testing_gifs/add_product.gif)
+
+
 ## Bugs
 
 ### Solved Bugs
