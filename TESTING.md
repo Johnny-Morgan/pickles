@@ -10,6 +10,50 @@
         
         ![Add a Product Gif](docs/testing_gifs/add_product.gif)
 
+    2. *Edit a product, so thas I can change the details of the product such as its price, description, image and other properties.*
+
+        On the product info page for each product, an edit product button is displayed for store owners. Clicking this button directs the store owner to a form where they can edit the details of the product.
+
+        ![Edit a Product Gif](docs/testing_gifs/edit_product.gif)
+
+    3. Delete a product, so that I can remove items from my store that are no longer available.
+
+        On the product info page for each product, a delete product button is displayed for store owners. Clicking this button opens a modal which askes the user if they wish to delete the product. Clicking the modal delete button removes the item from the store.
+
+        ![Delete a Product Gif](docs/testing_gifs/delete_product.gif)
+
+    4. Add a blog post, so that I can add new content to my blog page to help drive traffic to my store.
+
+        On the blog page, an Add Blog Post button is displayed for store owners. Clicking the button directs the user to a new page where a form is displayed for adding a new blog post.
+
+        ![Add a Blog Post Gif](docs/testing_gifs/add_blog_post.gif)
+
+    5. Edit a blog post, so thas I can change the details of the blog such as its title, content, image and other properties. 
+
+        In each blog post page, there is a button located below the blog post content, visible only to store owners. Clicking the button directs the user to a form where the blog post details can be edited.
+
+        ![Add a Blog Post Gif](docs/testing_gifs/edit_blog_post.gif)
+
+    6. Delete a blog post, so that I can remove blog posts that are outdated or irrelevent.
+
+        In each blog post page, there is a button located below the blog post content, visible only to store owners. Clicking this button opens a modal which askes the user if they wish to delete the blog post. Clicking the modal delete button removes the blog post.
+
+        ![Add a Blog Post Gif](docs/testing_gifs/delete_blog_post.gif)
+
+    7. Delete a blog post comment, so that I can remove a comment that contains offensive content.
+
+        There is a delete button under every blog post comment that is visible to only store owners. Clicking this button opens a modal which askes the user if they wish to delete the comment. Clicking the modal delete button deletes the comment.
+
+        ![Add a Blog Post Gif](docs/testing_gifs/delete_comment.gif)
+    
+    8. Delete a product review, so that I can remove a review that contains offensive content.
+
+        There is a delete button under every review that is visible to only store owners. Clicking this button opens a modal which askes the user if they wish to delete the review. Clicking the modal delete button deletes the review.
+
+        ![Add a Blog Post Gif](docs/testing_gifs/delete_review.gif)
+
+
+
 
 ## Bugs
 
