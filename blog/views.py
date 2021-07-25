@@ -84,9 +84,10 @@ def add_post(request):
             post.slug = slugify(post.title)
             if post.slug in slugs:
                 messages.error(request, 'A blog post with that title \
-                    already exists, please enter a different title.')  
+                    already exists, please enter a different title.')
             else:
                 post.save()
+                form.save_m2m()
                 messages.success(request, f'Blog post "{post.title}" \
                                 successfully added!')
                 return redirect('blog')
@@ -125,6 +126,7 @@ def edit_post(request, slug):
                     already exists, please enter a different title.')
             else:
                 post.save()
+                form.save_m2m()
                 messages.success(request, f'Blog post "{post.title}" \
                              successfully updated!')
                 return redirect(reverse('post', args=[post.slug]))
