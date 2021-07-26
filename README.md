@@ -123,7 +123,7 @@ Django's default [User](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/)
 | Street Address 1 | street_address_1 | CharField | max_length=80, null=True, blank=True |
 | Street Address 2 | street_address_2 | CharField | max_length=80, null=True, blank=True |
 | Town or City | town_or_city | CharField | max_length=40, null=True, blank=True |
-| Default County | default_county | CharField | max_length=40, null=True, blank=True |
+| County | county | CharField | max_length=40, null=True, blank=True |
 | Postcode | postcode | CharField | max_length=80, null=True, blank=True |
 | Country | country | CountryField | blank_label='Country *', null=True, blank=True |
 | Date | date | DateTimeField | auto_now_add=True |
@@ -141,6 +141,8 @@ Django's default [User](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/)
 | Product | product | ForeignKey 'Product' | null=False, blank=False, on_delete=models.CASCADE |
 | Quantity | quantity | IntegerField | null=False, blank=False, default=0 |
 | Line Item Total | lineitem_total | DecimalField | max_digits=6, decimal_places=2, null=False, blank=False, editable=False |
+
+![Image](https://github.com/Johnny-Morgan/pickles/blob/master/docs/readme_images/database_schema.png)
 
 **Blog App**
 
@@ -172,6 +174,8 @@ Django's default [User](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/)
 | Email | email | EmailField |
 | Body | body | TextField | max_length=500 |
 | Date | date | DateTimeField | auto_now_add=True |
+
+![Image](https://github.com/Johnny-Morgan/pickles/blob/master/docs/readme_images/blog_schema.png)
 
 ## Testing
 
