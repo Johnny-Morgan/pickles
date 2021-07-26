@@ -32,6 +32,23 @@
 
   - [Blog Post Page](https://github.com/Johnny-Morgan/pickles/blob/master/docs/wireframes/blog_post_page_wireframes.pdf)
 
+- ### Design
+
+  - #### Colour Scheme
+    
+    ![Image](https://github.com/Johnny-Morgan/pickles/blob/master/docs/readme_images/color_scheme.png)
+
+    Hookers Green #416A59
+    Asparagus #73A24E
+    Cadmium Orange #FB8B2E
+    Cornsilk #FFF7D3
+
+    Two shades of green were chosen as the main colours of this website. Green was chosen because it is assocaiated with nature, freshness and health. 
+    
+  - #### Typography
+
+    [Inter](https://fonts.google.com/specimen/Inter) was chosen as the main font for this website with sans-serif as the fallback font.
+
 ## Testing
 
 The testing data for this project can be found in a separate file called [TESTING.md](https://github.com/Johnny-Morgan/pickles/blob/master/TESTING.md).
