@@ -13,6 +13,33 @@
     7. Delete a blog post comment, so that I can remove a comment that contains offensive content.
     8. Delete a product review, so that I can remove a review that contains offensive content.
 
+    As a **visitor**, I want to be able to:
+
+    1. Easily register for an account so that I can login and view my account.
+    2. View all the available products so I can choose some to purchase.
+    3. Sort the all of the available products based on their price, name or category.
+    4. View a particular category of products so I can find products I am interested in faster.
+    5. Sort a particular category of products based on their price, name or category.
+    6. Sort multiple categories of products simultaneously to find the best priced products across borad categories such as plants or seeds.
+    7. View the details of an individual product such as its price, description and reviews.
+    8. Leave a review of a product so I can let other shoppers know what I think of the product.
+    9. Search for a product by name or description so that I can quickly find a specific product.
+    10. Quickly see search results and the number of results.
+    11. Quickly add a product to my basket without having to view that product's individual page.
+    12. Easily select the quantity of a product when purchasing it.
+    13. View the products in my shopping basket to be purchased.
+    14. Adjust the quantity of individual items in my shopping basket.
+    15. Easily view the total value of my purchases at any time.
+    16. Quickly enter my personal and payment information so that I can check out fast and hassle free.
+    17. View an order confirmation and receive an email confirmation after completing a purchase.
+    18. Leave a comment on a blog post so I can contribute to a subject I am interested in.
+
+    As a **registered user**, I want to be able to:
+
+    1. Easily login or logout of my account.
+    2. Easily recover my password if I forget it.
+    3. Easily add or upadate my delivery information.
+    4. Have a personalized user profile page so that I can view my order history and delivery information.
 
 - ### Wireframes
 
