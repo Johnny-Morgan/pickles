@@ -18,3 +18,8 @@ def index(request):
 def error_404(request, exception):
     """View to render a cutom 404 page"""
     return render(request, '../templates/404.html')
+
+
+def error_500(request):
+    """View to render a cutom 500 page"""
+    return render(request, '../templates/500.html')
