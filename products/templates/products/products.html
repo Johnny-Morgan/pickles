@@ -29,6 +29,7 @@
     <div class="row">
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">
+                <!-- Product sorting -->
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper w-50">
                         <select id="sort-selector" class="custom-select custom-select-sm">
@@ -48,6 +49,7 @@
                         </select>
                     </div>
                 </div>
+                <!-- Product search results -->
                 <div class="col-12 col-md-6 order-md-first">
                     <p class="text-muted mt-3 text-center text-md-left">
                         {% if search_word or categories or sorting != 'None_None' %}
@@ -58,10 +60,12 @@
                     </p>
                 </div>
             </div>
+            <!-- Product cards -->
             <div class="row">
                 {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-5">
                     <div class="card product-card h-100 border-0">
+                        <!-- Product image -->
                         {% if product.image %}
                         <a href="{% url 'product_info' product.id %}">
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -72,6 +76,7 @@
                                 alt="{{ product.name }}">
                         </a>
                         {% endif %}
+                        <!-- Product details -->
                         <div class="card-body">
                             <p class="lead mb-0">{{ product.name }}</p>
                         </div>
@@ -105,13 +110,14 @@
                                         </a>
                                     </div>
                                     {% endif %}
+                                    <!-- Add product to basket -->
                                     <form class="form" action="{% url 'add_product_to_basket' product.id %}"
                                         method="POST">
                                         {% csrf_token %}
                                         <div class="form-row">
                                             <input class="form-control qty_input" type="hidden" name="quantity"
                                                 value="1" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                            <div class="col-12">
+                                            <div class="col-12 mb-2">
                                                 <input type="submit" class="btn btn-green text-uppercase mt-3"
                                                     value="Add to Basket">
                                                 <a class="btn btn-dark-green ml-2 mt-3"
@@ -134,6 +140,7 @@
         </div>
     </div>
 </div>
+<!-- Back to  top button -->
 <div class="back-to-top-button">
     <a class="back-to-top-link d-flex h-100">
         <i class="fas fa-lg fa-arrow-circle-up mx-auto my-auto"></i>
@@ -151,6 +158,7 @@
 </script>
 
 <script type="text/javascript">
+    // Product sorting script
     $('#sort-selector').change(function () {
         let selector = $(this);
         let currentUrl = new URL(window.location);
