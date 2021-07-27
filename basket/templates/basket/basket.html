@@ -23,6 +23,7 @@
     </div>
     <!-- Shopping basket contents -->
     <div class="row">
+        <!-- Small and medium screens -->
         <div class="col">
             {% if basket_items %}
             <div class="d-block d-lg-none">
@@ -70,6 +71,8 @@
                 </div>
             </div>
         </div>
+        <!-- End small and medium screens -->
+        <!-- Large screens -->
         <div class="row">
             <div class="col-12 col-md-9">
                 <div class="table-responsive rounded d-none d-lg-block">
@@ -129,8 +132,10 @@
                 </div>
             </div>
         </div>
+        <!-- End large screens -->
+        <!-- Empty basket -->
         {% else %}
-        <div>
+        <div class="text-center">
             <p class="lead">Your shopping basket is empty.</p>
             <a href="{% url 'products' %}" class="btn btn-green">
                 <span>
@@ -188,5 +193,4 @@
             });
     })
 </script>
-
 {% endblock %}
