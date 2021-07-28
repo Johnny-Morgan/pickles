@@ -15,6 +15,11 @@ def index(request):
     return render(request, 'home/index.html', context)
 
 
+def error_403(request, exception):
+    """View to render a cutom 403 page"""
+    return render(request, '../templates/403.html')
+
+
 def error_404(request, exception):
     """View to render a cutom 404 page"""
     return render(request, '../templates/404.html')
