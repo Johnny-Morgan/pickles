@@ -25,7 +25,7 @@
             <h2 class="heading big-heading">Checkout</h2>
         </div>
     </div>
-
+    <!-- Order summary -->
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last mb-5">
             <p class="text-muted">Order Summary ({{ product_count }} item{{ product_count|pluralize}})</p>
@@ -38,6 +38,7 @@
                 </div>
             </div>
             {% for item in basket_items %}
+            <!-- Products in basket -->
             <div class="row">
                 <div class="col-2 mb-1">
                     <a href="{% url 'product_info' item.product.id %}">
@@ -57,12 +58,13 @@
                 </div>
             </div>
             {% endfor %}
+            <!-- Totals -->
             <hr class="my-3">
             <div class="row text-black text-right">
                 <div class="col-7 offset-2">
-                    <p class="my-0">Order Total:</p>
+                    <p class="my-0">Basket Total:</p>
                     <p class="my-0">Delivery:</p>
-                    <p class="my-0">Grand Total:</p>
+                    <p class="my-0">Order Total:</p>
                 </div>
                 <div class="col-3">
                     <p class="my-0">€{{ total | floatformat:2 }}</p>
@@ -71,6 +73,7 @@
                 </div>
             </div>
         </div>
+        <!-- Payment form -->
         <div class="col-12 col-lg-6">
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
@@ -105,14 +108,14 @@
                 </fieldset>
                 <fieldset class="px-3">
                     <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                    <!-- A Stripe card element will go here -->
+                    <!-- Stripe card element -->
                     <div class="mb-3" id="card-element"></div>
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     <!-- Pass the client secret to the view so we can get the payment intent id -->
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
-
+                <!-- Adjust basket and place order buttons -->
                 <div class="text-right mt-5 mb-2">
                     <a href="{% url 'view_basket' %}" class="btn btn-outline-green">
                         <span>
@@ -134,6 +137,7 @@
         </div>
     </div>
 </div>
+<!-- Loading overlay -->
 <div id="loading-overlay">
     <h1 class="text-light loading-spinner">
         <i class="fas fa-3x fa-spinner fa-pulse"></i>
