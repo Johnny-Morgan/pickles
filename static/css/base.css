@@ -25,7 +25,6 @@ body {
     --green: #73a24e;
     --yellow: #fff7d3;
     --orange: #fb8b2e;
-    --red: #80202b;
 }
 
 /***** TEXT *****/
@@ -258,6 +257,10 @@ Credit: https://stackoverflow.com/questions/46249541/change-arrow-colors-in-boot
 
 .img-blog {
     height: 250px;
+}
+
+#about {
+    font-size: 1.3rem;
 }
 
 /* 
