@@ -176,6 +176,8 @@
 
     2. Easily recover my password if I forget it.
 
+        A 'Forgot Password?' link is provided below the sign in button. Clicking the link redirects the user to a password reset page.
+
         ![Forgot Password Gif](docs/testing_gifs/forgot_password.gif)
 
     3. Have a personalized user profile page so that I can view my order history and delivery information.
@@ -187,6 +189,124 @@
     4. Easily add or update my delivery information.
 
         A user's delivery information can be easily updated using the form provided on their profile page.
+
+## Manual Testing on Live Site
+
+### Navigation
+
+- Click the logo in the navbar, confirm that it directs to the home page.
+- Click the 'ALL PRODUCTS' link, confirm it displays the correct sections in the dropdown menu.
+- Click the 'PLANTS' link, confirm it displays the correct sections in the dropdown menu.
+- Click the 'SEEDS' link, confirm it displays the correct sections in the dropdown menu.
+- Click each link in each dropdown menu, confirm each display the correct products.
+- Click the 'BLOG' link, confirm it directs to the blog page.
+- Click the 'Account' link as a non logged-in user, confirm it displays a submenu with 'Register' and 'Login'.
+- Log in as a non-superuser, confirm that the 'Account' dropmenu displays 'My Profile' and 'Logout'.
+- Log in as a superuser, confirm that the 'Account' dropmenu displays 'Product Admin', 'My Profile' and 'Logout'.
+- Click each link in the 'Account' submenus, confirm each directs to the correct page.
+- Add an item to the users basket, confirm that the basket total changes to correct value.
+- Delete all items in the shopping basket, confirm that the basket total changes to €0.00.
+- Search for a product in the search bar, confirm that the results of the search are displayed correctly.
+- Change the discount percentage variable in settings.py, confirm the discount percentage value updates in the site banner.
+
+### Footer
+
+- Click on all social media links, confirm they open the correct page in a new browser tab.
+
+### Home Page
+
+- Observe the carousel displaying the latest offers, confirm it updates as expected.
+- Click on the carousel arrows, confirm the carousel changes as expected.
+- Click on the image for each product, confirm it directs to the correct page.
+- Click on the information icon for each product, confirm it directs to the correct page.
+- Click on the shopping basket icon for each product, confirm it adds one item of the product to the shopping basket.
+
+### Products Page
+
+- Click on the image for each product, confirm it directs to the correct page.
+- Click on the information icon for each product, confirm it directs to the correct page.
+- Click on the shopping basket icon for each product, confirm it adds one item of the product to the shopping basket.
+- Hover over each product card, confirm the shadow effect takes place.
+- Click each option in the 'Sort by...' select box, confirm each sort result displays the correct products.
+- Click the category for each product, confirm each product for that category is displayed.
+- Change the discount percentage variable in settings.py, confirm the price for discounted products updates and displays the correct value.
+
+### Individual Product Page
+
+- Click on the product image, confirm it opens the image in a new tab.
+- Click on the product category, confirm it returns to the product page containing all products with that category.
+- Confirm that the edit and delete buttons are visible to logged in superusers.
+- Confirm that the quantity input updates when a new quantity is selected.
+- Click the 'ADD TO BASKET' button, confirm the basket updates with the desired quantity.
+- Click the 'BACK TO SHOP' button, confirm it redirects to the products page showing all products.
+- Click the accordion elements, confirm they open and close in the correct manner.
+- Confirm that the product rating score is correct based on the exisitng product reviews.
+- Confirm 'No reviews yet!' is dispayed for a product that has no reviews.
+- Click on the 'Leave a Review' button, confirm it displays a form to write a product review.
+- Attempt to submit the review form with invalid data, confirm the relevent warning messages are displayed.
+- Fill out the review form correctly and submit, confirm the review is displayed first in the list of reviews.
+- Confirm that the product rating score updates based on the rating given in the submitted review.
+- Confirm the pagination links are working correctly for products with more than 5 reviews.
+
+### Shopping Basket Page
+
+- Attempt to access the basket page when not logged in, confirm user is redirected to the products page.
+- Login and access the basket page with an empty basket, confirm the message 'Your shopping basket is empty.' is shown and a button directing the shopper back to the shop is provided.
+- Click the 'BACK TO SHOP' button and confirm it takes the user to the products page.
+- Add products to the basket and return to the basket page, confirm all the products and quantities displayed in the basket are correct and the subtotal, basket total and order total are correct.
+- Adjust the quantity field of a product and click the update button, confirm that the quantity and subtotal is updated as well as the basket subtotal and order total.
+- Click the 'x' delete button for a product in the basket, confirm that the product is deleted from the basket and the basket and order totals are updated.
+- Confirm that a basket total that is less than €60 has a delivery charge of €6.99.
+- Confirm that a basket total that is more than €60 has no delivery charge.
+- Click the 'CHECKOUT' button and confirm it takes the user to the checkout page.
+
+### Checkout Page
+
+- Attempt to access the checkout page with an empty basket, confirm user is redirected to the products page and an error message is displayed
+- Confirm that the products in order summary match the products in the basket.
+- Confirm that the basket total, delivery charge and order total are correct.
+- Confirm that the text 'Create an account or login to save this information' is displayed under the delivery details section of the form for a non logged in visitor.
+- Check that clicking the 'Create an account' link redirects the visitor to the signup page.
+- Check that clicking the 'login' link redirects the visitor to the login page.
+- Confirm that the text 'Save this delivery information to my profile' with a checked box is displayed under the delivery details section of the form for a logged in user.
+- Confirm that the order form is prepopulated with the delivery information of the user if that user has saved their information previously.
+- Click the 'Adjust basket' button, confirm it redirects the user to the shopping basket page.
+- Attempt to submit the form with incorrect data, confirm the relevent warning messages are displayed.
+- Submit the form with correct data, confirm that the loading overlay is displayed and an order summary is displayed after the loading overlay finishes. Confirm that a toast message is displayed with a confirmation that the order has been received, confirm that it shows the order number and that an email will be sent to the user.
+- Confirm that a confirmation email is sent to the user.
+
+### Blog Page
+
+- Confirm the 'Add Blog Post' button is only visible to logged in superusers.
+- Click the 'Add Blog Post' button to confirm the user is directed to add blog post page which contains a form for adding a new blog post.
+- Attempt to submit the form with incorrect data, confirm the relevent warning messages are displayed.
+- Attempt to add a new blog post with the title of an already existing blog post, confirm a toast message appears with an error warning and a message prompting the user to enter a different title.
+- Fill out the form with correct data, confirm the user is directed back to the blog page and the new blog post appears at the top of the list of blog posts.
+- Confirm that adding a blog post without an image will result in the no-image-icon.png image from the media directory will be used as the blog post image.
+- Click on each blog post image, confirm it directs to the correct blog post page.
+- Click on each '...read more' text at the end of each blog intro, confirm it directs to the correct blog post page.
+- Confirm the pagination links are working correctly.
+
+### Blog Post Page
+
+- Confirm that the edit and delete buttons are visible to logged in superusers.
+- Click the edit button, confirm the user is directed to the 'edit post' page.
+- Confirm the correct the form to edit the blog post is populated with the blog post data.
+- Attempt to submit the form with incorrect data, confirm the relevent warning messages are displayed.
+- Attempt to edit the title to the title of an already existing blog post, confirm a toast message appears with an error warning and a message prompting the user to enter a different title.
+- Submit the form with correct data, confirm the blog post updates with the new data.
+- Click the 'Back' button, confirm it redirects to the blog page.
+- Click the delete button, confirm a modal appears with a message asking the user are they sure they want to delete the post.
+- Confirm that clicking the modal cancel button returns the user to the blog post page without deleting it.
+- Click the modal delete button, confirm that the blog post is deleted.
+- Confirm 'No comments yet!' is displayed for a blog post that has no comments.
+- Attempt to fill out the 'Leave a comment' form with invalid data, confirm the relevent warning messages are displayed.
+- Submit the form with valid data, confirm the comment appears at the top of the list of comments.
+- Confirm that a button for deleting comments is visible only to superusers.
+- Hover over the delete comment button, confirm that the 'Delete Comment' tooltip appears to the right of the button.
+- Click the delete comment button, confirm a modal appears with a message asking the user are they sure they want to delete the comment.
+- Confirm that clicking the modal cancel button returns the user to the blog post page without deleting the comment.
+- Click the modal delete button, confirm that the comment is deleted.
 
 ## Bugs
 
