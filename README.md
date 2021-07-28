@@ -20,7 +20,7 @@
     3. Sort the all of the available products based on their price, name or category.
     4. View a particular category of products so I can find products I am interested in faster.
     5. Sort a particular category of products based on their price, name or category.
-    6. Sort multiple categories of products simultaneously to find the best priced products across borad categories such as plants or seeds.
+    6. Sort multiple categories of products simultaneously to find the best priced products across broad categories such as plants or seeds.
     7. View the details of an individual product such as its price, description and reviews.
     8. Leave a review of a product so I can let other shoppers know what I think of the product.
     9. Search for a product by name or description so that I can quickly find a specific product.
@@ -38,8 +38,8 @@
 
     1. Easily login or logout of my account.
     2. Easily recover my password if I forget it.
-    3. Easily add or upadate my delivery information.
-    4. Have a personalized user profile page so that I can view my order history and delivery information.
+    3. Have a personalized user profile page so that I can view my order history and delivery information.
+    4. Easily add or update my delivery information.
 
 - ### Wireframes
 
@@ -203,6 +203,97 @@ Django's default [User](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/)
 | Date | date | DateTimeField | auto_now_add=True |
 
 ![Image](https://github.com/Johnny-Morgan/pickles/blob/master/docs/readme_images/blog_schema.png)
+
+## Technologies Used
+
+### Languages Used
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+
+- [Python](https://www.python.org/)
+
+- [JavaScript](https://www.javascript.com/)
+
+
+### Frameworks, Libraries & Programs Used
+
+- [Django](https://www.djangoproject.com/) - Django is a Python-based free and open-source web framework.
+
+- [jQuery](https://jquery.com/) - jQuery is used to simplify the JavaScript code and DOM manipulation.
+
+- [Bootstrap 4.4](https://getbootstrap.com/) - Bootstrap is used to assist with the responsiveness and styling of the website.
+
+- [Heroku](https://www.heroku.com/home) - Heroku is used to deploy this website.
+
+- [AWS](https://aws.amazon.com/?nc2=h_lg) - AWS Simple Cloud Storage S3 is used for storing static and media files.
+
+- [Stripe](https://stripe.com/en-gb-de) - Online payment processing and credit card processing platform for this site.
+
+- [SQLite](https://www.sqlite.org/index.html) - SQLite was used in the development of this project as it is the default database used with Django. 
+
+- [PostgreSQL](https://www.postgresql.org/) - On deployment with Heroku, a Postgres database is used.
+
+- [GitPod](https://gitpod.io) - GitPod was used as the IDE for this project.
+
+- [Git](https://git-scm.com/) - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+
+- [GitHub](https://github.com/) - GitHub is used to store the project's code after being pushed from Git.
+
+- [Balsamiq](https://balsamiq.com/) - Balsamiq was used to create the wireframes during the design process.
+
+- [Google Fonts](https://fonts.google.com/specimen/Inter?query=inter) - Google Fonts was used to obtain the Inter font.
+
+- [Font Awesome](https://fontawesome.com/) - Font Awesome is used to obtain the icons used in this website.
+
+- [Autoprefixer](https://autoprefixer.github.io/) - Autoprefixer was used to add vendor prefixes.
+
+- [Favicon.io](https://favicon.io/favicon-generator/) - was used to generate the favicons.
+
+### Dependencies
+
+- [asgiref](https://pypi.org/project/asgiref/) - ASGI is a standard for Python asynchronous web apps and servers to communicate with each other, and positioned as an asynchronous successor to WSGI.
+
+- [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - Used to create, configure, and manage AWS S3.
+
+- [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) - Botocore provides the low level clients, session, and credential & configuration data.
+
+- [coverage](https://coverage.readthedocs.io/en/coverage-5.5/) - Used to gauge the effectiveness of tests. It shows which parts of the code are being exercised by tests, and which are not.
+
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - A utility to help you load your database into your dictionary from the DATABASE_URL environment variable. Heroku uses environment variables for your database and other addons.
+
+- [Django](https://www.djangoproject.com/) - Django is a Python-based free and open-source web framework.
+
+- [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
+
+- [django-countries](https://pypi.org/project/django-countries/) - A Django application that provides country choices for use with forms, flag icons static files, and a country field for models.
+
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Provides a |crispy filter and {% crispy %} tag that lets you control the rendering behavior of Django forms in a very elegant and DRY way.
+
+- [django-storages](https://pypi.org/project/django-storages/) - Provides a variety of storage backends in a single library.
+
+- [gunicorn](https://docs.gunicorn.org/en/stable/) - The Gunicorn "Green Unicorn" is a Python Web Server Gateway Interface HTTP server.
+
+- [jmespath](https://pypi.org/project/jmespath/) - JMESPath allows you to declaratively specify how to extract elements from a JSON document.
+
+- [oauthlib](https://oauthlib.readthedocs.io/en/latest/) - A framework which implements the logic of OAuth1 or OAuth2 without assuming a specific HTTP request object or web framework.
+
+- [Pillow](https://pypi.org/project/Pillow/) - Python Imaging Library is a free and open-source additional library for the Python programming language that adds support for opening, manipulating, and saving many different image file formats.
+
+- [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) -  A popular PostgreSQL database adapter for the Python programming language.
+
+- [python3-openid](https://pypi.org/project/python3-openid/) - A set of Python packages to support use of the OpenID decentralized identity system in applications.
+
+- [pytz](https://pypi.org/project/pytz/) - Brings the Olson tz database into Python. This library allows accurate and cross platform timezone calculations using Python 2.4 or higher.
+
+- [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - Uses the Python Requests and OAuthlib libraries to provide an easy-to-use Python interface for building OAuth1 and OAuth2 clients. 
+
+- [s3transfer](https://pypi.org/project/s3transfer/) - A Python library for managing Amazon S3 transfers.
+
+- [sqlparse](https://pypi.org/project/sqlparse/) - A non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
+
+- [stripe](https://pypi.org/project/stripe/) - A Python library for Stripe’s API.
 
 ## Testing
 
