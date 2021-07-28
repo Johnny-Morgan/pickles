@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %} - Latest Offers{% endblock %}
+
 {% block header %}
 <div class="container header-container">
     <div class="row">
@@ -67,13 +69,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6 mb-4">
-            <p>Pickle's started as a small family run business in 1996, providing quality and affordable plants to our
+        <div id="about" class="col-12 col-md-6 mb-4">
+            <p>Pickle's started as a small family run business in 1996, providing quality and affordable plants to
+                our
                 customers in South-West Dublin.
                 You can now order from a wide selection of plants and seeds on our online shop which delivers
                 nationwide.
             </p>
-            <p>We pride ourselves on the quality of our produce which is still grown here on our land on the outskirts
+            <p>We pride ourselves on the quality of our produce which we grow here on our land on the
+                outskirts
                 of Dublin. We look forward to providing you a fun and friendly service.</p>
         </div>
         <!-- Contact details -->
@@ -91,7 +95,7 @@
                         <div class="icon"><i class="fas fa-phone"></i></div>
                         <div class="text">
                             <h4>Phone</h4>
-                            <p>(01)555 1234</p>
+                            <p>(01) 555 1234</p>
                         </div>
                     </div>
                     <div class="box">
