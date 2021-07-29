@@ -2,17 +2,12 @@ from django.shortcuts import (
     render, redirect, reverse, HttpResponse, get_object_or_404)
 from django.conf import settings
 from django.contrib import messages
+
 from products.models import Product
 
 
 def view_basket(request):
     """ View that renders the shopping basket contents page """
-
-    basket = request.session.get('basket', {})
-
-    if not basket:
-        messages.error(request, "Your basket is empty at the moment")
-        return redirect(reverse('products'))
 
     context = {
         'discount_percentage': settings.DISCOUNT_PERCENTAGE,
