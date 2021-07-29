@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Category, Product
+from .models import Category, Product, Review
 
 
 class TestCategoryModel(TestCase):
@@ -36,7 +36,7 @@ class TestProductModel(TestCase):
                                       image=image)
 
     def test_product_creation(self):
-        product = self.create_product()
+        product = Product()
         self.assertTrue(isinstance(product, Product))
 
     def test_product_string_method_returns_name(self):
@@ -47,3 +47,12 @@ class TestProductModel(TestCase):
                                          price=10, on_sale=True,
                                          image_url='url', image='image')
         self.assertEqual(str(product), 'name')
+
+
+class TestReviewModel(TestCase):
+
+    def test_review_string_method(self):
+        product = Product(name='Blueberry Bush')
+        review = Review(product=product, name='Jimmy McNulty')
+        expected_result = 'Blueberry Bush review by Jimmy McNulty'
+        self.assertEqual(str(review), expected_result)
