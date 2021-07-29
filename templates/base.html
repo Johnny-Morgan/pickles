@@ -6,7 +6,7 @@
 <head>
 
   {% block meta %}
-  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   {% endblock %}
@@ -109,8 +109,8 @@
     </div>
     <div class="row bg-white">
       <nav class="navbar navbar-expand-lg navbar-light w-100">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
-          aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Mobile version of top header -->
@@ -180,20 +180,21 @@
         </div>
       </div>
     </footer>
+  </div>
 
-    {% block postloadjs %}
-    <script type="text/javascript">
-      $('.toast').toast('show');
+  {% block postloadjs %}
+  <script>
+    $('.toast').toast('show');
 
-      // Bootstrap tooltip
-      $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-      })
+    // Bootstrap tooltip
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
 
-      // Copyright - displays current year
-      $('#copyright').text(new Date().getFullYear());
-    </script>
-    {% endblock %}
+    // Copyright - displays current year
+    $('#copyright').text(new Date().getFullYear());
+  </script>
+  {% endblock %}
 </body>
 
 </html>
