@@ -47,10 +47,10 @@
                         {% include 'basket/product-info.html' %}
                     </div>
                     <div class="col-12 col-sm-6 order-sm-last">
-                        <p class="my-0">
+                        <div class="my-0">
                             <p class="my-0">Price Each: €{{ item.price  }}</p>
                             <p><strong>Subtotal: </strong>€{{ item.price | calc_subtotal:item.quantity }}</p>
-                        </p>
+                        </div>
                     </div>
                     <div class="col-12 col-sm-6">
                         {% include 'basket/quantity-form.html' %}

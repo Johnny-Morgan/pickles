@@ -129,7 +129,7 @@
                             <h2 class="heading small-heading">Leave a Comment</h2>
                         </div>
                     </div>
-                    <form action="" method="POST">
+                    <form action="{% url 'post' post.slug %}" method="POST">
                         {% csrf_token %}
                         {{ form | crispy }}
                         <button class="btn btn-green mb-5">Post Comment</button>
