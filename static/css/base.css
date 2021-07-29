@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 html {
@@ -7,7 +14,6 @@ html {
 body {
     height: calc(100vh - 164px);
     font-family: 'Inter', sans-serif;
-
 }
 
 #page-container {
@@ -52,6 +58,7 @@ body {
     text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.8);
 }
 
+/***** BUTTONS *****/
 .btn-green,
 .badge-green {
     background: var(--green);
@@ -74,6 +81,23 @@ body {
     color: #fff;
 }
 
+.back-to-top-button {
+    height: 3rem;
+    width: 3rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    color: var(--dark-green);
+}
+
+.back-to-top-link {
+    cursor: pointer;
+}
+
+.btn-accordion {
+    padding: 0;
+}
+
 .bg-green {
     background: var(--green);
 }
@@ -92,42 +116,32 @@ body {
     z-index: -1;
 }
 
-.back-to-top-button {
-    height: 3rem;
-    width: 3rem;
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    color: var(--dark-green);
-}
-
-.back-to-top-link {
-    cursor: pointer;
-}
-
-.btn-accordion {
-    padding: 0;
-}
-
 .summary-box {
     border: 1px solid var(--dark-green);
     border-radius: 0.5rem;
     max-height: 27rem;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 2rem;
 }
 
 .product-card {
+    -webkit-transition: -webkit-box-shadow 0.3s;
+    transition: -webkit-box-shadow 0.3s;
+    -o-transition: box-shadow 0.3s;
     transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
 }
 
 .product-card:hover {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-img-top {
     width: 100%;
     height: 15vw;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 
@@ -140,6 +154,7 @@ body {
     cursor: pointer;
 }
 
+/***** HEADINGS *****/
 .heading {
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -153,6 +168,8 @@ body {
     background-color: var(--green);
     position: absolute;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     border-radius: 2rem;
 }
@@ -200,7 +217,6 @@ body {
 }
 
 /***** TOASTS *****/
-
 .message-container {
     position: fixed;
     top: 5rem;
@@ -231,7 +247,7 @@ body {
     font-family: 'FontAwesome';
 }
 
-/* Carousel */
+/* CAROUSEL */
 .carousel-control-prev,
 .carousel-control-next {
     top: -45%;
@@ -250,7 +266,7 @@ Credit: https://stackoverflow.com/questions/46249541/change-arrow-colors-in-boot
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2373a24e' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
-/* Allauth form */
+/* ALLAUTH FORM */
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
 }
@@ -264,25 +280,38 @@ Credit: https://stackoverflow.com/questions/46249541/change-arrow-colors-in-boot
 }
 
 /* 
-Contact details 
+CONTACT DETAILS 
 Credit - Online Tutorials (https://www.youtube.com/watch?v=gggB0Nq5vBk&ab_channel=OnlineTutorials)
 */
 .contact-container {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 .contact-container .contact-info {
     width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
 .contact-container .contact-info .box {
     position: relative;
     padding-bottom: 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -291,16 +320,27 @@ Credit - Online Tutorials (https://www.youtube.com/watch?v=gggB0Nq5vBk&ab_channe
     height: 60px;
     color: var(--green);
     background: var(--yellow);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-radius: 50%;
     font-size: 1.4rem;
 }
 
 .contact-container .contact-info .box .text {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-left: 1.25rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -309,7 +349,7 @@ Credit - Online Tutorials (https://www.youtube.com/watch?v=gggB0Nq5vBk&ab_channe
     color: var(--dark-green);
 }
 
-/* Product Form */
+/* PRODUCT FORM */
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -355,6 +395,8 @@ footer i {
     color: var(--dark-green);
     font-size: 150%;
     padding-left: 0.5rem;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -368,7 +410,7 @@ footer .copyright {
     text-align: center;
 }
 
-/* -------------------------------- Media Queries */
+/***** MEDIA QUERIES *****/
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
