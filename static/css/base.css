@@ -509,6 +509,13 @@ footer .copyright {
     .order-number {
         font-size: 0.9rem;
     }
+
+    #blog-details a,
+    #blog-details button {
+        width: 75px;
+        padding: 0.2rem;
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 1153px) {
