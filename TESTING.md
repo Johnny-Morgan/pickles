@@ -159,6 +159,19 @@ All the files passed with the following errors ignored:
 
 - All Rule DJ01 - 'Avoid using null=True on string-based fields such as CharField and TextField' are ignored.
 
+
+![Image](docs/testing_images/basket_coverage.png)
+
+![Image](docs/testing_images/blog_coverage.png)
+
+![Image](docs/testing_images/checkout_coverage.png)
+
+![Image](docs/testing_images/home_coverage.png)
+
+![Image](docs/testing_images/products_coverage.png)
+
+![Image](docs/testing_images/profiles_coverage.png)
+
 ## Testing User Stories
 
 - As a **store owner**, I want to be able to:
