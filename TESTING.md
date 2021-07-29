@@ -1,5 +1,103 @@
 # Testing
 
+## Validation
+
+### HTML
+
+The [W3C Markup Validator](https://validator.w3.org/#validate_by_input) service was used to validate the HTML code of this project.
+
+- [basket.html](https://github.com/Johnny-Morgan/pickles/blob/master/basket/templates/basket/basket.html) template errors:
+
+    Error: No p element in scope but a p end tag seen.
+
+    Fix: Change p element to a div element.
+
+- [add_post.html](https://github.com/Johnny-Morgan/pickles/blob/master/blog/templates/blog/add_post.html) template errors:
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+
+    Fix: Remove type attribute from script.
+
+- [edit_post.html](https://github.com/Johnny-Morgan/pickles/blob/master/blog/templates/blog/edit_post.html) template errors:
+
+    Error: Bad value for attribute action on element form: Must be non-empty.
+
+    Fix: Add ```"{% url 'edit_post' post.slug %}"``` to action attribute.
+
+- [post.html](https://github.com/Johnny-Morgan/pickles/blob/master/blog/templates/blog/post.html) template errors:
+
+    Error: Bad value for attribute action on element form: Must be non-empty.
+
+    Fix: Add ```"{% url 'post' post.slug %}"``` to action attribute.
+
+- [checkout.html](https://github.com/Johnny-Morgan/pickles/blob/master/checkout/templates/checkout/checkout.html) template errors:
+
+    Warning: Empty heading. This warning is in relation to the h1 element containing the font awesome loading spinner and can be safely ignored.
+
+- [carousel_item.html](https://github.com/Johnny-Morgan/pickles/blob/master/home/templates/home/carousel_item.html) template errors:
+
+    Error: No p element in scope but a p end tag seen.
+
+    Fix: Change p element to a div element.
+
+- [home.html](https://github.com/Johnny-Morgan/pickles/blob/master/home/templates/home/home.html) template errors:
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+
+    Fix: Remove type attribute from script.
+
+- [add_product.html](https://github.com/Johnny-Morgan/pickles/blob/master/products/templates/products/add_product.html) template errors:
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+
+    Fix: Remove type attribute from script.
+
+- [product_info.html](https://github.com/Johnny-Morgan/pickles/blob/master/products/templates/products/product_info.html) template errors:
+
+    Error: No p element in scope but a p end tag seen.
+
+    Fix: Change p element to a div element.
+
+    Error: Duplicate attribute id.
+
+    Fix: Remove duplicate id. 
+
+    Error: The scope attribute on the td element is obsolete. Use the scope attribute on a th element instead.
+
+    Fix: Remove scope attributes from the td elements.
+
+    Error: Bad value for attribute action on element form: Must be non-empty.
+
+    Fix: Add ```"{% url 'product_info' product.id %}"``` to action attribute.
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+
+    Fix: Remove type attribute from script.
+
+- [products.html](https://github.com/Johnny-Morgan/pickles/blob/master/products/templates/products/products.html) template errors:
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+
+    Fix: Remove type attribute from script.
+
+- [base.html](https://github.com/Johnny-Morgan/pickles/blob/master/templates/base.html) template errors:
+
+    Error: Unclosed element div.
+
+    Fix: Add missing closing div tag.
+
+    Error: The aria-controls attribute must point to an element in the same document.
+
+    Fix: Change aria-controls attribute value from "main-nav" to "navigation"
+
+### CSS
+
+The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) service was used to validate the CSS code.
+
+- base.css - no errors found.
+- checkout.css - no errors found.
+- profile.css - no errors found.
+
 ## Testing User Stories
 
 - As a **store owner**, I want to be able to:
@@ -250,8 +348,7 @@
 
 ### Shopping Basket Page
 
-- Attempt to access the basket page when not logged in, confirm user is redirected to the products page.
-- Login and access the basket page with an empty basket, confirm the message 'Your shopping basket is empty.' is shown and a button directing the shopper back to the shop is provided.
+- Attempt to access the basket page with an empty basket, confirm the message 'Your shopping basket is empty.' is shown and a button directing the shopper back to the shop is provided.
 - Click the 'BACK TO SHOP' button and confirm it takes the user to the products page.
 - Add products to the basket and return to the basket page, confirm all the products and quantities displayed in the basket are correct and the subtotal, basket total and order total are correct.
 - Adjust the quantity field of a product and click the update button, confirm that the quantity and subtotal is updated as well as the basket subtotal and order total.
