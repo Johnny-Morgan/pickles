@@ -110,7 +110,7 @@
                     </table>
                 </div>
             </div>
-            <div class="col-12 col-md-3 summary-box d-none d-lg-block">
+            <div class="col-12 col-md-3 summary-box d-none d-lg-block mt-5">
                 <div class="table-responsive rounded">
                     <table class="table table-sm table-borderless">
                         <thead>
@@ -151,23 +151,23 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     // Scroll to top button
     $('.back-to-top-link').click(e => {
-        window.scrollTo(0, 0)
-    })
+        window.scrollTo(0, 0);
+    });
 </script>
 
-<script type="text/javascript">
+<script>
     // Fill quantity select element with numbers 1-99
     $(function () {
         let $quantity = $(".qty_input");
         for (i = 1; i < 100; i++) {
-            $quantity.append($('<option></option>').val(i).html(i))
+            $quantity.append($('<option></option>').val(i).html(i));
         }
 
         $('.hidden').each(function () {
-            let quantity = $(this).val()
+            let quantity = $(this).val();
             $(`div.qty_${quantity} select`).val(quantity);
         });
     });
@@ -176,7 +176,7 @@
     $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');
         form.submit();
-    })
+    });
 
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
@@ -186,11 +186,10 @@
         var data = {
             'csrfmiddlewaretoken': csrfToken,
         };
-        console.log(data)
         $.post(url, data)
             .done(function () {
                 location.reload();
             });
-    })
+    });
 </script>
 {% endblock %}
