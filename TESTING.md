@@ -8,87 +8,87 @@ The [W3C Markup Validator](https://validator.w3.org/#validate_by_input) service 
 
 - [basket.html](https://github.com/Johnny-Morgan/pickles/blob/master/basket/templates/basket/basket.html) template errors:
 
-    Error: No p element in scope but a p end tag seen.
+    **Error:** *No p element in scope but a p end tag seen.*
 
-    Fix: Change p element to a div element.
+    **Fix:** Change p element to a div element.
 
 - [add_post.html](https://github.com/Johnny-Morgan/pickles/blob/master/blog/templates/blog/add_post.html) template errors:
 
-    Warning: The type attribute is unnecessary for JavaScript resources.
+    **Warning:** *The type attribute is unnecessary for JavaScript resources.*
 
-    Fix: Remove type attribute from script.
+    **Fix:** Remove type attribute from script.
 
 - [edit_post.html](https://github.com/Johnny-Morgan/pickles/blob/master/blog/templates/blog/edit_post.html) template errors:
 
-    Error: Bad value for attribute action on element form: Must be non-empty.
+    **Error:** *Bad value for attribute action on element form: Must be non-empty.*
 
-    Fix: Add ```"{% url 'edit_post' post.slug %}"``` to action attribute.
+    **Fix:** Add ```"{% url 'edit_post' post.slug %}"``` to action attribute.
 
 - [post.html](https://github.com/Johnny-Morgan/pickles/blob/master/blog/templates/blog/post.html) template errors:
 
-    Error: Bad value for attribute action on element form: Must be non-empty.
+    **Error:** *Bad value for attribute action on element form: Must be non-empty.*
 
-    Fix: Add ```"{% url 'post' post.slug %}"``` to action attribute.
+    **Fix:** Add ```"{% url 'post' post.slug %}"``` to action attribute.
 
 - [checkout.html](https://github.com/Johnny-Morgan/pickles/blob/master/checkout/templates/checkout/checkout.html) template errors:
 
-    Warning: Empty heading. This warning is in relation to the h1 element containing the font awesome loading spinner and can be safely ignored.
+    **Warning:** *Empty heading.* This warning is in relation to the h1 element containing the font awesome loading spinner and can be safely ignored.
 
 - [carousel_item.html](https://github.com/Johnny-Morgan/pickles/blob/master/home/templates/home/carousel_item.html) template errors:
 
-    Error: No p element in scope but a p end tag seen.
+    **Error:** No p element in scope but a p end tag seen.
 
-    Fix: Change p element to a div element.
+    **Fix:** Change p element to a div element.
 
 - [home.html](https://github.com/Johnny-Morgan/pickles/blob/master/home/templates/home/home.html) template errors:
 
-    Warning: The type attribute is unnecessary for JavaScript resources.
+    **Warning:** *The type attribute is unnecessary for JavaScript resources.*
 
-    Fix: Remove type attribute from script.
+    **Fix:** Remove type attribute from script.
 
 - [add_product.html](https://github.com/Johnny-Morgan/pickles/blob/master/products/templates/products/add_product.html) template errors:
 
-    Warning: The type attribute is unnecessary for JavaScript resources.
+    **Warning:** *The type attribute is unnecessary for JavaScript resources.*
 
-    Fix: Remove type attribute from script.
+    **Fix:** Remove type attribute from script.
 
 - [product_info.html](https://github.com/Johnny-Morgan/pickles/blob/master/products/templates/products/product_info.html) template errors:
 
-    Error: No p element in scope but a p end tag seen.
+    **Error:** *No p element in scope but a p end tag seen.*
 
-    Fix: Change p element to a div element.
+    **Fix:** Change p element to a div element.
 
-    Error: Duplicate attribute id.
+    **Error:** *Duplicate attribute id.*
 
-    Fix: Remove duplicate id. 
+    **Fix:** Remove duplicate id. 
 
-    Error: The scope attribute on the td element is obsolete. Use the scope attribute on a th element instead.
+    **Error:** *The scope attribute on the td element is obsolete. Use the scope attribute on a th element instead.*
 
-    Fix: Remove scope attributes from the td elements.
+    **Fix:** Remove scope attributes from the td elements.
 
-    Error: Bad value for attribute action on element form: Must be non-empty.
+    **Error:** *Bad value for attribute action on element form: Must be non-empty.*
 
-    Fix: Add ```"{% url 'product_info' product.id %}"``` to action attribute.
+    **Fix:** Add ```"{% url 'product_info' product.id %}"``` to action attribute.
 
-    Warning: The type attribute is unnecessary for JavaScript resources.
+    **Warning:** *The type attribute is unnecessary for JavaScript resources.*
 
-    Fix: Remove type attribute from script.
+    **Fix:** Remove type attribute from script.
 
 - [products.html](https://github.com/Johnny-Morgan/pickles/blob/master/products/templates/products/products.html) template errors:
 
-    Warning: The type attribute is unnecessary for JavaScript resources.
+   **Warning:** *The type attribute is unnecessary for JavaScript resources.*
 
-    Fix: Remove type attribute from script.
+    **Fix:** Remove type attribute from script.
 
 - [base.html](https://github.com/Johnny-Morgan/pickles/blob/master/templates/base.html) template errors:
 
-    Error: Unclosed element div.
+    **Error:** *Unclosed element div.*
 
-    Fix: Add missing closing div tag.
+    **Fix:** Add missing closing div tag.
 
-    Error: The aria-controls attribute must point to an element in the same document.
+    **Error:** *The aria-controls attribute must point to an element in the same document.*
 
-    Fix: Change aria-controls attribute value from "main-nav" to "navigation"
+    **Fix:** Change aria-controls attribute value from "main-nav" to "navigation"
 
 ### CSS
 
@@ -97,6 +97,67 @@ The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) 
 - base.css - no errors found.
 - checkout.css - no errors found.
 - profile.css - no errors found.
+
+### Python
+
+The Flake8 Python library was used for checking the code base against the PEP8 coding style and for checking for programming errors.
+
+All the files passed with the following errors ignored:
+
+- ```./blog/widgets.py:9:80: E501 line too long (83 > 79 characters)```
+
+    ```python
+    template_name = 'blog/custom_widget_templates/custom_clearable_file_input.html'
+    ```
+
+    Fixing this line would break the variable so I chose to ignore this error.
+
+- ```./products/test_forms.py:60:80: E501 line too long (92 > 79 characters)```
+
+    ```python
+    self.assertEqual(
+                form.errors['price'][0],
+                'Ensure that there are no more than 4 digits before the decimal point.')
+    ```
+
+    This line is testing the form error message, breaking this line up would cause the test to fail, therefore it is ignored.
+
+- ```./products/widgets.py:9:80: E501 line too long (87 > 79 characters)```
+
+    ```python
+    template_name = 'products/custom_widget_templates/custom_clearable_file_input.html'
+    ```
+
+    Fixing this line would break the variable so I chose to ignore this error.
+
+- ```./checkout/apps.py:9:9: F401 'checkout.signals' imported but unused```
+
+    Safely ignored.
+
+- ```./checkout/webhook_handler.py:70:80: E501 line too long (80 > 79 characters)```
+
+    ```python
+    profile.default_street_address1 = shipping_details.address.line1
+    ```
+
+    This could be fixed by assigning shipping_details.address.line1 to a variable first:
+
+    ```python
+    details = shipping_details.address.line1
+    profile.default_street_address1 = details
+    ```
+
+    However this solution would inhibit code readability and is therefore ignored.
+
+- ```./checkout/webhook_handler.py:71:80: E501 line too long (80 > 79 characters)```
+
+    As above.
+
+- All errors in auto-generated lines in settings.py are ignored.
+
+- All errors in the auto-generated migrations files are ignored.
+
+- All Rule DJ01 - 'Avoid using null=True on string-based fields such as CharField and TextField' are ignored.
 
 ## Testing User Stories
 
