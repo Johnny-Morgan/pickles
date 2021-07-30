@@ -98,6 +98,10 @@ body {
     padding: 0;
 }
 
+.product-info-buttons .btn {
+    width: 170px;
+}
+
 .bg-green {
     background: var(--green);
 }
@@ -275,6 +279,10 @@ Credit: https://stackoverflow.com/questions/46249541/change-arrow-colors-in-boot
     background-color: var(--dark-green);
     border-radius: 50%;
     padding: 0.75rem;
+}
+
+.carousel-item img {
+    height: 200px;
 }
 
 /* ALLAUTH FORM */
@@ -482,11 +490,10 @@ footer .copyright {
     }
 }
 
-
 @media (max-width: 375px) {
     .product-info-buttons .btn {
         width: 50%;
-        font-size: 85%;
+        font-size: 75%;
     }
 
     .card-img-top {
@@ -523,12 +530,12 @@ footer .copyright {
     }
 }
 
-@media (max-width: 1153px) {
+@media (max-width: 1240px) {
     .logo {
-        font-size: 200%;
+        font-size: 190%;
     }
-}
 
-.carousel-item img {
-    height: 200px;
+    #accordion button {
+        font-size: 0.8rem;
+    }
 }
