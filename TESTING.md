@@ -376,7 +376,11 @@ All the files passed with the following errors ignored:
 
 ## Manual Testing on Live Site
 
-### Navigation
+### Desktop Manual Testing
+
+The following manual testing was undertaken on a desktop computer using Google Chrome.
+
+#### Navigation
 
 - Click the logo in the navbar, confirm that it directs to the home page.
 - Click the 'ALL PRODUCTS' link, confirm it displays the correct sections in the dropdown menu.
@@ -393,11 +397,11 @@ All the files passed with the following errors ignored:
 - Search for a product in the search bar, confirm that the results of the search are displayed correctly.
 - Change the discount percentage variable in settings.py, confirm the discount percentage value updates in the site banner.
 
-### Footer
+#### Footer
 
 - Click on all social media links, confirm they open the correct page in a new browser tab.
 
-### Home Page
+#### Home Page
 
 - Observe the carousel displaying the latest offers, confirm it updates as expected.
 - Click on the carousel arrows, confirm the carousel changes as expected.
@@ -405,7 +409,7 @@ All the files passed with the following errors ignored:
 - Click on the information icon for each product, confirm it directs to the correct page.
 - Click on the shopping basket icon for each product, confirm it adds one item of the product to the shopping basket.
 
-### Products Page
+#### Products Page
 
 - Click on the image for each product, confirm it directs to the correct page.
 - Click on the information icon for each product, confirm it directs to the correct page.
@@ -415,7 +419,7 @@ All the files passed with the following errors ignored:
 - Click the category for each product, confirm each product for that category is displayed.
 - Change the discount percentage variable in settings.py, confirm the price for discounted products updates and displays the correct value.
 
-### Individual Product Page
+#### Individual Product Page
 
 - Click on the product image, confirm it opens the image in a new tab.
 - Click on the product category, confirm it returns to the product page containing all products with that category.
@@ -432,7 +436,7 @@ All the files passed with the following errors ignored:
 - Confirm that the product rating score updates based on the rating given in the submitted review.
 - Confirm the pagination links are working correctly for products with more than 5 reviews.
 
-### Shopping Basket Page
+#### Shopping Basket Page
 
 - Attempt to access the basket page with an empty basket, confirm the message 'Your shopping basket is empty.' is shown and a button directing the shopper back to the shop is provided.
 - Click the 'BACK TO SHOP' button and confirm it takes the user to the products page.
@@ -443,7 +447,7 @@ All the files passed with the following errors ignored:
 - Confirm that a basket total that is more than €60 has no delivery charge.
 - Click the 'CHECKOUT' button and confirm it takes the user to the checkout page.
 
-### Checkout Page
+#### Checkout Page
 
 - Attempt to access the checkout page with an empty basket, confirm user is redirected to the products page and an error message is displayed
 - Confirm that the products in order summary match the products in the basket.
@@ -459,7 +463,7 @@ All the files passed with the following errors ignored:
 - Click on the 'BACK TO SHOP' button, confirm that it redirects to the products page.
 - Confirm that a confirmation email is sent to the user.
 
-### Profile Page
+#### Profile Page
 
 - Confirm order history contains a list of previous orders.
 - Click on the order number for each order, confirm it displays the correct order details.
@@ -468,7 +472,7 @@ All the files passed with the following errors ignored:
 - Add or edit default delivery information, click 'UPDATE INFORMATION' button, confirm information updates correctly.
 - Add a product to the shopping basket and go to checkout, confirm the delivery details form is populated with updated default delivery information.
 
-### Blog Page
+#### Blog Page
 
 - Confirm the 'Add Blog Post' button is only visible to logged in superusers.
 - Click the 'Add Blog Post' button to confirm the user is directed to add blog post page which contains a form for adding a new blog post.
@@ -480,7 +484,7 @@ All the files passed with the following errors ignored:
 - Click on each '...read more' text at the end of each blog intro, confirm it directs to the correct blog post page.
 - Confirm the pagination links are working correctly.
 
-### Blog Post Page
+#### Blog Post Page
 
 - Confirm that the edit and delete buttons are visible to logged in superusers.
 - Click the edit button, confirm the user is directed to the 'edit post' page.
@@ -500,6 +504,41 @@ All the files passed with the following errors ignored:
 - Click the delete comment button, confirm a modal appears with a message asking the user are they sure they want to delete the comment.
 - Confirm that clicking the modal cancel button returns the user to the blog post page without deleting the comment.
 - Click the modal delete button, confirm that the comment is deleted.
+
+### Mobile and Tablet Manual Testing
+
+The above desktop manual tests were undertaken on real-life devices, namely an Alcatel 1 Android Phone, and a 5th generation iPad.
+
+Using Chrome developer tools the responsive nature of the site was tested on the Moto G4, Galaxy S5, iPhone5/SE, iPhone 6/7/8, iPad and Surface Duo.
+
+Additional manual testing was as follows:
+
+#### Navigation
+
+- Confirm that the 'ALL PRODUCTS', 'PLANTS', 'SEEDS' AND 'BLOG' navigation links are collapsed into a hamburger icon.
+- Click the hamburger icon, confirm that the above links appear as expected.
+- Confirm that the main logo is not displayed.
+- Confirm that an additional link to the home page is added to the hamburger menu.
+- Click each link, confirm that the relevent submenu product sections are displayed.
+- Confirm each link directs to the correct page.
+- Click on the search icon, confirm a search bar opens below the navbar and functions correctly.
+- Add a product to the basket, confirm the basket value updates correctly.
+
+#### Home Page
+
+- Confirm that on mobile devices, the carousel is replaced with a list of products stacked on top of each other.
+
+#### Shopping Basket Page
+
+- Confirm that the order summary appears above the list of products in the basket.
+
+#### Checkout Page
+
+- Confirm that the order summary appears above the order form.
+
+#### Profile Page
+
+- Confirm that the default delivery information form appears above the order history section.
 
 ## Bugs
 
