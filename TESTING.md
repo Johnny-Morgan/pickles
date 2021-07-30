@@ -1,5 +1,20 @@
 # Testing
 
+## Table of Contents
+
+1. [**Validation**](#validation)
+    - [**HTML**](#html)
+    - [**CSS**](#css)
+    - [**JavaScript**](#javascript)
+    - [**Python**](#python)
+2. [**Testing User Stories**](#testing-user-stories)
+3. [**Manual Testing on Live Site**](#manual-testing-on-live-site)
+    - [**Desktop Manual Testing**](#desktop-manual-testing)
+    - [**Mobile and Tablet Manual Testing**](#mobile-and-tablet-manual-testing)
+4. [**Bugs**](#bugs)
+    - [**Solved Bugs**](#solved-bugs)
+    - [**Unresolved Bugs**](#unresolved-bugs)
+
 ## Validation
 
 ### HTML
@@ -544,7 +559,7 @@ Additional manual testing was as follows:
 
 ### Solved Bugs
 
-- If a superuser attempted to create a new blog post with a title that matched the title of an existing blog post, an IntegrityError would occur. This Unique constraint failure was occuring because the slug for each blog post must be unique. 
+1. If a superuser attempted to create a new blog post with a title that matched the title of an existing blog post, an IntegrityError would occur. This Unique constraint failure was occuring because the slug for each blog post must be unique. 
 
     ![Image](docs/testing_images/blog_slug_bug.png)
 
@@ -568,7 +583,7 @@ Additional manual testing was as follows:
 
     ![Image](docs/testing_images/blog_slug_error_message.png)
 
-- The above error also occured if a superuser was editing a blog post and changed the title to that of an existing blog post title. The same fix was used as above but this introduced a new bug. Now when editing a post, even if the title of the post was not edited, the error message would be displayed. This occured because the list of existing slugs in the database already contained the slug for the post that was being edited. Therefore the check to see if the list contained the slug always returned True, which in turn always displayed the error message. 
+2. The above error also occured if a superuser was editing a blog post and changed the title to that of an existing blog post title. The same fix was used as above but this introduced a new bug. Now when editing a post, even if the title of the post was not edited, the error message would be displayed. This occured because the list of existing slugs in the database already contained the slug for the post that was being edited. Therefore the check to see if the list contained the slug always returned True, which in turn always displayed the error message. 
 
     **Fix:** In the edit_post view, remove the slug for the post that is being edited from the list of existing slugs.
 
@@ -576,7 +591,7 @@ Additional manual testing was as follows:
     slugs.remove(post.slug)
     ```
 
-- If a superuser edited a blog post that was created by a different superuser, the author field would be updated to the superuser who edited the post. This occured because author field for a blog post was being updated in the edit_post view.
+3. If a superuser edited a blog post that was created by a different superuser, the author field would be updated to the superuser who edited the post. This occured because author field for a blog post was being updated in the edit_post view.
 
     ```python
     post.author = str(request.user)
@@ -584,10 +599,70 @@ Additional manual testing was as follows:
     
     **Fix:** Remove the above line of code from the edit_post view. In future development the author field for a blog post can be related to the Django User model.
 
-- When adding a new blog post, the tags field was not saving to the database. The post model's tags field is a ManyToManyField that points at the Tag model. To save the tags field form data, the save_m2m method can be used. 
+4. When adding a new blog post, the tags field was not saving to the database. The post model's tags field is a ManyToManyField that points at the Tag model. To save the tags field form data, the save_m2m method can be used. 
 
     **Fix:** Invoke the save_m2m() method to save the many-to-many form data. Apply it when editing a blog post too.
     
     ```python 
     form.save_m2m()
     ```
+5. When deleting a blog post comment, the newset comment that was added would be the one that was deleted. The cause of this bug was the use of id="deleteComment" in the modal to delete a comment. The modal for each comment was being added in a loop which meant having multiple modals with the same id which in this case was the id of the newest comment. Therefore when clicking the delete button the newest comment was always deleted. 
+
+    **Fix:** Add the id of the comment to the modal id and the corresponding data-target attribute so each modal has its own unique id.
+
+    ```html
+    id="deleteComment_{{ comment.id }}"
+    ```
+6. The above bug was present in the product review section of the site and was fixed in the same manner.
+
+    ```html
+    id="deleteReview_{{ review.id }}"
+    ```
+
+7. An interseting bug occured when the project was deployed on Heroku. In the product_info view, the query to calculate the product rating no longer worked.   
+
+    ![Image](docs/testing_images/postgres_bug.png)
+
+    ```python
+        rating = Review.objects.filter(product=product_id).aggregate(
+                    Avg('rating'))['rating__avg']
+    ```
+
+    This was due to the Heroku postgres database not recognising the query when the database was changed from sqlite. This was due to the implicit casting that was taking place previously was no longer occuring. 
+
+    **Fix:** An attempt was made to cast the rating field to a float, however this did not work. The query was removed and the rating was calculated by looping through each review to calculate the average rating.
+
+    ```python
+    reviews = Review.objects.filter(product=product_id).order_by('-id')
+
+    # Calculate average rating
+    sum_ratings = 0
+    if len(reviews) != 0:
+        for review in reviews:
+            sum_ratings += float(review.rating)
+        avg_rating = sum_ratings / len(reviews)
+    else:
+        avg_rating = None
+    ```
+
+### Unresolved Bugs
+
+1. The sorting of products by price is based on the original price of the product. It does not take into account if a product is discounted. This leads to an error in the ranking of products based on price. 
+
+    ![Image](docs/testing_images/price_rank_bug.png)
+
+    The above image shows 4 products sorted by price. The 'Spartan Apple Tree' is ranked above the 'Bluebell' due to its price being based on its original price of €17.95 and not on its discounted price.
+
+
+2. If an admin user deletes a product from the database, the product, if bought by a user previously, will be removed from the user's order history. A solution would be to prevent a product from being deleted by changing the on_delete option to 'models.PROTECT'.
+
+    ```python
+    product = models.ForeignKey(Product, null=False, blank=False,
+                                        on_delete=models.PROTECT)
+    ```
+
+    An additional BooleanField called 'discontinued' could be added to the Product model which would be set to 'True' when the store is no longer selling the product. A check would then be needed in the template logic for displaying a product, to identify if the product is discontinued or not. 
+
+3. Occasionally an order is being created twice which leads to a duplicate order in the database. This bug is related to the webhook and the number of times it attempts to query the database for the existing order before it gives up and processes the webhook. The order isn’t being created quickly enough by the form due to a slow internet connection, so the webhook handler assumes something went wrong and creates the order based on the webhook from stripe. Soon after, the form finishes processing and creates the order again resulting in the duplicate order. This is know as a [race condition](https://en.wikipedia.org/wiki/Race_condition) and while difficult to debug will need investigation for future releases.
+
+
