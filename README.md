@@ -1,3 +1,11 @@
+<div align="center">
+    <a href="https://pickles-eshop.herokuapp.com/" target="_blank"><img src="docs/readme_images/logo.png" alt="pickles eshop"></a>
+</div>
+
+![Image](docs/readme_images/mockup.png)
+
+<h3><a href="https://pickles-eshop.herokuapp.com/" target="_blank">Click here</a> to view the site on Heroku.</h3>
+
 ## User Experience
 
 - ### User Stories
