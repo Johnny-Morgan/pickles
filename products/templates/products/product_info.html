@@ -242,15 +242,15 @@
             <!-- Superuser edit & delete review buttons -->
             {% if request.user.is_superuser %}
             <!-- Button trigger delete comment modal -->
-            <span data-toggle="modal" data-target="#deleteReview">
+            <span data-toggle="modal" data-target="#deleteReview_{{ review.id }}">
                 <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="right"
                     title="Delete Review">
                     <i class="far fa-trash-alt"></i>
                 </button>
             </span>
             <!-- Modal -->
-            <div class="modal fade" id="deleteReview" tabindex="-1" role="dialog" aria-labelledby="deleteReviewModal"
-                aria-hidden="true">
+            <div class="modal fade" id="deleteReview_{{ review.id }}" tabindex="-1" role="dialog"
+                aria-labelledby="deleteReviewModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
