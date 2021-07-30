@@ -59,6 +59,7 @@ def all_products(request):
         'search_word': query,
         'categories': categories,
         'sorting': sorting,
+        'on_products_page': True,
     }
 
     return render(request, 'products/products.html', context)
@@ -90,7 +91,7 @@ def product_info(request, product_id):
             review = review_form.save(commit=False)
             review.product = product
             review.save()
-
+            messages.success(request, 'Review added successfully!')
             return redirect(reverse('product_info', args=[product.id]))
     else:
         review_form = ReviewForm()
@@ -102,6 +103,7 @@ def product_info(request, product_id):
         'review_form': review_form,
         'page_obj': page_obj,
         'rating': avg_rating,
+        'on_product_info_page': True,
     }
 
     return render(request, 'products/product_info.html', context)

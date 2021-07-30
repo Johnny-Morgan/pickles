@@ -16,7 +16,7 @@
             </div>
         </div>
         <!-- Shopping basket -->
-        {% if order_total and not on_profile_page and not on_blog_page and not on_blog_post_page %}
+        {% if order_total and not on_profile_page and not on_blog_page and not on_blog_post_page and not on_products_page and not on_product_info_page  %}
         <p class="logo-font text-black py-1">Your Basket ({{ product_count }} item{{ product_count|pluralize}})</p>
         <div class="basket-notification-wrapper">
             {% for item in basket_items %}
