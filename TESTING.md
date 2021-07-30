@@ -8,87 +8,93 @@ The [W3C Markup Validator](https://validator.w3.org/#validate_by_input) service 
 
 - [basket.html](https://github.com/Johnny-Morgan/pickles/blob/master/basket/templates/basket/basket.html) template errors:
 
-    **Error:** *No p element in scope but a p end tag seen.*
+    - **Error:** *No p element in scope but a p end tag seen.*
 
-    **Fix:** Change p element to a div element.
+      **Fix:** Change p element to a div element.
 
 - [add_post.html](https://github.com/Johnny-Morgan/pickles/blob/master/blog/templates/blog/add_post.html) template errors:
 
-    **Warning:** *The type attribute is unnecessary for JavaScript resources.*
+    - **Warning:** *The type attribute is unnecessary for JavaScript resources.*
 
-    **Fix:** Remove type attribute from script.
+      **Fix:** Remove type attribute from script.
 
 - [edit_post.html](https://github.com/Johnny-Morgan/pickles/blob/master/blog/templates/blog/edit_post.html) template errors:
 
-    **Error:** *Bad value for attribute action on element form: Must be non-empty.*
+    - **Error:** *Bad value for attribute action on element form: Must be non-empty.*
 
-    **Fix:** Add ```"{% url 'edit_post' post.slug %}"``` to action attribute.
+      **Fix:** Add ```"{% url 'edit_post' post.slug %}"``` to action attribute.
 
 - [post.html](https://github.com/Johnny-Morgan/pickles/blob/master/blog/templates/blog/post.html) template errors:
 
-    **Error:** *Bad value for attribute action on element form: Must be non-empty.*
+    - **Error:** *Bad value for attribute action on element form: Must be non-empty.*
 
-    **Fix:** Add ```"{% url 'post' post.slug %}"``` to action attribute.
+      **Fix:** Add ```"{% url 'post' post.slug %}"``` to action attribute.
 
 - [checkout.html](https://github.com/Johnny-Morgan/pickles/blob/master/checkout/templates/checkout/checkout.html) template errors:
 
-    **Warning:** *Empty heading.* This warning is in relation to the h1 element containing the font awesome loading spinner and can be safely ignored.
+    - **Warning:** *Empty heading.* This warning is in relation to the h1 element containing the font awesome loading spinner and can be safely ignored.
 
 - [carousel_item.html](https://github.com/Johnny-Morgan/pickles/blob/master/home/templates/home/carousel_item.html) template errors:
 
-    **Error:** No p element in scope but a p end tag seen.
+    - **Error:** No p element in scope but a p end tag seen.
 
-    **Fix:** Change p element to a div element.
+      **Fix:** Change p element to a div element.
 
 - [home.html](https://github.com/Johnny-Morgan/pickles/blob/master/home/templates/home/home.html) template errors:
 
-    **Warning:** *The type attribute is unnecessary for JavaScript resources.*
+    - **Warning:** *The type attribute is unnecessary for JavaScript resources.*
 
-    **Fix:** Remove type attribute from script.
+      **Fix:** Remove type attribute from script.
 
 - [add_product.html](https://github.com/Johnny-Morgan/pickles/blob/master/products/templates/products/add_product.html) template errors:
 
-    **Warning:** *The type attribute is unnecessary for JavaScript resources.*
+    - **Warning:** *The type attribute is unnecessary for JavaScript resources.*
 
-    **Fix:** Remove type attribute from script.
+      **Fix:** Remove type attribute from script.
 
 - [product_info.html](https://github.com/Johnny-Morgan/pickles/blob/master/products/templates/products/product_info.html) template errors:
 
-    **Error:** *No p element in scope but a p end tag seen.*
+    - **Error:** *No p element in scope but a p end tag seen.*
 
-    **Fix:** Change p element to a div element.
+      **Fix:** Change p element to a div element.
 
-    **Error:** *Duplicate attribute id.*
+    - **Error:** *Duplicate attribute id.*
 
-    **Fix:** Remove duplicate id. 
+      **Fix:** Remove duplicate id. 
 
-    **Error:** *The scope attribute on the td element is obsolete. Use the scope attribute on a th element instead.*
+    - **Error:** *The scope attribute on the td element is obsolete. Use the scope attribute on a th element instead.*
 
-    **Fix:** Remove scope attributes from the td elements.
+      **Fix:** Remove scope attributes from the td elements.
 
-    **Error:** *Bad value for attribute action on element form: Must be non-empty.*
+    - **Error:** *Bad value for attribute action on element form: Must be non-empty.*
 
-    **Fix:** Add ```"{% url 'product_info' product.id %}"``` to action attribute.
+      **Fix:** Add ```"{% url 'product_info' product.id %}"``` to action attribute.
 
-    **Warning:** *The type attribute is unnecessary for JavaScript resources.*
+    - **Warning:** *The type attribute is unnecessary for JavaScript resources.*
 
-    **Fix:** Remove type attribute from script.
+      **Fix:** Remove type attribute from script.
 
 - [products.html](https://github.com/Johnny-Morgan/pickles/blob/master/products/templates/products/products.html) template errors:
 
-   **Warning:** *The type attribute is unnecessary for JavaScript resources.*
+    - **Warning:** *The type attribute is unnecessary for JavaScript resources.*
 
-    **Fix:** Remove type attribute from script.
+      **Fix:** Remove type attribute from script.
 
 - [base.html](https://github.com/Johnny-Morgan/pickles/blob/master/templates/base.html) template errors:
 
-    **Error:** *Unclosed element div.*
+    - **Error:** *Unclosed element div.*
 
-    **Fix:** Add missing closing div tag.
+      **Fix:** Add missing closing div tag.
 
-    **Error:** *The aria-controls attribute must point to an element in the same document.*
+    - **Error:** *The aria-controls attribute must point to an element in the same document.*
 
-    **Fix:** Change aria-controls attribute value from "main-nav" to "navigation"
+      **Fix:** Change aria-controls attribute value from "main-nav" to "navigation"
+
+- [mobile-top-header.html](https://github.com/Johnny-Morgan/pickles/blob/master/templates/includes/mobile-top-header.html) template errors:
+
+    - **Error:** *Element li not allowed as child of element body in this context.*
+
+      **Fix:** Enclose li elements in a ul tag.
 
 ### CSS
 
@@ -97,6 +103,12 @@ The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) 
 - base.css - no errors found.
 - checkout.css - no errors found.
 - profile.css - no errors found.
+
+### JavaScript
+
+[JSHint](https://jshint.com/) was used to validate the JavaScript code of the project.
+
+All warnings related to missing semicolons, which were added to the code.
 
 ### Python
 
@@ -444,7 +456,17 @@ All the files passed with the following errors ignored:
 - Click the 'Adjust basket' button, confirm it redirects the user to the shopping basket page.
 - Attempt to submit the form with incorrect data, confirm the relevent warning messages are displayed.
 - Submit the form with correct data, confirm that the loading overlay is displayed and an order summary is displayed after the loading overlay finishes. Confirm that a toast message is displayed with a confirmation that the order has been received, confirm that it shows the order number and that an email will be sent to the user.
+- Click on the 'BACK TO SHOP' button, confirm that it redirects to the products page.
 - Confirm that a confirmation email is sent to the user.
+
+### Profile Page
+
+- Confirm order history contains a list of previous orders.
+- Click on the order number for each order, confirm it displays the correct order details.
+- Confirm that a toast message is displayed with the message 'This is a past confirmation for order number (order number). A confirmation email was sent on the order date.'
+- Click on the 'BACK TO PROFILE' button, confirm it redirects to the profile page.
+- Add or edit default delivery information, click 'UPDATE INFORMATION' button, confirm information updates correctly.
+- Add a product to the shopping basket and go to checkout, confirm the delivery details form is populated with updated default delivery information.
 
 ### Blog Page
 
