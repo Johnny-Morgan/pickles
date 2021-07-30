@@ -7,6 +7,9 @@
     - [**CSS**](#css)
     - [**JavaScript**](#javascript)
     - [**Python**](#python)
+        - [**PEP8**](#pep8)
+        - [**Unit Testing**](#unit-testing)
+        - [**Coverage**](#coverage)
 2. [**Testing User Stories**](#testing-user-stories)
 3. [**Manual Testing on Live Site**](#manual-testing-on-live-site)
     - [**Desktop Manual Testing**](#desktop-manual-testing)
@@ -127,6 +130,8 @@ All warnings related to missing semicolons, which were added to the code.
 
 ### Python
 
+#### PEP8
+
 The Flake8 Python library was used for checking the code base against the PEP8 coding style and for checking for programming errors.
 
 All the files passed with the following errors ignored:
@@ -186,18 +191,67 @@ All the files passed with the following errors ignored:
 
 - All Rule DJ01 - 'Avoid using null=True on string-based fields such as CharField and TextField' are ignored.
 
+#### Unit Testing
 
-![Image](docs/testing_images/basket_coverage.png)
+Unit testing was carried out on all the apps in this project. The project did not use a test driven development process, the test cases were written after development. The blog and home apps have been extensively tested, with other apps such as the basket and chekout apps needing significant additional testing.
 
-![Image](docs/testing_images/blog_coverage.png)
+To run these tests:
 
-![Image](docs/testing_images/checkout_coverage.png)
+1. Clone this project from the projects [repository](https://github.com/Johnny-Morgan/pickles/) by following the steps in the [README.md](https://github.com/Johnny-Morgan/pickles/blob/master/README.md) under 'Clone the GitHub Repository' and run the project on your own IDE. 
 
-![Image](docs/testing_images/home_coverage.png)
+2. To run all the project's test, enter the following command in your terminal:
 
-![Image](docs/testing_images/products_coverage.png)
+    ```
+    python3 manage.py test
+    ```
 
-![Image](docs/testing_images/profiles_coverage.png)
+3. To run the tests for a specific app, enter the following command:
+
+    ```
+    python3 manage.py test <app name here>
+    ```
+
+4. To run the tests for a specific test file, enter the following command:
+
+    ```
+    python3 manage.py test <app name here>.<filename here>
+    ``` 
+
+    Note: do not add the extension to the filename.
+
+5. Test results will be displayed in the terminal.
+
+    ![Image](docs/testing_images/unit_test_results.png)
+
+
+#### Coverage
+
+[Coverage](https://coverage.readthedocs.io/en/coverage-5.5/) was used to measure the code coverage of this project. The coverage results for each app are shown below.
+
+- Basket app
+
+    ![Image](docs/testing_images/basket_coverage.png)
+
+- Blog app
+
+    ![Image](docs/testing_images/blog_coverage.png)
+
+- Checkout app
+
+    ![Image](docs/testing_images/checkout_coverage.png)
+
+- Home app
+
+    ![Image](docs/testing_images/home_coverage.png)
+
+- Products app
+
+    ![Image](docs/testing_images/products_coverage.png)
+
+- Profiles app
+
+    ![Image](docs/testing_images/profiles_coverage.png)
+
 
 ## Testing User Stories
 
