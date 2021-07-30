@@ -70,12 +70,12 @@ def product_info(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id).order_by('-id')
 
-    ratings = Review.objects.filter(product=product_id)
+    # Calculate average rating
     sum_ratings = 0
-    for rating in ratings:
-        sum_ratings += float(rating.rating)
-    if sum_ratings != 0:
-        avg_rating = sum_ratings / len(ratings)
+    if len(reviews) != 0:
+        for review in reviews:
+            sum_ratings += float(review.rating)
+        avg_rating = sum_ratings / len(reviews)
     else:
         avg_rating = None
 
