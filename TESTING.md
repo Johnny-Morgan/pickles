@@ -617,7 +617,7 @@ Additional manual testing was as follows:
 
     ![Image](docs/testing_images/blog_slug_bug.png)
 
-    **Fix:** To fix this a list of the existing slugs is created in the view.
+    **Fix:** To fix this, a list of the existing slugs is created in the view.
 
     ```python
     slugs = list(Post.objects.all().values_list('slug', flat=True))
@@ -637,7 +637,7 @@ Additional manual testing was as follows:
 
     ![Image](docs/testing_images/blog_slug_error_message.png)
 
-2. The above error also red if a superuser was editing a blog post and changed the title to that of an existing blog post title. The same fix was used as above but this introduced a new bug. Now when editing a post, even if the title of the post was not edited, the error message would be displayed. This occurred because the list of existing slugs in the database already contained the slug for the post that was being edited. Therefore the check to see if the list contained the slug always returned True, which in turn always displayed the error message. 
+2. The above error also occurred if a superuser was editing a blog post and changed the title to that of an existing blog post title. The same fix was used as above but this introduced a new bug. Now when editing a post, even if the title of the post was not edited, the error message would be displayed. This occurred because the list of existing slugs in the database already contained the slug for the post that was being edited. Therefore the check to see if the list contained the slug always returned True, which in turn always displayed the error message. 
 
     **Fix:** In the edit_post view, remove the slug for the post that is being edited from the list of existing slugs.
 

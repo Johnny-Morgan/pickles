@@ -298,3 +298,33 @@ Django's default [User](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/)
 ## Testing
 
 The testing data for this project can be found in a separate file called [TESTING.md](https://github.com/Johnny-Morgan/pickles/blob/master/TESTING.md).
+
+## Credits
+
+### Code
+
+- The code for this project is based on the Code Institute's [Boutique Ado](https://www.youtube.com/watch?v=za5lGVvOEtw&t=126s&ab_channel=MediaUpload) Project.
+
+- The code to change the carousel arrow colour was taken from [stackoverflow](https://stackoverflow.com/questions/46249541/change-arrow-colors-in-bootstraps-carousel).
+
+- The code for the home page contact details layout was taken from the YouTube channel [Online Tutorials](https://www.youtube.com/watch?v=gggB0Nq5vBk&ab_channel=OnlineTutorials) and edited.
+
+- The code to add a font awesome icon to an input field was taken from [stackoverflow](https://stackoverflow.com/questions/15988373/how-do-i-add-a-font-awesome-icon-to-input-field).
+
+### Media
+
+- The product and blog post images were taken from [pixababy](https://pixabay.com/).
+
+- The site favicon was created using the website [favicon.io](https://favicon.io/favicon-generator/).
+
+## Acknowledgements
+
+My mentor Gerard McBride for his support and guidance during this project.
+
+The Code Institute Slack community for their advice and tips.
+
+Gilly McCrone for providing product descriptions and blog content.
+
+Friends and family who tested the site.
+
+> [Back to Top](#table-of-contents)
