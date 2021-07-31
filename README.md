@@ -180,7 +180,23 @@
 - ### Product Admin Page
 
   The product admin page is only available to superusers. It contains a form for adding a new product to the database.
-  
+
+- ### Blog Page
+
+  The blog page contains a preview of each blog post which includes the post image, the author, the date of the post and a preview of the post content. This page uses pagination, with three blog posts per page. Clicking on the read more link redirects to the blog post page. A button is visible to superusers allowing them to add a new blog post.
+
+    ![Image](docs/readme_images/blog.png)
+
+- ### Blog Post Page
+
+  The blog post page contains the post image, tags, author, date and the content of the post. A button is provided to redirect users back to the blog page. Edit and delete buttons are provided for superusers.
+
+    ![Image](docs/readme_images/blog_post.png)
+
+  A list of comments is displayed below the blog post and a form is provided for users to add a comment. For superusers, a delete button is visible under every comment. 
+
+    ![Image](docs/readme_images/post_comments.png)
+
 - ### Other pages
 
   The django-allauth library is used to handle the user registraion and authentication on this website. The allauth templates are used to provide the registration, login and forgot password pages as well as other pages such as resetting a password. The templates have been customised to match the sites visual design.
