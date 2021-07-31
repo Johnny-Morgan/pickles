@@ -20,8 +20,6 @@ ZIP: 42424
 
 1. [**User Experience**](#user-experience)
     - [**Goals**](#goals)
-        - [**Visitor Goals**](#visitor-goals)
-        - [**Business Goals**](#business-goals)
     - [**User Stories**](#user-stories)
     - [**Wireframes**](#wireframes)
     - [**Design**](#design)
