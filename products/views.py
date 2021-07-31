@@ -59,7 +59,6 @@ def all_products(request):
         'search_word': query,
         'categories': categories,
         'sorting': sorting,
-        'on_products_page': True,
     }
 
     return render(request, 'products/products.html', context)
@@ -103,7 +102,6 @@ def product_info(request, product_id):
         'review_form': review_form,
         'page_obj': page_obj,
         'rating': avg_rating,
-        'on_product_info_page': True,
     }
 
     return render(request, 'products/product_info.html', context)
