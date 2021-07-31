@@ -330,7 +330,7 @@ To run these tests:
 
     3. Sort all of the available products based on their price, name or category.
 
-        Shoppers have the option to sort products by their price or category by clicking on the relevant links in the navbar. There is also a sort selector box where a user can sort by products by price, name and category.
+        Shoppers have the option to sort products by their price or category by clicking on the relevant links in the navbar. There is also a sort selector box where a user can sort the products by price, name and category.
 
         ![Sorting Products Gif](docs/testing_gifs/sorting_products.gif)
 
@@ -496,7 +496,7 @@ The following manual testing was undertaken on a desktop computer using Google C
 - Confirm that the quantity input updates when a new quantity is selected.
 - Click the 'ADD TO BASKET' button, confirm the basket updates with the desired quantity.
 - Click the 'BACK TO SHOP' button, confirm it redirects to the products page showing all products.
-- Click the accordion elements, confirm they open and close in the correct manner.
+- Click the accordion elements, confirm they open and close correctly.
 - Confirm that the product rating score is correct based on the existing product reviews.
 - Confirm 'No reviews yet!' is displayed for a product that has no reviews.
 - Click on the 'Leave a Review' button, confirm it displays a form to write a product review.
@@ -544,7 +544,7 @@ The following manual testing was undertaken on a desktop computer using Google C
 #### Blog Page
 
 - Confirm the 'Add Blog Post' button is only visible to logged in superusers.
-- Click the 'Add Blog Post' button to confirm the user is directed to add a blog post page which contains a form for adding a new blog post.
+- Click the 'Add Blog Post' button to confirm the user is directed to add a blog post page that contains a form for adding a new blog post.
 - Attempt to submit the form with incorrect data, confirm the relevant warning messages are displayed.
 - Attempt to add a new blog post with the title of an already existing blog post, confirm a toast message appears with an error warning and a message prompting the user to enter a different title.
 - Fill out the form with correct data, confirm the user is directed back to the blog page and the new blog post appears at the top of the list of blog posts.
@@ -684,7 +684,7 @@ Additional manual testing was as follows:
 
     This was due to the Heroku postgres database not recognising the query when the database was changed from sqlite. This was due to the implicit casting that was taking place previously was no longer occurring. 
 
-    **Fix:** An attempt was made to cast the rating field to a float, however this did not work. The query was removed and the rating was calculated by looping through each review to calculate the average rating.
+    **Fix:** An attempt was made to cast the rating field to a float, however, this did not work. The query was removed and the rating was calculated by looping through each review to calculate the average rating.
 
     ```python
     reviews = Review.objects.filter(product=product_id).order_by('-id')
@@ -717,7 +717,7 @@ Additional manual testing was as follows:
 
     An additional BooleanField called 'discontinued' could be added to the Product model which would be set to 'True' when the store is no longer selling the product. A check would then be needed in the template logic for displaying a product, to identify if the product is discontinued or not. 
 
-3. Occasionally an order is being created twice which leads to a duplicate order in the database. This bug is related to the webhook and the number of times it attempts to query the database for the existing order before it gives up and processes the webhook. The order isn’t being created quickly enough by the form due to a slow internet connection, so the webhook handler assumes something went wrong and creates the order based on the webhook from stripe. Soon after, the form finishes processing and creates the order again resulting in the duplicate order. This is known as a [race condition](https://en.wikipedia.org/wiki/Race_condition) and while difficult to debug will need investigation for future releases.
+3. Occasionally an order is being created twice which leads to a duplicate order in the database. This bug is related to the webhook and the number of times it attempts to query the database for the existing order before it gives up and processes the webhook. The order isn’t being created quickly enough by the form due to a slow internet connection, so the webhook handler assumes something went wrong and creates the order based on the webhook from Stripe. Soon after, the form finishes processing and creates the order again resulting in the duplicate order. This is known as a [race condition](https://en.wikipedia.org/wiki/Race_condition) and while difficult to debug will need investigation for future releases.
 
 > [Back to Top](#table-of-contents)
 

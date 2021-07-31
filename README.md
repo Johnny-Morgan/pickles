@@ -52,7 +52,7 @@ ZIP: 42424
   #### Business Goals
 
   - Provide an attractive and fully functional website to increase brand reputation.
-  - Provide a website with great user experience on desktop, tablet and mobile devices.
+  - Provide a website with a great user experience on desktop, tablet and mobile devices.
   - Add regular blog posts to help drive traffic to the website and increase SEO.
   - Add useful blog content to build trust with existing and potential customers.
 
@@ -61,10 +61,10 @@ ZIP: 42424
     As a **store owner**, I want to be able to:
 
     1. Add a product, so that I can add new items to my store.
-    2. Edit a product, so thas I can change the details of the product such as its price, description, image and other properties. 
+    2. Edit a product, so that I can change the details of the product such as its price, description, image and other properties. 
     3. Delete a product, so that I can remove items from my store that are no longer available.
     4. Add a blog post, so that I can add new content to my blog page to help drive traffic to my store.
-    5. Edit a blog post, so thas I can change the details of the blog such as its title, content, image and other properties. 
+    5. Edit a blog post, so that I can change the details of the blog such as its title, content, image and other properties. 
     6. Delete a blog post, so that I can remove blog posts that are outdated or irrelevant.
     7. Delete a blog post comment, so that I can remove a comment that contains offensive content.
     8. Delete a product review, so that I can remove a review that contains offensive content.
@@ -201,11 +201,11 @@ ZIP: 42424
 
     ![Image](docs/readme_images/create_account.png)
 
-  For logged-in shoppers, a checkbox is provided for them to save their the delivery details to their profile.
+  For logged-in shoppers, a checkbox is provided for them to save their delivery details to their profile.
 
     ![Image](docs/readme_images/save_info.png)
 
-  Payments are handled by Stripe including error messages and an email sent once the checkout process is completed. Currently the site uses Stripe's test functionality rather than actual live payments. 
+  Payments are handled by Stripe including error messages and an email sent once the checkout process is completed. Currently, the site uses Stripe's test functionality rather than actual live payments. 
 
     ![Image](docs/readme_images/stripe.png)
 
@@ -271,7 +271,7 @@ ZIP: 42424
 
   - The ability to sign up for a newsletter or for email updates.
 
-  - Remove the navigation and footer on the checkout page in order to prevent users from going to other pages and, thus breaking the checkout process.
+  - Remove the navigation and footer on the checkout page to prevent users from going to other pages and, thus breaking the checkout process.
 
   - Add customers name and email to their profile page.
 
@@ -466,7 +466,7 @@ Django's default [User](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/)
 
 - [django-countries](https://pypi.org/project/django-countries/) - A Django application that provides country choices for use with forms, flag icons static files, and a country field for models.
 
-- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Provides a |crispy filter and {% crispy %} tag that lets you control the rendering behavior of Django forms in a very elegant and DRY way.
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Provides a |crispy filter and {% crispy %} tag that lets you control the rendering behaviour of Django forms in a very elegant and DRY way.
 
 - [django-storages](https://pypi.org/project/django-storages/) - Provides a variety of storage backends in a single library.
 
@@ -498,7 +498,7 @@ The testing data for this project can be found in a separate file called [TESTIN
 
 ## Deployment
 
-Prior to deployment you will need the following installed on your machine:
+Prior to deployment, you will need the following installed on your machine:
 
 1. Python can be downloaded [here](https://www.python.org/downloads/)
 2. Git can be downloaded [here](https://git-scm.com/).
@@ -514,7 +514,7 @@ Create free accounts with the following:
 
 1. Clone the GitHub Repository
 
-    - Log in to GitHub and locate the projects [repository](https://github.com/Johnny-Morgan/pickles/).
+    - Log in to GitHub and locate the project's [repository](https://github.com/Johnny-Morgan/pickles/).
     - Click on the Code button which is located above the list of project files.
     - Copy the URL link located under the HTTPS tab.
     - Open a terminal in your IDE. [Visual Studio Code](https://code.visualstudio.com/) is recommended.
@@ -525,44 +525,44 @@ Create free accounts with the following:
 
 2. Create a Virtual Environment
 
-    - cd to the project directory and tpye `python -m .venv venv` to create the new virtual environment.
-    - Activate the virtual environment with the command `.venv\Scripts\activate.bat`
+    - cd to the project directory and type `python -m .venv venv` to create the new virtual environment.
+    - Activate the virtual environment with the command: `.venv\Scripts\activate.bat`
       Further documentation on creating virtual environments can be found [here](https://docs.python.org/3/library/venv.html).
 
 3. Install requirements with the following command:
 
-    `pip install -r requirements.txt`
+      `pip install -r requirements.txt`
 
 4. Set up the following environment variables:
 
-    Create an env.py in the root directory and add it to the .gitignore file. Add the following:
+      Create an env.py in the root directory and add it to the .gitignore file. Add the following:
 
-    ```python
-      import os
-      os.environ["DEVELOPMENT"] = "True"
-      os.environ["SECRET_KEY"] = "<Your Key>"
-      os.environ["STRIPE_PUBLIC_KEY"] = "<Your Key>"
-      os.environ["STRIPE_SECRET_KEY"] = "<Your Key>"
-      os.environ["STRIPE_WH_SECRET"] = "<Your Key>"
-    ```
+      ```python
+        import os
+        os.environ["DEVELOPMENT"] = "True"
+        os.environ["SECRET_KEY"] = "<Your Key>"
+        os.environ["STRIPE_PUBLIC_KEY"] = "<Your Key>"
+        os.environ["STRIPE_SECRET_KEY"] = "<Your Key>"
+        os.environ["STRIPE_WH_SECRET"] = "<Your Key>"
+      ```
 
 5. Migrate the models to create your database:
 
-    `python manage.py migrate`
+      `python manage.py migrate`
 
-    To load the data included in the repository run the following commands:
+      To load the data included in the repository run the following commands:
 
-    `python3 manage.py loaddata categories`
+      `python3 manage.py loaddata categories`
 
-    `python3 manage.py loaddata products`
+      `python3 manage.py loaddata products`
 
 6. Create a superuser account:
 
-    `python manage.py createsuperuser`
+      `python manage.py createsuperuser`
 
 7. You can now run the project locally with the following command:
 
-    `python manage.py runserver`
+      `python manage.py runserver`
 
 
 ### Heroku Deployment
@@ -634,7 +634,7 @@ Create free accounts with the following:
 
 - Step 3
 
-  - Create a Procfile and add the folowing code:
+  - Create a Procfile and add the following code:
 
       ```
           web: gunicorn <app name>.wsgi:application
@@ -656,7 +656,7 @@ Create free accounts with the following:
 
   - Push changes to Github.
 
-  - Deploy to Heroku with the folowing commands:
+  - Deploy to Heroku with the following commands:
 
       `heroku git:remote -a <heroku app name>`
   
