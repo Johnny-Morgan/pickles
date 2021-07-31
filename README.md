@@ -85,6 +85,132 @@
     [Inter](https://fonts.google.com/specimen/Inter) was chosen as the main font for this website with sans-serif as the fallback font.
 
 
+## Features
+
+### Existing Features
+
+- ### Sitewide features
+
+  - Responsive Bootstrap Navigation bar
+
+    The navigation contains links to view all of the products as well as links to product categories. The account link contains a dropdown menu which changes depending on the user. A non logged in user will be given the option to register or login. A logged in shopper will see a link to a profile page and a logout link. A logged in superuser will see a link to a product admin page. 
+    
+    On mobile and tablet devices, the product links are contained in a hamburger drop-down menu and the search bar is contained in a dropdown. Entering a search term will redirect the user to the products page with a list of products that match the search term. 
+
+    A shopping basket is provided that shows the total value of the current basket contents. Clicking the basket icon redirects the user to the shopping basket page.
+
+    ![Navigation Gif](docs/readme_gifs/navigation.gif)
+
+  - A footer with social media links.
+
+    ![Image](docs/readme_images/footer.png)
+
+  - Toast messages are featured accross the site and are displayed when a user performs certain actions such as adding a product to their shopping basket or commenting on a blog post. Messages appear for superuser when they perform CRUD operations such as adding or editing products.
+
+    ![Toast Gif](docs/readme_gifs/toast.gif)
+    
+  - Custom Error 404 page for if a user tries to open a page that does not exist as well as custom 403 error and custom 500 error pages. 
+
+    ![Image](docs/readme_images/error_404.png)
+
+- ### Home Page
+
+  The home page features the latest offers which are products that are on sale. On desktop and tablet devices, the products are displayed in a carousel. On mobile devices the carousel is not displayed and the products are stacked on top of each other. Clicking on the image of a product or the information button will redirect the user to that product's information page. Clicking on the basket button will add that product to the user's shopping basket.
+
+    ![Carousel Gif](docs/readme_gifs/carousel.gif)
+
+  There is an about section below the latest offers, with information about the company and contact details.
+
+    ![Image](docs/readme_images/about.png)
+
+- ### Products Page
+
+  The products page features all the products available on the site. The products can be sorted by their name, price and category. Clicking on the image of a product or the information button will redirect the user to that product's information page. Clicking on the 'ADD TO BASKET' button will add one item of that product to the user's shopping basket.
+
+- ### Product Information Page
+
+  Each product has its own information page that show all the item's information such as its name, price, category and description. If the product has been reviewed, a star rating will be visible with a value that is the average of the ratings the product has received. Shoppers can choose a quantity and add the product to their basket. An accordion displays information on delivery cost and returns. Edit and delete buttons are visible for superusers.
+
+    ![Image](docs/readme_images/product_info.png)
+
+  Below the product information there is a review section that displays the reviewers name, the date of the review, the star rating and the review text. A button to leave a review is provided that when clicked, opens up a form for a user to leave a review. A delete button is visible to superusers under every review.
+
+    ![Image](docs/readme_images/reviews.png)
+
+- ### Basket Page
+
+  The basket page displays all the products currently in the shopping basket. Shoppers can update the quantities or delete items from their basket. A summary shows the the current basket total, the current delivery cost and the grand total. If applicable, a message is displayed that tells the shopper how much they need to spend to get free delivery. Abutton that redirects to the products page and a button that redirects to the checkout page are provided.
+
+    ![Image](docs/readme_images/basket.png)
+
+    If there are no products in the basket a message saying 'Your shopping basket is empty.' is displayed and a button that redirects to the products page.
+
+    ![Image](docs/readme_images/empty_basket.png)
+
+- ### Checkout Page
+
+  The checkout page features an order form that shoppers must fill out to complete the checkout process. Two links are visible below the delivery details encouraging guest shoppers to create an account or login to save their details.
+
+    ![Image](docs/readme_images/create_account.png)
+
+  For logged in shoppers, a checkbox is provided for them to save their the delivery details to their profile.
+
+    ![Image](docs/readme_images/save_info.png)
+
+  Payments are handled by stripe including error messages and an email sent once the checkout process is completed.
+
+    ![Image](docs/readme_images/stripe.png)
+
+  A summary of the shopping basket is shown to the right of the order form on desktop, and above the form on tablet and mobile devices. 
+
+    ![Image](docs/readme_images/order_summary.png)
+
+- ### Checkout Success Page
+
+  The checkout success page provides a summary of the order including the order number, order date, the products ordered as well as the delivery information and the billing information. A button is provided to direct users back to the products page.
+    
+    ![Image](docs/readme_images/order_confirmation.png)
+
+- ### Profile Page
+
+  The profile page contains a form prepopulated with the user's default delivery details. Users can use this form to update their information. An order history is also provided which lists all of the user's orders. Clicking on the order number directs the user to order history page showing the order details.
+
+    ![Image](docs/readme_images/profile.png)
+
+- ### Product Admin Page
+
+  The product admin page is only available to superusers. It contains a form for adding a new product to the database.
+  
+- ### Other pages
+
+  The django-allauth library is used to handle the user registraion and authentication on this website. The allauth templates are used to provide the registration, login and forgot password pages as well as other pages such as resetting a password. The templates have been customised to match the sites visual design.
+
+    ![Image](docs/readme_images/registration.png)
+
+### Future Features
+
+  - Products can be sorted by rating.
+
+  - Users can edit or delete their product reviews.
+
+  - Users can edit or delete their blog post comments.
+
+  - A blog search bar.
+
+  - A feature to sort blog posts based on their tags.
+
+  - Allow customers to pay with PayPal.
+
+  - Allow customers to add a coupon or discount code at checkout.
+
+  - A contact form to contact the business.
+
+  - The ability to sign up to a newsletter or email updates.
+
+  - Remove the navigation and footer on the checkout page in order to prevent users from going to other pages and, thus breaking the checkout process.
+
+  - Add customers name and email to their profile page.
+
 ## Information Architecture
 
 SQLite was used in the development of this project as it is the default database used with Django. On deployment with Heroku, a Postgres database is used.
