@@ -6,7 +6,54 @@
 
 <h3><a href="https://pickles-eshop.herokuapp.com/" target="_blank">Click here</a> to view the site on Heroku.</h3>
 
+Credit card transaction details:
+
+Card No: 4242 4242 4242 4242
+
+Expiry: 04 / 24
+
+CVC: 424
+
+ZIP: 42424
+
+## Table of Contents
+
+1. [**Introduction**](#introduction)
+2. [**User Experience**](#user-experience)
+    - [**Goals**](#goals)
+        - [**Visitor Goals**](#visitor-goals)
+        - [**Business Goals**](#business-goals)
+    - [**User Stories**](#user-stories)
+    - [**Wireframes**](#wireframes)
+    - [**Design**](#design)
+3. [**Features**](#features)
+    - [**Existing Features**](#existing-features)
+    - [**Future Features**](#future-features)
+5. [**Information Architecture**](#information-architecture)  
+6. [**Technologies Used**](#technologies-used)  
+7. [**Testing**](#testing)
+8. [**Deployment**](#deployment)
+9. [**Credits**](#credits)
+10. [**Acknowledgements**](#acknowledgements)
+
 ## User Experience
+
+- ### Goals
+
+  #### Visitor Goals
+
+  - Be able to find the products I need in a fast and efficient manner.
+  - Be able to make a safe and secure purchase.
+  - Reduce my carbon footprint by growing my own produce.
+  - Improve my health by increasing my fruit and veg intake.
+  - Buy from a trustworthy online shop.
+
+  #### Business Goals
+
+  - Provide an attractive and fully functional website to increase brand reputation.
+  - Provide a website with great user experience on desktop, tablet and mobile devices.
+  - Add regular blog posts to help drive traffic to the website and increase SEO.
+  - Add useful blog content to build trust with existing and potential customers.
 
 - ### User Stories
 
@@ -157,7 +204,7 @@
 
     ![Image](docs/readme_images/save_info.png)
 
-  Payments are handled by stripe including error messages and an email sent once the checkout process is completed.
+  Payments are handled by Stripe including error messages and an email sent once the checkout process is completed. Currently the site uses Stripe's test functionality rather than actual live payments. 
 
     ![Image](docs/readme_images/stripe.png)
 
