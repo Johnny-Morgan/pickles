@@ -18,23 +18,22 @@ ZIP: 42424
 
 ## Table of Contents
 
-1. [**Introduction**](#introduction)
-2. [**User Experience**](#user-experience)
+1. [**User Experience**](#user-experience)
     - [**Goals**](#goals)
         - [**Visitor Goals**](#visitor-goals)
         - [**Business Goals**](#business-goals)
     - [**User Stories**](#user-stories)
     - [**Wireframes**](#wireframes)
     - [**Design**](#design)
-3. [**Features**](#features)
+2. [**Features**](#features)
     - [**Existing Features**](#existing-features)
     - [**Future Features**](#future-features)
-5. [**Information Architecture**](#information-architecture)  
-6. [**Technologies Used**](#technologies-used)  
-7. [**Testing**](#testing)
-8. [**Deployment**](#deployment)
-9. [**Credits**](#credits)
-10. [**Acknowledgements**](#acknowledgements)
+3. [**Information Architecture**](#information-architecture)  
+4. [**Technologies Used**](#technologies-used)  
+5. [**Testing**](#testing)
+6. [**Deployment**](#deployment)
+7. [**Credits**](#credits)
+8. [**Acknowledgements**](#acknowledgements)
 
 ## User Experience
 
@@ -413,7 +412,6 @@ Django's default [User](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/)
 
 - [JavaScript](https://www.javascript.com/)
 
-
 ### Frameworks, Libraries & Programs Used
 
 - [Django](https://www.djangoproject.com/) - Django is a Python-based free and open-source web framework.
@@ -495,6 +493,72 @@ Django's default [User](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/)
 ## Testing
 
 The testing data for this project can be found in a separate file called [TESTING.md](https://github.com/Johnny-Morgan/pickles/blob/master/TESTING.md).
+
+## Deployment
+
+Prior to deployment you will need the following installed on your machine:
+
+1. Python can be downloaded [here](https://www.python.org/downloads/)
+2. Git can be downloaded [here](https://git-scm.com/).
+3. Pip installation details can be found [here](https://pip.pypa.io/en/stable/installation/).
+
+Create free accounts with the following:
+1. [Heroku](https://signup.heroku.com/login)
+2. Set up an s3 bucket with [AWS](https://portal.aws.amazon.com/billing/signup#/start)
+3. [Stripe](https://dashboard.stripe.com/register)
+
+### Local Deployment
+
+1. Clone the GitHub Repository
+
+  - Log in to GitHub and locate the projects [repository](https://github.com/Johnny-Morgan/pickles/).
+  - Click on the Code button which is located above the list of project files.
+  - Copy the URL link located under the HTTPS tab.
+  - Open a terminal in your IDE. [Visual Studio Code](https://code.visualstudio.com/) is recommended.
+  - Change the current working directory to the location where you want the cloned directory.
+  - Type `git clone`, and paste the URL you copied in Step 3. 
+  - Press Enter to create your local clone.
+  - Further information can be found [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
+2. Create a Virtual Environment
+
+  - cd to the project directory and tpye `python -m .venv venv` to create the new virtual environment.
+  - Activate the virtual environment with the command `.venv\Scripts\activate.bat`
+    Further documentation on creating virtual environments can be found [here](https://docs.python.org/3/library/venv.html).
+
+3. Install requirements with the following command:
+
+    `pip install -r requirements.txt`
+
+4. Set up the following environment variables:
+
+    Create an env.py in the root directory and add it to the .gitignore file. Add the following:
+
+    ```python
+      import os
+      os.environ["DEVELOPMENT"] = "True"
+      os.environ["SECRET_KEY"] = "<Your Key>"
+      os.environ["STRIPE_PUBLIC_KEY"] = "<Your Key>"
+      os.environ["STRIPE_SECRET_KEY"] = "<Your Key>"
+      os.environ["STRIPE_WH_SECRET"] = "<Your Key>"
+    ```
+
+5. Migrate the models to create your database:
+
+    `python manage.py migrate`
+
+    To load the data included in the repository run the following commands:
+
+    `python3 manage.py loaddata categories`
+    `python3 manage.py loaddata products`
+
+6. Create a superuser account:
+
+    `python manage.py createsuperuser`
+
+7. Run the program locally with the following command:
+
+    `python manage.py runserver`
 
 ## Credits
 
