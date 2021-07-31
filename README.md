@@ -32,6 +32,8 @@ ZIP: 42424
 4. [**Technologies Used**](#technologies-used)  
 5. [**Testing**](#testing)
 6. [**Deployment**](#deployment)
+    - [**Local Deployment**](#local-deployment)
+    - [**Heroku Deployment**](#heroku-deployment)
 7. [**Credits**](#credits)
 8. [**Acknowledgements**](#acknowledgements)
 
@@ -504,27 +506,28 @@ Prior to deployment you will need the following installed on your machine:
 
 Create free accounts with the following:
 1. [Heroku](https://signup.heroku.com/login)
-2. Set up an s3 bucket with [AWS](https://portal.aws.amazon.com/billing/signup#/start)
+2. Set up an S3 bucket with [AWS](https://portal.aws.amazon.com/billing/signup#/start)
 3. [Stripe](https://dashboard.stripe.com/register)
+4. [Gmail](https://www.google.com/landing/2step/) with 2 step verification.
 
 ### Local Deployment
 
 1. Clone the GitHub Repository
 
-  - Log in to GitHub and locate the projects [repository](https://github.com/Johnny-Morgan/pickles/).
-  - Click on the Code button which is located above the list of project files.
-  - Copy the URL link located under the HTTPS tab.
-  - Open a terminal in your IDE. [Visual Studio Code](https://code.visualstudio.com/) is recommended.
-  - Change the current working directory to the location where you want the cloned directory.
-  - Type `git clone`, and paste the URL you copied in Step 3. 
-  - Press Enter to create your local clone.
-  - Further information can be found [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+    - Log in to GitHub and locate the projects [repository](https://github.com/Johnny-Morgan/pickles/).
+    - Click on the Code button which is located above the list of project files.
+    - Copy the URL link located under the HTTPS tab.
+    - Open a terminal in your IDE. [Visual Studio Code](https://code.visualstudio.com/) is recommended.
+    - Change the current working directory to the location where you want the cloned directory.
+    - Type `git clone`, and paste the URL you copied in Step 3. 
+    - Press Enter to create your local clone.
+    - Further information can be found [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
 2. Create a Virtual Environment
 
-  - cd to the project directory and tpye `python -m .venv venv` to create the new virtual environment.
-  - Activate the virtual environment with the command `.venv\Scripts\activate.bat`
-    Further documentation on creating virtual environments can be found [here](https://docs.python.org/3/library/venv.html).
+    - cd to the project directory and tpye `python -m .venv venv` to create the new virtual environment.
+    - Activate the virtual environment with the command `.venv\Scripts\activate.bat`
+      Further documentation on creating virtual environments can be found [here](https://docs.python.org/3/library/venv.html).
 
 3. Install requirements with the following command:
 
@@ -550,15 +553,118 @@ Create free accounts with the following:
     To load the data included in the repository run the following commands:
 
     `python3 manage.py loaddata categories`
+
     `python3 manage.py loaddata products`
 
 6. Create a superuser account:
 
     `python manage.py createsuperuser`
 
-7. Run the program locally with the following command:
+7. You can now run the project locally with the following command:
 
     `python manage.py runserver`
+
+
+### Heroku Deployment
+
+- Step 1
+
+  - Login to Heroku and click on the 'New' button and click 'Create new app'.
+  - Give your app a name, choose your region and click 'Create app'.
+  - In the 'Add-ons' search bar search for postgres and choose 'Heroku Postgres'.
+  - Choose the free plan and submit the form.
+  - In the deployment tab, choose GitHub as the deployment method, search for the cloned repo and connect to it.
+  - Choose the master branch to deploy and click 'Enable Automatic Deploys'.
+  - In the settings tab, click on the 'Reveal Config Vars' button and add the following:
+
+      | **Key**   | **Value**   |
+      | --------- | ----------- |
+      | AWS_ACCESS_KEY_ID | < your AWS access key ID > |
+      | AWS_SECRET_ACCESS_KEY | < your AWS secret access key > |
+      | DATABASE_URL | < your postgres database URL > |
+      | EMAIL_HOST_PASS | < 16-character password from Gmail > |
+      | EMAIL_HOST_USER | < your Gmail > |
+      | SECRET_KEY | < your secret key > |
+      | STRIPE_PUBLIC_KEY | < your stripe public key > |
+      | STRIPE_SECRET_KEY | < your stripe secret key > |
+      | STRIPE_WH_SECRET | < your stripe webhook key > |
+      | USE_AWS | True |
+
+- Step 2
+
+  - In settings.py add `import dj_database_url`
+
+  - Comment out the default DATABASES configuration and add the following:
+
+      ```python
+        DATABASES = {
+            'default': dj_database_url.parse('DATABASE_URL')
+        }
+      ```
+
+  - Set up the database with the command:
+
+      `python manage.py migrate`
+
+  - To load the data included in the repository run the following commands:
+
+      `python3 manage.py loaddata categories`
+
+      `python3 manage.py loaddata products`
+
+  - Create a superuser account:
+
+      `python manage.py createsuperuser`
+
+  - Replace the DATABASES configuration with the following:
+
+    ```python
+        if "DATABASE_URL" in os.environ:
+            DATABASES = {
+                "default": dj_database_url.parse(os.environ.get('DATABASE_URL'))
+            }
+        else:
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.sqlite3',
+                    'NAME': BASE_DIR / 'db.sqlite3',
+                }
+            }
+    ```
+
+- Step 3
+
+  - Create a Procfile and add the folowing code:
+
+      ```
+          web: gunicorn <app name>.wsgi:application
+      ```
+
+  - Log into Heroku using the terminal.
+        
+      `heroku login -i`
+
+  - Temporarily disable the static files until they have been set up on Amazon Aws.
+
+      `heroku config:set DISABLE_COLLECTSTATIC=1 --app <app name>`
+
+  - In settings.py add the following:
+
+      ``` python
+          ALLOWED_HOSTS = ["<heroku app name>.herokuapp.com", "localhost"]
+      ```
+
+  - Push changes to Github.
+
+  - Deploy to Heroku with the folowing commands:
+
+      `heroku git:remote -a <heroku app name>`
+  
+      `git push heroku master`
+
+  - You're app is now deployed to Heroku.
+
+  - Use the S3 bucket you set up earlier to store the project's static files and images. For more info click [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html).
 
 ## Credits
 
