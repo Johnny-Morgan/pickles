@@ -252,10 +252,6 @@ body {
     text-decoration: none;
 }
 
-input[type="submit"].add-to-basket {
-    font-family: 'FontAwesome';
-}
-
 /* CAROUSEL */
 .carousel-control-prev,
 .carousel-control-next {
