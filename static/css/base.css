@@ -252,7 +252,7 @@ body {
     text-decoration: none;
 }
 
-#add-to-basket input[type="submit"] {
+.add-to-basket input[type="submit"] {
     font-family: 'FontAwesome';
 }
 
